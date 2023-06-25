@@ -95,7 +95,13 @@ Note: standard shipping was US$30 - that and import duties mean it buying locall
 
 Import fees were: Fr. 27. And shipping took from May 20th to June 6th.
 
+It came in a carboard box just large enough to contain the box with the Boxer radio with no bubble wrap or other packing material.
+
 When the package arrived, it was clearly missing the labeling that's required to indicate that it contains li-ion batteries. Certain postal service will destroy packages that are found to contain li-ion batteries without being labeled correctly. I looked at the Radiomaster website and, on their [shipping page](https://www.radiomasterrc.com/pages/shipping-delivery), it says you must choose expedited shipping (which costs as additional US$15) for all orders that include li-ion batteries. However, they don't enforce this on checkout and when I selected normal shipping, they just carefully opened the shrink wrapped box containing the Boxer radio and hid the batteries inside.
+
+**Note:** while it comes with case and gimball protectors, it doesn't come with a neck strap so if doing again, I'd buy:
+
+<https://www.radiomasterrc.com/products/radiomaster-deluxe-neck-strap-adjustable-for-transmitter>
 
 ---
 
@@ -129,6 +135,14 @@ TODO: see what revisions you get of FC and ESC - the pictures show v2.1 for the 
 
 Standard shipping total cost was: US$10.
 
+The shipping for all of this order (except the ESC and FC) took from May 27th to June 16th.
+
+Like a few of the other deliveries, it came it a simple thin plastic postage bag with no bubble wrap or other protective packaging. And they'd simple cellotaped the boxes containing the telelmetry radio, charger etc. together to stop things shifting around in the bag. The box containing the HSKRC XL5 frame had taken a bit of a bash but the contents seem OK.
+
+The FC and ESC (despite being order two days later) arrived on the same day as the rest of the items, i.e. shipping took from May 29th to June 16th. While still being sent in a plastic postage bag, this items were wrapped in protective padding material (as well as the individual FC and ESC boxes themselves being well padded).
+
+Note: I received many carbon fiber pieces, the pieces of HSKRC XL5 frame were the only such items that had not been cleaned (after the process of cutting them from a carbon fiber sheet) - this meant there was lots of carbon fiber dust. You should wash such items with soapy water and avoid inhaling the dust as it's harmful to your lungs.
+
 Holybro main site:
 
 US$2.60 battery strap - 20*200mm - 2 pieces.
@@ -138,6 +152,12 @@ US$21 QAV250 kit
 Standard shipping total cost was: US$8.
 
 Note: I chose not to buy the US$25 more expensive M9N GPS module - but it's worth considering.
+
+Shipping took from May 29th to June 13th. This was one of the few items that shipped from China that was packed to the standard you'd expect elsewhere, i.e. a proper cardboard box and enough bubble wrap etc.
+
+**Update:** the QAV250 kit came with a pair of 20*200mm straps so, buying an additional pair was pointless.
+
+The straps I bought were these ones: <https://holybro.com/products/strap20-200mm-battery-strap2pcs?_pos=1&_psq=strap&_ss=e&_v=1.0> - these ones and the ones in the kit have metal buckles unlike the plastic ones shown in the photo.
 
 ---
 
@@ -162,6 +182,8 @@ I wanted to try the 80mm and 150mm lengths and this was the only AliExpress stor
 
 FrSky's AliExpress store only had the 80mm variant. And HorusRC would only sell antennas in packs of 10, so buying 10 of two different lengths (plus standard shipping of US$7 came to ~US$40 versus US$14 when buying two of each length from the EasyScope RC Store.
 
+Shipping took from May 29th to June 17th and came in a padded bag.
+
 ---
 
 Emax official AliExpress store:
@@ -171,7 +193,9 @@ US$62 - 4 x Emax ECO II 2207 2400KV (make sure to select the correct KV value).
 
 Standard shipping was $US4.
 
-Shipping took from May 29th to June 8th (came in small plastic wrapper with no bubblewrap - the boxes containing the motors include a little protective padding around the motors).
+For the motors, shipping took from May 29th to June 8th (came in small plastic wrapper with no bubblewrap - the boxes containing the motors include a little protective padding around the motors).
+
+For the clamp, shipping took from May 29th to June 17th. In an example of how random packing is from Chinese suppliers, both the motors and the clamp came from Emax but the motors came with essentially no addiational packaging while the clamp (that is clearly far more robust than the motors) came in a sturdy cardboard box containing a truly ridiculous amount protective padding material.
 
 ---
 
@@ -181,6 +205,10 @@ US$4 HGLRC buzzer and WS2812 LED board.
 US$5 Gemfan WL-06 8MM ratchet socket wrench.
 
 Standard shipping was US$6
+
+Shipping took from May 29th to June 16th - it came in a padded envelope and the items themselves were wrapped in additional bubble wrap.
+
+PS if you're wondering what the rotatable red bit at the end of the handle is - you can also buy it with a screw head attachments that can be scewed in here.
 
 ---
 
@@ -196,4 +224,119 @@ I was interested to compare the feel of the 16AWG pigtail with the more usual 12
 
 If I could have, I would have gotten these parts via GetFPV but they were unavailable or out of stock.
 
+Shipping took from May 29th to June 19th and it came in a padded envelope.
+
 ---
+
+Digitec.ch
+
+Fr. 104 - ToolkitRC P200 mini-desktop power suppy
+Fr. 10.80 - 3 x XT60+ connector pair
+
+I bought the P200 from a local supplier because ToolkitRC has such a poor QA reputation that I wanted to be able to return it easily if necessary.
+
+You can upgade the firmware as described here: <https://oscarliang.com/toolkitrc-p200/>
+
+The delivered P200 came with the latest firmware (as the last update - 1.05 - came out in July 2021, that's hardly surprising).
+
+The XT60+ connectors actually appear to be genuine Amass XT60H connectors (that are packed and sold by Muldental). This is surprising - even the XT60 on the pigtail I got from TBS is unbranded.
+
+---
+
+Caddx FPV
+
+US$150 - Walksnail Avatar HD Kit V2 (with Gyroflow + 32GB)
+
+I don't imagine, I'll use Gyroflow but at $10 extra it seemed a minimal extra cost compared to everything else.
+
+Standard shipping was US$10.
+
+NOTE: I'd like to know what the current draw is at 9V given that my FC is the 2.1 version that supports max 1.5A (vs the 3A of the 2.2 version).
+
+---
+
+GetFPV
+
+Purchasing from GetFPV makes most sense if you try and buy all items from them - I did the opposite and paid a huge US$80 for shipping for essentially a pair of goggles and a frame that I could have got locally for a far lower shipping cost and no import duty.
+
+US$0.70 - Neoprene Landing Pads (4 Pack)
+US$14.30 - VIFLY ShortSaver 2
+US$2.20 - Diatone Mamba Interference Isolation Board V2
+US$2.20 - Diatone Mamba Practice Soldering Board V2
+US$3 - iFlight BLITZ Practice Soldering Board
+US$3 - HQProp 5.1X2.5X3 3-Blade Propeller (Set of 4) (I bought 2 packs, i.e. 8 props altogether, for a total of $6)
+US$5 - Ummagrip Universal Sticky Battery Pad (3mm thick)
+US$5 - Ummagrip Lite Universal Sticky Battery pad (1.5mm thick)
+US$8 - Lumenier Indestructible Kevlar Lipo Strap - 20x250mm (3pcs)
+US$4.40 - Holybro Pixhawk Foam Pads (20pcs)
+US$13 - EV-Peak CellMeter-7 Battery Capacity Checker
+US$75 - Lumenier QAV-R 2 Deadcat Freestyle Quadcopter Frame - 6" variant
+US$280 - Fat Shark Recon HD FPV Goggles
+US$17.60 - Ethix Quad-Builder Cable Set
+US$2 - Panasonic 35V 1000uF LOW ESR Capacitor (I bought four for a total of $8)
+
+Shipping was US$80 (and that was the cheapest option available).
+
+The package was about 250x210x170mm and less than 1.7kg - so, US$80 feels like a lot for such a small parcel.
+
+But it arrived in 5 days and was well packed (cardboard box and suitable packing material).
+
+Note: the Lumenier QAV-R 2 turned out to include Neoprene Landing Pads so buying them separately was rather redundant.
+
+Note: it was very non-obvious (to me) how to open the Ethix cable set box without tearing apart - of course, it's easy once you know how - see the 2m 55s mark in Mr. Steele's [video](https://www.youtube.com/watch?v=rAjfHulJmss&t=175s) on the product. See note in README for what AWG to use for what job.
+
+---
+
+I put the GetFPV order together after the FeiYing one, if doing again, I'd buy the battery checker from FeiYing for 1/4 the price.
+
+See note about CellMeter-7 and 8 in README.
+
+---
+
+Wings RC store
+
+US$12.40 - 12 pairs Gemfan 51466 V2 props
+US$13.30 - 12 pairs DALPROP CYCLONE T5045C PRO props
+
+Shipping was free.
+
+Shipping took from June 9th to June 21st and came in a large padded envelope - this was the fastest shipping time for anything I got from China.
+
+---
+
+Conrad
+
+I bought 3 different thicknesses of cable tie:
+
+Fr. 1.20 - 1577930 NYLON CABLE TIES 2.0 X 120 MM SW 100STK
+Fr. 1.20 - 1577934 NYLON CABLE TIES 2.2 X 150 MM SW 100STK
+Fr. 1.85 - 1577948 NYLON CABLE TIES 2.5 X 200 MM SW 100STK
+
+Shipping took a few days. Shipping was Fr. 9 and there was a Fr. 5 small-order surcharge.
+
+---
+
+Mitoot AliExpress store:
+
+US$8.20 - Radiomaster radio transmitter neck strap
+US$2.30 - 5V WS2812B LED tail light integrated with buzzer
+
+Shipping was US$1.50
+
+Seconds order:
+
+US$20.50 - AOKoda 150W discharger/balancer
+
+Shipping was $0.90.
+
+---
+
+US$28 - 2 x VIFLY StoreSafe - LiPo Battery Discharger (2 packs each containing 2 dischargers, i.e. 4 in total)
+
+Shipping was free.
+
+Note: if I'd bought the VIFLY smoke stopper here rather than at GetFPV, it would have been US$1.30 cheaper.
+
+---
+
+

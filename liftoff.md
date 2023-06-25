@@ -76,6 +76,18 @@ These values are at the complete beginner end of the range and are based on watc
 
 Adjusting rates to your liking seems fairly uncontroversial but setting expo on the throttle seems to be frowned upon so, maybe adjust it back down to 0 as you improve.
 
+Note: you can turn the artificial horizon on and off in-game with F1. There a couple of other function keys - F9 to toggle bars showing pitch, roll and yaw and F12 to take a screenshot (this seems to be a hidden feature, I just found it by trying all the function keys).
+
+### Artificial horizon
+
+If the side bars aren't at 90&deg; to the top bar then you're still doing a manouver - so, after applying roll and/or yaw, always be aiming to get back to having the bars at right angles.
+
+And when you're turning try to keep the horizontal bar steady relative to the real horizon - if it's changing it's swinging up and down relative to the horizon then you're not just turning and things will probably quickly get out of control.
+
+---
+
+To quickly choose the same track and drone, that you used last time, _Quick Play_ / _Last Session_ in the main menu.
+
 Camera angles
 -------------
 

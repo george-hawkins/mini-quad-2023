@@ -29,6 +29,15 @@ He does shield his gyro etc. from electrical noise - see 4m 10s mark.
 Isolation board: <https://www.getfpv.com/diatone-mamba-interference-isolation-board-v2-2-pcs.html>  
 Important: the board itself has to be grounded, i.e. attach it to a ground pin on the ESC.
 
+Also interesting Mu-metal:
+
+* Painless360 - RC Quick Tips: What is MuMetal? - <https://www.youtube.com/watch?v=bOf6zfDSO6E>
+* Wikipedia - <https://en.wikipedia.org/wiki/Mu-metal>
+
+However, this discussion seems to suggest Mu-metal itself can cause issues - <https://diydrones.com/profiles/blogs/mumetal-testing> but author says 20mm separation is enough to avoid the issue of the Mu-metals own magnetic field (actually, it's unclear what he's saying - maybe a few mm is enough).
+
+Painless360 says to buy it on eBay, avoid the foil and buy sheets that are at least 0.5mm thick.
+
 ---
 
 At the 7m 13s mark, Drone Mesh says newer FCs have dropped back to the MPU6000 because it doesn't make sense to use the higher sensitivity ICM gyros as Betaflight has capped the update frequency at 8kHz: <https://youtu.be/OlsFnWkb_0M?t=433>
@@ -50,7 +59,7 @@ Fat shark Recon HD: <https://www.getfpv.com/fat-shark-recon-hd-fpv-goggles.html>
 Unfortunately they've no option for diopter insets but Joshua Bardwell points out you may be in luck if you're short sighted - try removing the lens they have to make the screens feel closer.
 He also runs them at 700mW - he says many goggles start performing poorly if you set them to their max - 1W in this case.
 
-Painless360 has a setup video for googles and recevier (including wiring to FC). Basic points:
+Painless360 has a setup video for googles and recevier (including wiring to FC) <https://www.youtube.com/watch?v=ATLZLxGSSJg> - basic points:
 
 * Update firmware on both.
 * Binding can take between 1 and 5 minutes.
@@ -66,6 +75,11 @@ So, maybe only relevant for planes and setups with an FC. If you really want a s
 
 * TinyLED RealPit HD: <https://tinysleds.com/products/realpit-hd-vtx-power-switch>
 * Xilo Pit Pal: <https://www.getfpv.com/xilo-pit-pal-vtx-power-switch.html> (note: unlike the RealPit HD, this may not be suitable for HD systems pulling more than 1A).
+
+Note: the Kakute H7 V2 feature a pit switch pin - see:
+
+* <https://holybro.com/collections/autopilot-flight-controllers/products/kakute-h7-v2>
+* <https://docs.holybro.com/fpv-flight-controller/kakute-h7-v2/pinout>
 
 Oscar's Avatar setup page: <https://oscarliang.com/setup-avatar-fpv-system/>
 He repeats Painless360's 700mA suggestion.
@@ -86,6 +100,10 @@ So, maybe cheap rimless glass with light wire or plastic arms might be an option
 Something like these tactical glasses: <https://swisseye-tactical.com/en/products/all-products/tactical-glasses/lancer/>
 
 Note: the Recon's don't have HDMI in so, unfortunately, can't be used with a simulator. It seems fairly random which goggles have HDMI input and which don't e.g. many analog ones have it (e.g. Skyzone Cobra X) while expensive digital ones may or may not (e.g. Walksnail Avatar Digital HD don't while _some_ members of the Fatshark Dominator range do).
+
+---
+
+Best analog goggles: <https://www.getfpv.com/fpv/video-goggles/skyzone-cobra-x-v2-5-8ghz-fpv-goggles-w-steadyview-receiver.html>
 
 ---
 
@@ -160,6 +178,8 @@ But which variant - does one have a buzzer, look at corresponding Pixhawk port, 
 
 Or the M9N: <https://holybro.com/collections/gps/products/m9n-gps>
 
+M9N from Banggood: <https://www.banggood.com/Holybro-M9N-GPS-Module-for-Pixhawk-or-Pix32-or-F3-F4-F7-Flight-Controller-w-or-GHR1_25mm-10Pin-or-6Pin-or-Molex1_25mm-Plug-for-RC-Drone-Multirotor-Multicopter-p-1910090.html>
+
 The m9 increases the number of GNSS constellations that can be tracked at any given time from three to four.
 
 For what this means in practice, see here: <https://www.u-blox.com/en/blogs/tech/gps-accuracy-four-gnss-constellations>
@@ -195,6 +215,13 @@ Find if there's a neopixel and compass on the the GPS I2C bus by scanning the bu
 XT60 pigtail: <https://www.getfpv.com/xt60-lipo-pigtail-12awg-5pcs.html>
 
 See parts used in the PX4 reference build: <https://docs.px4.io/main/en/frames_multicopter/holybro_qav250_pixhawk4_mini.html>
+
+Amass are the patent holders for the XT60, the XT60H is the nice new variant with a protective cap over the solder joints.
+
+TME and Premium-Modellbau seem to have the genuine article:
+
+* <https://www.tme.eu/ch/details/xt60h-f/dc-steckverbinder/amass/>
+* <https://www.premium-modellbau.de/xt60h-buchse-mit-schutzkappe>
 
 ---
 
@@ -245,6 +272,8 @@ E.g. 1700KV for 6S vs 2400KV for 4S.
 Holybro QAV250 frame kit: <https://holybro.com/products/qav250-kit?variant=41576363786429>
 Kakute H7 V2: <https://holybro.com/collections/fpv-electronics/products/kakute-h7-v2>
 Tekko32 F4 4in1 50A ESC: <https://holybro.com/collections/autopilot-peripherals/products/tekko32-f4-4in1-50a-esc>
+
+From Premium Modellbau: <https://www.premium-modellbau.de/holybro-qav250-fpv-quadcopter-rahmen>
 
 Stacks: <https://holybro.com/collections/fpv-stack/products/kakute-h7-v2-stacks>
 
@@ -330,6 +359,24 @@ Team BlackSheep LOUNGE: <https://www.facebook.com/groups/BlackSheepLOUNGE/media>
 TODO: screen captures is in ~/git directory on Linux box.
 
 TLDR; mount directly to the ESC pads if possible.
+
+---
+
+OL's capacitors page says a 35V 1000uF capacitor will cover 4S 5"/6"/7" builds.
+
+This is almost certainly the Panasonic cap sold by GetFPV - it's also FC series and 25x12.5mm:
+
+* FC-A 35V 1000uF - EEUFC1V102 - <https://www.reichelt.com/ch/de/elko-radial-1000-f-35-v-105-c-low-esr-12-5-x-25-mm-rm-5-rad-fc-1-000-35-p84697.html>
+
+You can get an even lower impedence version with the same form factor (but 1/3 more expensive):
+
+* FM-A 35V 1000uF - EEUFM1V102 - <https://www.reichelt.com/ch/de/elko-radial-1000-f-35-v-105-c-low-esr-12-5-x-25-mm-rm-5-fm-a-1-0m-35-p200072.html>
+
+And you can get a miniturized version - 16x15mm:
+
+* FK-A 35V 1000uF - EEUFK1V102S - <https://www.reichelt.com/ch/de/elko-radial-1-0-mf-35-v-105-c-low-esr-aec-q200-fk-a-1-0m-35b-p200001.html>
+
+However, it's not clear (to me) from the EEUFK1V102S datasheet if the lead spacing is 5mm (as recommended by OL).
 
 ---
 
@@ -427,6 +474,7 @@ Carrying case: <https://www.getfpv.com/radiomaster-tx16s-radio-transmitter-carry
 
 RadioMaster Boxer: <https://www.getfpv.com/radiomaster-boxer-radio-transmitter-4-in-1-multi-protocol-cc2500-elrs-2-ghz.html>  
 Oddly the Boxer comes with case and gimbal protectors included while the TX16S MKII doesn't.
+Note: it doesn't come with a neck strap - you have to buy that separately - <https://www.radiomasterrc.com/products/radiomaster-deluxe-neck-strap-adjustable-for-transmitter>
 
 Oscar has a good page on setting up your Boxer well: <https://oscarliang.com/radiomaster-boxer/>
 
@@ -436,6 +484,11 @@ Global RadioMaster store: <https://www.radiomasterrc.com/products/tx16s-mark-ii-
 EU store (items ship from the Netherlands): <https://www.radiomasterrc.eu/shop/transmitters/tx16s/radiomaster-tx16s-mark-ii/>
 
 Both global and EU store will ship TXs with 18650 batteries.
+
+Also interesting: the Zorro - <https://www.radiomasterrc.com/collections/zorro-radio-control-series/products/zorro-radio-controller>
+If you look at Painless360's video, you'll see it actually seems to have all the buttons (except the flight mode ones) to the Boxer: <https://www.youtube.com/watch?v=P0rtfkQdFF4>
+Note: it doesn't come with case or neck strap.
+The lack of flight mode switches is _perhaps_ a deal breaker if using with ArduCopter.
 
 Unlike the FrSKY Q7, you toggle on and off recentering via screws on the front of the gimals (rather than opening up the TX): <https://youtu.be/6bFq3t6g0YI?t=310>
 
@@ -505,6 +558,39 @@ Note: many frames also have a DC (dead cat) variant where the front arms are pus
 
 ---
 
+Frames that _appear_ to have more in-body space...
+
+Lunenier QAV-R 2 Deadcat - <https://www.getfpv.com/multi-rotor-frames/6-quad-frames/lumenier-qav-r-2-deadcat-freestyle-quadcopter-frame-5-6-7.html>
+Making video: <https://www.youtube.com/watch?v=P3TvvqX3dTg>
+See also: <https://rotorbuilds.com/build/24690>
+See also: <https://www.youtube.com/watch?v=OcpguW2v5es>
+
+Interesting: SF PV suggests covering the ESC with masking tape if you're nervous of getting splashes of solder onto the rest of the board while soldering motors to ESC.
+
+OL has a great page on soldering - he uses Kapton tape, i.e. high temperature polyimide tape and has lots of other great advice: <https://oscarliang.com/soldering-guide/>
+
+ImpulseRC ApexDC frame - <https://www.getfpv.com/impulserc-apexdc-fpv-frame.html>
+
+GEP-MK5D O3 DeadCat frame - <https://geprc.com/product/gep-mk5d-o3-frame/>
+
+FLYWOO Mr.Croc 225mm (doesn't have DC in the name but camera can't see props): <https://flywoo.net/products/flywoo-mr-croc-225mm-5inch-6inch-7inch-fpv-freestyle-racing-frame-kit>
+
+HGLRC Sector 6" frame - <https://www.hglrc.com/collections/sector-frames/products/hglrc-sector-v5-hd-freestyle-3k-carbon-fiber-frame-kit-for-rc-drone-fpv>
+
+XILO Phreakstyle 6" frame - <https://www.getfpv.com/multi-rotor-frames/6-quad-frames/xilo-phreakstyle-freestyle-quadcopter-frame-kit.html>
+
+I think I'd be inclined towards the Mr. Croc for a frame with lots of space. For a nice review, see <https://www.youtube.com/watch?v=yJyLcFjVGpo>
+
+---
+
+From OL's wiring guide - <https://oscarliang.com/wires-connectors/>
+
+* 14AWG for Battery XT60 Pigtail
+* 18AWG-20AWG for ESC and Motor power wires
+* 28AWG for other low power components and signals
+
+---
+
 Mission Planner:
 
 * On Mac: <https://discuss.ardupilot.org/t/ground-control-on-a-mac/77176>
@@ -544,6 +630,10 @@ LED strips from GetFPV:
 * Flywoo buzzer and LEDx4 combo: <https://www.getfpv.com/flywoo-chasers-buzzer-and-led-kit.html> (same as above)
 * 4 LED rectangle: <https://www.getfpv.com/betafpv-led-board-2-pcs.html>
 
+Note: the Flywoo buzzer is actually a generic buzzer sold by many AliExpress stores.
+
+HGLRC buzzer and LEDx2 combo: <https://www.hglrc.com/products/hglrc-super-mini-1-38g-ws2812-colorful-led-w-5v-active-alarm-buzzer-support-cleanflight-betaflight> (I got one from FeiYing).
+
 Adafruit single Neopixel: <https://www.adafruit.com/product/1312> (seems to be a Neopixel despite mislabeled schmatic).
 
 Matek used to produce buzzer and LED combos but now they just sell:
@@ -559,6 +649,22 @@ Holybro produce a buzzer/LED combo but it wasn't in-stock anywhere when I was lo
 
 * Banggood: <https://usa.banggood.com/Holybro-Kopis-1-FPV-Racing-Drone-Spare-Part-LED-Board-Taillight-Tail-LED-Light-with-Loud-Buzzer-p-1199623.html> (official store item)
 * GetFPV: <https://www.getfpv.com/holybro-led-board-kopis-1.html>
+
+---
+
+If you want a self-powered buzzer that can survive even the main battery being ejected and carry on beeping for at least a day:
+
+* HellGate - <https://www.getfpv.com/hellgate-fpv-buzzer-w-built-in-lipo.html>
+* VIFLY - <https://www.getfpv.com/vifly-finder-2-drone-buzzer.html>
+* Flywoo - <https://www.getfpv.com/flywoo-finder-v1-0-w-led-buzzer.html>
+
+Note: these buzzer make things a bit more fiddly as they sometimes have to be turned off independently of the quad itself.
+
+---
+
+This is the battery checker that OL recommends (and which he says has been around since forever): <https://www.getfpv.com/ev-peak-cellmeter-7-battery-capacity-checker.html>
+
+It's available for 1/4 the GetFPV price from FeiYing (a store where I bought other parts) - <https://www.aliexpress.com/item/32960108660.html>
 
 ---
 
@@ -589,6 +695,38 @@ Parallel charging looks like a pain but...
 
 * Oscar Liang's guide: <https://oscarliang.com/parallel-charging-multiple-lipo/>
 * HGLRC Thor Pro 6-port balance charging board: <https://www.getfpv.com/hglrc-thor-pro-6-port-balance-charger-board.html>
+
+---
+
+The CellMeter-7 battery checker seems to be ubiquitous - you can find it for almost nothing at lots of AliExpress stores - where (if branded at all), it generally has the Build-Power brand.
+                                                                                                       
+The CellMeter-8 is an AOKoda product (and includes an additional servo test function that's probably of little interest to most people).
+                                                                                                       
+The design of th CellMeter-7 and 8 is identical. I can't find anything about Build-Power on the web but AOKoda does have a [website](http://www.aokoda.com/).
+
+---
+
+Discharging via a normal charger is extremely slow. The larger the load the discharger can bring to bear the quicker the discharging.
+
+The ultimate discharger is something like this: <https://www.isdt.co/fd200.html> but at US$76 it's a hefty price for some extra discharge speed.
+
+Much cheaper is the AOKoda discharger that uses three bulbs to provide a load: <http://www.aokoda.com/eproducts/75.html>
+
+Buy here: <https://www.aliexpress.com/item/1005003532430860.html>
+
+From a company with better brand recognition, are these from Vifly: <https://viflydrone.com/collections/lipro-battery-charger/products/vifly-storesafe-lipro-battery-discharger>
+
+They don't provide a big load so are far slower but I buy the argument of John Cuppi - <https://www.youtube.com/watch?v=4uujThuAnwA> - that just being able to buy a few of them and bring everything down to storage at the same time, e.g. after a rain day washes out your flying and you're left with a whole load of fully charged batteries, is very convenient and the time aspect is secondary.
+
+To bring your battery down to zero for disposal only, there's a zero tech solution (just large resistors): <https://www.banggood.com/3-in-1-DIY-Resistor-Discharger-for-Draining-Disposing-Battery-p-1418862.html>
+
+This is a knockoff of a design by OL: <https://oscarliang.com/resistor-discharger-lipo/>
+
+As he notes, even these big resistors are slower than halogen light bulbs but its a much simpler build.
+
+---
+
+Some manuals are terrible translations from Chinese. I got way better results using ChatGPT to translate Chinese manuals into English than using e.g. DeepL. It really seemed to be using context to make much better translations.
 
 ---
 
@@ -639,6 +777,7 @@ RJX has no obvious major distributors. You can find some RJX "branded" straps on
 
 Note: The Ethix ones are cheaper than the iFlight or RJX ones (except the basic silicone ones).
 
+Holybro have these straps: <https://holybro.com/products/strap20-200mm-battery-strap2pcs> (I bought a pair and they came with metal buckles rather than the plastic ones shown in the picture).
 
 ---
 
