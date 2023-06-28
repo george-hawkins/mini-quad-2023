@@ -43,3 +43,34 @@ UAVfutures - this "How to fly a fpv race drone" series is very bite sized (2 or 
 * [Lesson 5 powerloops](https://www.youtube.com/watch?v=ooXDVRuI8TQ)
 
 Having said there's not much depth, I did find watching them useful after overcoming my initial inability to do anything - I reached a point where I could career around wildly and it was good to be encouraged to just bob up and down in a controlled manner and then try to maintain a constant height while manoeuvering (rather than screaching skyward and plunging back).
+
+FPV Academy:
+
+* [Lesson 0 // Before you start to fly - All about SAFETY](https://www.youtube.com/watch?v=9qm7TFvMHBY)
+* [Beginner: Lesson 1 // Hovering (Updated Video)](https://www.youtube.com/watch?v=TX0S6OOsc-8)
+* [Beginner: Drill 1 // Hovering](https://www.youtube.com/watch?v=aJ19I7ITlaU)
+* [Beginner: Lesson 2 // Flying Forward and Slowing Down (Updated)](https://www.youtube.com/watch?v=QU2TCyESDRs)
+* [Beginner: Drill 2 // Flying Forward and Slowing Down](https://www.youtube.com/watch?v=H8eaNHwdv6M)
+* [Beginner: Lesson 3 // Turning and Braking](https://www.youtube.com/watch?v=J3pZqXgwxkw)
+* [Beginner: Drill 3 // Turning and Braking](https://www.youtube.com/watch?v=EjQIWYhkxi0)
+* [Beginner: Lesson 4 // Throttle Control](https://www.youtube.com/watch?v=7JQ-1S3cLjM)
+* [Beginner: Drill 4 // Throttle Control](https://www.youtube.com/watch?v=ykRI7Eof4CA)
+* [Beginner: Lesson 5 // Flying your first track!](https://www.youtube.com/watch?v=6EAVXPtUqbI)
+* [Beginner: Drill 5 // Flying your first track!](https://www.youtube.com/watch?v=hye-BIFjW1s)
+* [Beginner: Lesson 6 // Rolls](https://www.youtube.com/watch?v=jXmMpngkzWo)
+
+FPV Academy originally did this series back in February 2016 and then did an updated version in May 2017. For whatever reason, the YouTube algorithm often suggests the original videos rather than the updated versions. The videos are well made - it does look like the intention was for the series to run longer but it just stops at lesson 6 with no explanation as to why they didn't go further. The gates and flags that he practices with and links to in his video descriptions stopped being available long ago.
+
+You can find versions of the tracks used for the lessons and drills by going to Days of Adventure's [Liftoff Workshop](https://steamcommunity.com/id/daysofadventure/myworkshopfiles/?appid=410340), open each of the items in turn and click _Subscribe_ for each.
+
+Then, in Steam:
+
+* Go to your name (that shows to the right of _STORE LIBRARY COMMUNITY_ at the top of the main Steam window).
+* Select _Profile_ (from the dropdown that's shown if you hover over your name) and then select _Workshop Items_ in the panel on the right.
+* Select _Subscribed Items_ from the panel on the lower right.
+
+Here you'll see the items you've subscribed for. If you now open Liftoff, select _Free Flight_, scroll to right to the final environment called _The Drawing Board_, you should then be able to select one of the tracks that you've subscribed to. When asked to _Select Spawn Point_, always select _Custom 1_ rather than _Default_.
+
+I didn't have any issues with the tracks but some people say they have and a user called Aravis has recreated them as a [map pack](https://steamcommunity.com/sharedfiles/filedetails/?id=1288762898). This has the advantage that you can subscribe to them all with a single click. I haven't tried these versions of the maps.
+
+As with many of these videos, my initial feeling was "you're not telling me how to stop bobbing around like a lunatic" but the real answer to that is just an immense amount of practice. I grew to like the style of these videos. And it was watching the stick movements shown in these videos that I realized you should always be returning to center (for pitch, roll and yaw) almost immediately - even though I'd heard it explained many times that you need to reverse your movement to complete a manoeuver, it still wasn't clear to me if you should return to center as part of reversing your movement at the end of the manoeuver or almost immediately after making any given movement - the answer seems to be the latter. Just watch how his sticks only ever momentarily move away center before returning straight away.

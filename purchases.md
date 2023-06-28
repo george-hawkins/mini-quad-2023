@@ -300,7 +300,7 @@ US$13.30 - 12 pairs DALPROP CYCLONE T5045C PRO props
 
 Shipping was free.
 
-Shipping took from June 9th to June 21st and came in a large padded envelope - this was the fastest shipping time for anything I got from China.
+Shipping took from June 9th to June 21st and came in a large padded envelope. This was one of the fastest shipping time for anything I got from China.
 
 ---
 
@@ -323,6 +323,8 @@ US$2.30 - 5V WS2812B LED tail light integrated with buzzer
 
 Shipping was US$1.50
 
+Shipping took from June 19th to 28th and came in a padded envelope. This was the fastest shipping time for anything I got from China.
+
 Seconds order:
 
 US$20.50 - AOKoda 150W discharger/balancer
@@ -339,4 +341,26 @@ Note: if I'd bought the VIFLY smoke stopper here rather than at GetFPV, it would
 
 ---
 
+OOTDTY Consumer Electronics AliExpress store:
 
+US$1.40 2 x 9V USB-C to 5.5x2.1mm adapter
+US$1.20 1m 9V USB-C to 5.5x2.1mm cable
+
+Shipping was US$1.50
+
+---
+
+Speeding and Running Digital Store AliExpress store:
+
+US$1.30 2 x 9V USB-C to 5.5x2.1mm adapter
+US$1.15 1m 9V USB-C to 5.5x2.1mm cable
+
+Shipping was US$1.60
+
+---
+
+FPVKING Store:
+
+US$34 - Matek M10Q-5883 GPS and compass
+
+Shipping was US$1.60 (the default was free but I selected the next option up as it said this would reduce shipping time by 1 week).

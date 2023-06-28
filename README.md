@@ -59,6 +59,8 @@ Fat shark Recon HD: <https://www.getfpv.com/fat-shark-recon-hd-fpv-goggles.html>
 Unfortunately they've no option for diopter insets but Joshua Bardwell points out you may be in luck if you're short sighted - try removing the lens they have to make the screens feel closer.
 He also runs them at 700mW - he says many goggles start performing poorly if you set them to their max - 1W in this case.
 
+See, [`recon-hd-nose-piece.png`](recon-hd-nose-piece.png) for how to attach nose piece (screenshot taken from this [video](https://www.youtube.com/watch?v=94wQDKCCVI8) by KremerFPV).
+
 Painless360 has a setup video for googles and recevier (including wiring to FC) <https://www.youtube.com/watch?v=ATLZLxGSSJg> - basic points:
 
 * Update firmware on both.
@@ -499,6 +501,8 @@ Batteries:
 * <https://www.reichelt.com/ch/en/industrial-cell-18650-3-6-v-3350-mah-unprotected-xcell-18650-35e-p333849.html>
 * <https://www.conrad.ch/de/p/murata-sony-us18650vtc5-spezial-akku-18650-hochstromfaehig-flat-top-li-ion-3-7-v-2600-mah-1499576.html>
 
+GetFPV: <https://www.getfpv.com/batteries/18650-batteries/sony-vtc5a-18650-2600mah-3-7v-li-ion-battery-2pcs.html>
+
 Or Panasonic cells from:
 
 * Nkon: <https://eu.nkon.nl/rechargeable/li-ion/18650-size/panasonic-ncr18650a.html>
@@ -901,3 +905,82 @@ Remember to specify 100% inflill for the strongest parts.
 Both connect you with local 3D printing services.
 
 I'd gotten good prices from Sculpteo previously but nowdays, they don't want orders less than EUR50 and have high shipping rates. It's similar of worse with Shapeways and Hubs.com.
+
+---
+
+You can get cables and adapters with built in e-mark chips - the chip tells the power source to deliver a particular voltage and/or current.
+
+A Chinese company called Witrn produces USB-C to 5.5x2.5mm cables that you can find in lots of AliExpress stores and [here](https://www.adafruit.com/product/5449) on Adafruit.
+
+Adapters and cables where the inside of the jack is 2.1mm rather than 2.5mm seem to far less common.
+
+However, that's what Fatshark and other goggles use. And the input voltage for these goggle must be at least 7V.
+
+So, you want either a 9V or 12V adapter or cable (9V and 12V being the next voltages up once you go above the default 5V).
+
+Here you can find USB-C to 5.5x2.1mm adapters with 9V e-mark chips:
+
+* Speeding and Running Digital Store AliExpress store - <https://www.aliexpress.com/item/1005004565389799.html> (note, it's only from the markings in the photos that you can see that they're 9V).
+* Wonder ccc09 Store AliExpress store - <https://www.aliexpress.com/item/1005005033001370.html> (rather more clearly shown as 9V - you want the 5521 variant).
+
+You can also get cables:
+
+* Speeding and Running Digital Store AliExpress store - <https://www.aliexpress.com/item/1005003888179200.html>
+* Wonder ccc09 Store AliExpress store - <https://www.aliexpress.com/item/1005001459762594.html>
+
+But from the comments, the cables are only middling quality - so the adapters with a cable of your choice seems like a better option.
+
+The original manufacturer seems to be a company called OOTDTY but they've only been running a store on AliExpress since 2022 and their layout isn't great:
+
+* adapters - <https://www.aliexpress.com/item/1005004965059337.html> (as above, you want the 5521 variant)
+* cables - <https://www.aliexpress.com/item/1005004477437199.html>
+
+Note: the cable included with the Fatshark goggles is about 120cm long (if you include the XT60 connector in the length).
+
+---
+
+The e-mark chip just tells the power source to provide 9V _if it can_. Many laptop wall adapters with USB-C out can but its not so common for battery power banks.
+
+Manufacturers don't go out of their way to make clear if a particular power bank can or can't provide 9V if asked.
+
+E.g. Belkin have two identical capacity power banks both called BoostCharge and nothing on their product pages (see [here](https://www.belkin.com/power-bank-10k/P-BPB011.html) and [here](https://www.belkin.com/usb-c-pd-power-bank-10k-usb-c-cable/P-BPB001.html)) indicates that one supports 9V output and the other doesn't.
+
+The cheaper one with model name BPB011 does not and the slightly more expensive one with model name BPB001 does. You only find this out by finding their support pages - [BPB011](https://www.belkin.com/support-article/?articleNum=333639) and [BPB001](https://www.belkin.com/support-article/?articleNum=317011).
+
+If it's not a feature that they use to distinguish models when selling them, one wonders why any provide anything other than the basic default 5V.
+
+Models I found that _probably_ provide 9V:
+
+* Xiaomi Mi 3 Ultra Compact - <https://www.galaxus.ch/de/s1/product/xiaomi-mi-3-ultra-compact-10000-mah-2250-w-powerbank-20584937>
+* Samsung PD Super Fast - <https://www.galaxus.ch/de/s1/product/samsung-pd-super-fast-10000-mah-25-w-powerbank-24532084>
+* Aukey PB-Y36 - <https://www.galaxus.ch/de/s1/product/aukey-pb-y36-10000-mah-20-w-powerbank-13121230>
+* Belkin Boost Charge (the BPB001 one) - <https://www.galaxus.ch/de/s1/product/belkin-boost-charge-10000-mah-18-w-powerbank-13489778>
+
+All but Anker's most expensive power banks seem to just provide at most 5V.
+
+Suitable cables:
+
+* <https://www.galaxus.ch/de/s1/product/samsung-usb-c-usb-c-1-m-usb-kabel-11583637>
+* <https://www.galaxus.ch/de/s1/product/belkin-boost-charge-usb-c-usb-c-1-m-usb-kabel-13690488>
+
+---
+
+Alternatively, if you've already got an 18650 charger - the Fatshark 18650 battery case:
+
+* <https://www.aliexpress.com/item/1005004564024247.html>
+* <https://www.getfpv.com/drone-brands/fatshark/fatshark-fsv1814-battery-case.html>
+
+For more on this and other options, see: <https://oscarliang.com/power-fpv-goggles/>
+
+---
+
+The consensus seems to be that abusing your goggle battery isn't as terrible as doing the same to a flight battery as you're not interested in maintaining the high discharge rate.
+
+So, a low C-rating budget battery is probably good enough. So, the 20C Soaring Mini 2200mAh:
+
+* <https://www.gensace.de/gens-ace-soaring-mini-2200mah-7-4v-20c-2s1p-lipo-battery-pack-with-xt60-plug.html>
+
+It's just 106g.
+
+* <https://www.gensace.de/gens-ace-1600mah-7-4v-45c-2s1p-lipo-battery-pack-with-xt60-plug-2303.html>
+
