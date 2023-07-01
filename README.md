@@ -999,3 +999,18 @@ Hmm... that calculation is based on going to 0% but really 5% is the absolute li
 Some people suggest 70% as an upper limit for storage so, maybe always just charge to 70%.
 
 Why am I over thinking this?!?
+
+---
+
+Cheap chargers:
+
+* ~US$9 - iSDT UC2 - charges via balance leads
+* ~US$15 - iSDT PD60
+* ~US$28 - ToolkitRC M4
+* ~US$30 - iSDT Q6 Nano
+
+The first two don't support charging to storage voltage. All of the above require an external power adapter - and remember even if the charger says 60W, even good USB power adapters provide nothing like that.
+
+The cheapest charger that take AC input seems to be:
+
+* ~$US30 - ToolkitRC M4AC
