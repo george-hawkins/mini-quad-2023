@@ -253,6 +253,10 @@ Standard shipping was US$10.
 
 NOTE: I'd like to know what the current draw is at 9V given that my FC is the 2.1 version that supports max 1.5A (vs the 3A of the 2.2 version).
 
+Shipping took from June 18th until July 1st. Came in a cardboard box with bubblewrap (the box was to small that the kit could be surrounded by bubblewrap on all sides but the box contents are well padded themselves). Oddly, Caddx underdeclared the value of the shippment, reporting it as US$15 rather than US$150. This seems to be standard practice for AliExpress stores but surprised me for a firm like Caddx.
+
+**Important:** see note about aspect ratio and goggles in README.
+
 ---
 
 GetFPV

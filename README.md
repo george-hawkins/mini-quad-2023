@@ -61,6 +61,8 @@ He also runs them at 700mW - he says many goggles start performing poorly if you
 
 See, [`recon-hd-nose-piece.png`](recon-hd-nose-piece.png) for how to attach nose piece (screenshot taken from this [video](https://www.youtube.com/watch?v=94wQDKCCVI8) by KremerFPV).
 
+**Note:** both new cameras have a 4:3 image sensor instead of 16:9 as in the previous version. If you use 16:9 in the goggles (currently the default settings), you will get less field of view, so make sure to set it to 4:3.
+
 Painless360 has a setup video for googles and recevier (including wiring to FC) <https://www.youtube.com/watch?v=ATLZLxGSSJg> - basic points:
 
 * Update firmware on both.
@@ -963,6 +965,8 @@ Suitable cables:
 * <https://www.galaxus.ch/de/s1/product/samsung-usb-c-usb-c-1-m-usb-kabel-11583637>
 * <https://www.galaxus.ch/de/s1/product/belkin-boost-charge-usb-c-usb-c-1-m-usb-kabel-13690488>
 
+Update: looking for power banks that provide at least 27W is probably a good indicator that they can provide 9V. The USB-C standard specifies a maximum current of 3A at 5V so, anything that provides more than 15W is probably capable of higher voltages - however, some devices can charge two devices at the same time so the wattage is the combined total with neither device getting more that 5V. 27W is a common wattage and generally implies a device capable of providing 3A at 9V.
+
 ---
 
 Alternatively, if you've already got an 18650 charger - the Fatshark 18650 battery case:
@@ -984,3 +988,14 @@ It's just 106g.
 
 * <https://www.gensace.de/gens-ace-1600mah-7-4v-45c-2s1p-lipo-battery-pack-with-xt60-plug-2303.html>
 
+You could even combine such a battery with its own dedicated charger (e.g. the ToolkitRC M4AC at ~US$30) for a total price similar to or less than a power back like the Xiaomi Mi 3 Ultra Compact (and that power bank is one of the lighter ones but still over twice the weight of the 20C Soaring Mini 2200mAh).
+
+Note: anything cheaper than the M4AC either doesn't support storage voltage or requires an external power supply that takes the price above that of the M4AC.
+
+You could probably just always charge the battery to storage voltage to around 50% (the high end of storage voltage) and still get more than 2 hours flight time.
+
+Hmm... that calculation is based on going to 0% but really 5% is the absolute limit and many people don't go below 30% (when battery sag starts to kick in).
+
+Some people suggest 70% as an upper limit for storage so, maybe always just charge to 70%.
+
+Why am I over thinking this?!?
