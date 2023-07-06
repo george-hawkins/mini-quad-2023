@@ -285,6 +285,8 @@ The package was about 250x210x170mm and less than 1.7kg - so, US$80 feels like a
 
 But it arrived in 5 days and was well packed (cardboard box and suitable packing material).
 
+Import duties were CHF54.80 (23.70 of which was DHL's fee for handling import duties).
+
 Note: the Lumenier QAV-R 2 turned out to include Neoprene Landing Pads so buying them separately was rather redundant.
 
 Note: it was very non-obvious (to me) how to open the Ethix cable set box without tearing apart - of course, it's easy once you know how - see the 2m 55s mark in Mr. Steele's [video](https://www.youtube.com/watch?v=rAjfHulJmss&t=175s) on the product. See note in README for what AWG to use for what job.
@@ -335,6 +337,8 @@ US$20.50 - AOKoda 150W discharger/balancer
 
 Shipping was $0.90.
 
+Shipping took from June 24th until July 5th - came in padded envelope with additional padding (unfortunately, despite this the platic case for the unit was a little cracked).
+
 ---
 
 US$28 - 2 x VIFLY StoreSafe - LiPo Battery Discharger (2 packs each containing 2 dischargers, i.e. 4 in total)
@@ -368,3 +372,39 @@ FPVKING Store:
 US$34 - Matek M10Q-5883 GPS and compass
 
 Shipping was US$1.60 (the default was free but I selected the next option up as it said this would reduce shipping time by 1 week).
+
+---
+
+Reichelt:
+
+EUR2.70 2 x FK-A 35V 1000uF capacitor - EEUFK1V102S - (EUR1.35 each)
+EUR14 Loctite 243 - blue thread locker
+EUR5.30 - welders gloves (single size)
+EUR2.80 - TESA extra power cloth tape (19mm x 2.75m) - gaffer tape
+
+Plus miscellaneous other items - shipping was EUR10.
+
+**Decision:** what to use - some people use tape (Chris Rosser mocks JB for using red electrical tape), some people use clear heat shrink and some use cable ties to secure the wires to the arms.
+
+---
+
+thanksforyou Store: US$13.50 + US1.85 postage - 8x1 pogopin testing jig - ordered June 21st, arrived July 5th - in padded envelope with additional bubble wrap.
+omumao Store: $US19.50 + free shipping - 3x1 and 5x1 pogopin testing jig - ordered June 21st, arrived July 5th - in cardboard box with bubble wrap.
+Hennybig Fish Store: US$18.40 + US$2.40 postage - 2x1 and 4x1 pogopin testing jig - ordered June 21st, arrived July 5th - in cardboard box with bubble wrap.
+
+The jigs from omumao and Hennybig Fish seem to be from the same manufacturer but of course there's no idenitifying branding.
+
+---
+
+GensACE:
+
+EUR78 - 3 x 2200mAh 75C 4S1P Lipo with XT60 - TAA22004S75X6 (EUR26 each)
+EUR7.70 - Soaring Mini 2200mAh 20C 2S1P Lipo with XT60 - GEA222S20X6GT
+
+I would have bought the non-G-Tech version of the Soaring Mini (with SKU GEA22002S20X6) but it was out of stock (they're the same price but why buy G-Tech batteries if you don't/can't use the G-Tech feature).
+
+Shipping was EUR32.70 (for some reason, you could also opt for a far more expensive "dangerous goods" shipping option - I did not and couldn't see an explanation for when or why one should).
+
+Import duties were CHF33.50  (24.50 of which was UPS's fee for handling import duties).
+
+---

@@ -170,6 +170,8 @@ Note: 2306 and 2207 are essentially the same: <https://oscarliang.com/2306-2207-
 
 Holybro SiK radios: <https://holybro.com/products/sik-telemetry-radio-v3>
 
+Note: I don't know why but for whatever reason 433MHz and 915MHz antennas are only available with a bulky plastic shell around the antenna (unlike the antenna used for TXs and VTXs). To confirm, just try searching the DigiKey [RF antenna category](https://www.digikey.com/en/products/filter/rf-antennas/875) for 433MHz and 915MHz antennas with any SMA or RP-SMA connector type.
+
 ---
 
 The 10-pin GPS connectors are 10-pin JST GH connectors, I'd like to have found a correspond cabled female connector for break out but didn't - looks like you'll have to cut off the connector.
@@ -247,6 +249,10 @@ The PX4 build uses a short fat battery rather than a longer. And from the build 
 
 So, my choice above is the fat-short model at the lower end of Holybro's suggested range but much higher than the PX4 build.
 
+For reference the main part of the battery pad on the Lumenier QAV-R 2 is 90mm long and in total its 105mm long so, it certainly _could_ take the longer format batteries.
+
+In the most watched QAV-R 2 build video, he uses a 75mm long battery, see [here](https://www.youtube.com/watch?v=OcpguW2v5es&t=2743s) at the 45m 43s mark - they're [Lumenier N<sub>2</sub>O Extreme 1350mAh 4s 150c](https://www.getfpv.com/lumenier-n2o-extreme-1350mah-4s-150c-lipo-battery.html) batteries.
+
 Note: the highest mAh 4S battery from Gens Ace / Tattu is 2300mAh (and its a long format battery). You have to go to 6S for 2500mAh or 2800mAh and they're seriously large. The 3000mAh batteries are seriously expensive and don't come in XT60 variants.
 
 Note: there seems to be a gradually switch from 4S to 6S - for some explanation, see: <https://www.getfpv.com/learn/fpv-essentials/making-the-move-from-4s-to-6s/>
@@ -270,6 +276,23 @@ Note: there seem to be a confusing number of brands from the one company: Fun Fl
 As the GetFPV page explains, if you move from 4S to 6S, you have to change the motors - all other components stay the same.
 
 E.g. 1700KV for 6S vs 2400KV for 4S.
+
+---
+
+For free-style and racing, the 2200mAh battery above would be beyond the upper end of the typically used capacities (and has a somewhat lower C-rating than commonly used while still being well above what's needed for all but the most aggressive flying).
+
+Around 1500mAh is the typical upper end:
+
+* Tattu R-Line Version 4.0 1550mAh 130C 4S1P - <https://www.gensace.de/tattu-r-line-version-4-0-1550mah-14-8v-130c-4s1p-lipo-battery-pack-with-xt60-plug.html>
+
+In North America, the Tattus should be available but it may be easier to go for something like:
+
+* RDQ Series 4S 1500mAh 100C - <https://www.racedayquads.com/products/rdq-series-14-8v-4s-1500mah-100c-lipo-battery-xt60> - Oscar Liang rates these as the best mid-range brand while describing the Tattu R-Line as premium.
+* Lumenier 1500mAh 4s 95c - <https://www.getfpv.com/batteries/mini-quad-batteries/lumenier-1500mah-4s-95c-lipo-battery-xt60.html>
+
+Oscar Liang lists various reliable brands [here](https://oscarliang.com/lipo-battery-guide/#Choosing-the-Right-LiPo-Battery), including Tattu, RDQ and Lumenier. However, none of them, besides Tattu, is widly available outside North America.
+
+Note: Tattu produce various ranges of batteries, the R-Line is their premium range while Funfly is their budget range and the Tattu 75C range in-between.
 
 ---
 
@@ -381,6 +404,31 @@ And you can get a miniturized version - 16x15mm:
 * FK-A 35V 1000uF - EEUFK1V102S - <https://www.reichelt.com/ch/de/elko-radial-1-0-mf-35-v-105-c-low-esr-aec-q200-fk-a-1-0m-35b-p200001.html>
 
 However, it's not clear (to me) from the EEUFK1V102S datasheet if the lead spacing is 5mm (as recommended by OL).
+
+---
+
+XT60 pigtail with capacitor attached to XT60: <https://www.getfpv.com/black-xt60-lipo-pigtail-w-35v-1000uf-capacitor-12awg-3pcs.html>
+
+This looks like it's save a lot of hassle, i.e. soldering two things to the same pads on the ESC.
+
+However, OL wasn't too impressed by an similar product for Lantian <https://oscarliang.com/lantian-xt60-pigtail-capacitor-3d-holder/>
+
+As he says:
+
+> For maximum effectiveness though, you should soldering the capacitor(s) as close to the source of noise as possible (in which case, the ESC and motors). So having the cap this far away from the ESC’s, it’s going to take some of the effectiveness away.
+
+And the data (see elsewhere on page) seems to back him up.
+
+Note: unlike the Lantian version, the Lumenier version probably has caps from a good brand like Panasonic.
+
+---
+
+USB power adapters capable of 9V:
+
+* 27W - <https://www.reichelt.com/ch/de/usb-ladegeraet-5-12-v-3-a-qc-3-0-28-w-schwarz-goobay-44960-p288920.html>
+* 45W - <https://www.reichelt.com/ch/de/usb-pd-ladegeraet-5-20-v-3-a-45-w-usb-c-schwarz-goobay-61742-p341670.html>
+
+45W seems an awful lot for such an adapter (even if it uses GaN - which isn't mentioned in its specs) so, I'd be a little worried about it - though it's a great price if it really can deliver 45W.
 
 ---
 
@@ -853,6 +901,13 @@ E.g. Hornbach has huge 2600x600x12.5mm "feuerschutz" panels for CHF8 - <https://
 
 Note: a very big dinner tray is max 40x60cm so, you probably don't want a panel bigger than that or e.g. 60x60cm.
 
+You can get a small fire extinguisher for less than US$30, e.g.:
+
+* <https://www.jumbo.ch/de/wohnen-licht/sicherheit/ueberwachung-sicherheit/ueberwachung/pulverfeuerloescher-1kg-ps1-p/p/5838807>
+* <https://www.hornbach.ch/de/p/feuerloescher-pm1-inkl-manometer-und-halterung-1-kg/7789627/?marketNo=756>
+
+Note: you need an extiguisher with class A/B/C (A and B seem the most important but most such extinguishers cover all three). Some people claim the extiguisher should also be class D but class D is meant for lithium _metal_ fires - and the lithium in Li-ion and LiPo batteries the lithium is not in base metal form.
+
 His other suggestion is welder gloves for when you have to pick up the battery (and throw it out a window).
 They're surprisingly cheap (and oddly, only come in one size - huge), e.g. Fortis welding gloves for EUR9 - <https://www.fortis-arbeitsschutz.de/artikel.php?artnr=2239590050>
 
@@ -1014,3 +1069,33 @@ The first two don't support charging to storage voltage. All of the above requir
 The cheapest charger that take AC input seems to be:
 
 * ~$US30 - ToolkitRC M4AC
+
+---
+
+Gaffer tape or duct tape should both work for taping down wires are such like. Both are disctinct from basic electrical tape in that they both cloth backed.
+
+I prefer to use gaffer tape as it's designed not to leave a sticky residue if you ever have to peal it off.
+
+E.g. something like <https://www.tesa.com/en/consumer/tesa-extra-power-perfect.html>
+
+---
+
+If you've got room, you might want to mount something like your ELRS TX on-top of your VTX or FC stack but can't because the TX doesn't have the necessary mounting holes.
+
+One possibility is to mount it on a clear plastic insulation board that's designed to be added onto a stack.
+
+E.g.:
+
+* From the GepRC AliExpress store (this is their official store): <https://www.aliexpress.com/item/1005005452708402.html>
+* Unbranded: <https://www.aliexpress.com/item/1005001839329124.html>
+
+Or non-transparent from Flywoo:
+
+* <https://flywoo.net/products/10-pcs-20x20mm-30-5x30-5mm-insulation-board-short-circuit-protection-for-f3-f4-f7-flight-controller-esc> (also available from GetFPV and others)
+
+You might be tempted to use an adapter board like these:
+
+* <https://www.aliexpress.com/i/1005003580787977.html>
+* <https://www.aliexpress.com/item/1005002589808018.html>
+
+But they're cut from carbon-fiber so, with its conductivity, this doesn't seem great (and not great IMHO as a material for their intended use as adapters either).

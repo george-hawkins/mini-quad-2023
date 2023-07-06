@@ -4,6 +4,24 @@ I found Liftoff's tutorial section fairly unsatisfactory. I'd have liked to be a
 
 ---
 
+It's clear watching some of the less useful learn-to-fly videos that the creators of the videos have left their beginner phase so far behind that they've forgotten the real problems beginners face. Someone like me, who's just learning, should be in a good position to offer advice on what helped them progress. But I'm not going to offer any specific advice - the real key if just lots and lots of practice.
+
+A lot of videos present a specific behavior like hovering, spend a few minutes on it, tell you to practice something and then say something like "and once you've got good at that, try [the next thing]". The swiftness of transition from one thing to the next suggests that progress should be almost similarly quick for you.
+
+But if you watch people's progress videos, where they show e.g. how far they got after 10 hours, then you'll see that what took minutes to explain took hours to practice even for the most basic moves. And if you read the comments below such videos, you'll often read expressions of disbelief that the video creator really only took however many hours to achieve the shown proficiency - so, if you're slow to pick something up be reassured that so are a lot of other people.
+
+If you read the reviews for Liftoff, you'll see lots of complaints that this "game" is too hard. But what you're experiencing is the reality of a reasonably accurate simulator. In fact, the main point of criticim of Liftoff is that it's a little too forgiving (especially when it comes to ground effects, i.e. the bubble of air that often keeps you from crashing when you're just above the ground) and that e.g. Velocidrone is more accurate.
+
+So, the simple answer as to how to progress is hours and hours of practice - it's about building up muscle memory and learning by experience how your drone will react to your stick movements. A lot of the videos seem frustraing as few of them offer much practical advice - they demonstrate something like hovering and basically just tell you to practice it.
+
+But really that's all you can do. And rewatching the videos as you progress is well worth it, you'll spot things you didn't notice the first time around. E.g. once you've got a little bit beyond crashing every few seconds, you may find that watching the stick movements becomes more meaningful and go "hey, I'm not letting my sticks instantly recenter like shown maybe, I need to fix that."
+
+And rewatching the videos once you feel you've made some progress at something may also help you avoid baking in bad habits. There may be many ways to achieve a goal but some of them are going to prove unhelpful in making further progress - so, if you notice a discrepancy between how you're achieving something and how others are doing it, it's worth at least trying the other approach, even if it means giving up some of your apparent progress, in order to learn how to do something right.
+
+After starting with _Free Flight_ and the _Straw Bale_ environment with _No Track_ (see my [Liftoff notes](liftoff.md)) and overcoming the initial phase of "all that's happening is that I bob around like crazy and crash every second or so", I found it best to work with the practice tracks that accompany the FPV Academy series of videos (see below). Some may find these super boring (they're all just a set of pilons or similar objects in an otherwise blank landscape) but they allow you to focus on achieving specific learning goals rather than just charging around like a lunatic without making real progress.
+
+---
+
 Niklas Christl - [Learning To Fly The DJI FPV DRONE! (From Zero)](https://www.youtube.com/watch?v=Gb8nez1VtTk) - it doesn't teach you anything but it's very motivational - you see him going from being depressed at the initial experience and finding it very hard, to spending time practicing in Liftoff, initially using DJI's easier modes before shifting to full manual and becoming comfortable with that.
 
 Ed Ricker - [How to Fly an FPV Quad - First Flight Tutorial and Beginner's Guide](https://www.youtube.com/watch?v=3-3BvdjGsVw) - very nice first real flight video, taking things very slowly. Talks about applying yaw and roll together to keep horizon flat. Mentions cutting power (with your kill switch) just before landing so the propellers aren't still going when you hit the ground (resulting in you bouncing and chewing grass).
