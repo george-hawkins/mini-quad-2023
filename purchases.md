@@ -356,6 +356,8 @@ US$1.20 1m 9V USB-C to 5.5x2.1mm cable
 
 Shipping was US$1.50
 
+Shipping took from June 27th to July 8th and came in a thin plastic shipping bag.
+
 ---
 
 Speeding and Running Digital Store AliExpress store:
@@ -365,6 +367,24 @@ US$1.15 1m 9V USB-C to 5.5x2.1mm cable
 
 Shipping was US$1.60
 
+Shipping took from June 27th to July 8th and came in a thin plastic shipping bag.
+
+Note: I bought this from both OOTDTY (above) and "Speeding and Running Digital" as OOTDTY's store hasn't existed long (and is very poorly setup - e.g. for the adapters, it's often hard to determine what particular variant of a product you need to select, e.g. 5.5x2.1mm is just shown as 5521). The Speeding store has existed longer and shipped more of the given items.
+
+In the end, both packages arrived on exactly the same day and were identical. The one from Speeding was slightly scuffed but I suspect that was bad luck during shipping rather than anything else.
+
+I'd read in some reviews that the cables were lower quality than shown in the pictures (and that's why I also ordered the adapters - in case the cables were terrible quality). But the cables seem good quality (perhaps people were comparing against the perfect computer renders used in the pictures).
+
+The cables and adapters come with the same style QR code stickers so, I suspect both are from the same manufacturer. And I'm moderately confident OOTDTY is the manufacturer of the adapters.
+
+I tested both the cable and the adapter with a USB-C power adapter (capable of 9V) and both output exactly 9V with the inside of the jack, in both cases, being positive.
+
+Note: when referring to barrel jacks, the term _positive polarity_ means _center_ positive.
+
+From a little research, it _seems_ center positive is becoming the norm these days - but center negative was once common in certain domains.
+
+The Recon HD goggles expect center positive.
+
 ---
 
 FPVKING Store:
@@ -372,6 +392,8 @@ FPVKING Store:
 US$34 - Matek M10Q-5883 GPS and compass
 
 Shipping was US$1.60 (the default was free but I selected the next option up as it said this would reduce shipping time by 1 week).
+
+Shipping took from June 28th to July 8th and came in a padded envelope.
 
 ---
 

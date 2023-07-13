@@ -425,10 +425,14 @@ Note: unlike the Lantian version, the Lumenier version probably has caps from a 
 
 USB power adapters capable of 9V:
 
-* 27W - <https://www.reichelt.com/ch/de/usb-ladegeraet-5-12-v-3-a-qc-3-0-28-w-schwarz-goobay-44960-p288920.html>
+* 28W - <https://www.reichelt.com/ch/de/usb-ladegeraet-5-12-v-3-a-qc-3-0-28-w-schwarz-goobay-44960-p288920.html>
 * 45W - <https://www.reichelt.com/ch/de/usb-pd-ladegeraet-5-20-v-3-a-45-w-usb-c-schwarz-goobay-61742-p341670.html>
 
-45W seems an awful lot for such an adapter (even if it uses GaN - which isn't mentioned in its specs) so, I'd be a little worried about it - though it's a great price if it really can deliver 45W.
+Note: the 28W is actually 10W on one USB-A connector and 18W of the USB-C one - so it can handle 2A at 9V, i.e. 18W.
+
+I bought the 28W one and compared to a normal adapter, it's fairly chunky - as I'd expect for something that can support more than the 18W typical for phone chargers.
+
+The 45W one only provides 45W when using 20V, at 9V it can handle 3A, i.e. 27W. The dimensions are actually substantially smaller than for the 28W one which seems surprising (even if it uses GaN - which isn't mentioned in its specs) so, I'd be a little worried about trying to pull 45W from such a small device over a long period.
 
 ---
 
