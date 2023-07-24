@@ -204,6 +204,10 @@ This does just seem to be about downloading Almanac data so you don't have a sup
 
 The video also points out that Betaflight by default auto-configures your GPS for best performance - see <https://betaflight.com/docs/development/Gps#gps-auto-configuration> (but as of late May, 2023, it only supports m8n but they're working on m10).
 
+M10 issue: <https://github.com/betaflight/betaflight/pull/12799> - it looks like this will land in BF 4.5 - some of the PR review comments are quite heated!
+
+In the meantime, see JB's video above (the "passthru" one).
+
 Also, I was wondering what the small battery was that you can see on the underside of the Matek GPS (see here <http://www.mateksys.com/?portfolio=m10-5883>).
 
 It's about maintaining time and other GPS relevant data so that after the first start, it should start much quicker.
@@ -215,6 +219,10 @@ Note: mount your GPS _flat_ - find reference for this but definitely saw that it
 See here for m8 vs m9 vs m10: <https://www.u-blox.com/en/technologies/standard-precision-positioning>
 
 Find if there's a neopixel and compass on the the GPS I2C bus by scanning the bus for addresses: <https://learn.adafruit.com/scanning-i2c-addresses?view=all>
+
+---
+
+Silicone o-rings and standoffs for M2 and M3 from Diatone official store: <https://www.aliexpress.com/item/4001264267019.html>
 
 ---
 
@@ -276,6 +284,8 @@ Note: there seem to be a confusing number of brands from the one company: Fun Fl
 As the GetFPV page explains, if you move from 4S to 6S, you have to change the motors - all other components stay the same.
 
 E.g. 1700KV for 6S vs 2400KV for 4S.
+
+Update: actually, it seems you can "scale" 4S motors for use with 6S batteries - see <https://www.youtube.com/shorts/7hReUs7IF2Q>
 
 ---
 
@@ -439,7 +449,12 @@ The 45W one only provides 45W when using 20V, at 9V it can handle 3A, i.e. 27W. 
 Important: ExpressLRS has a different default channel to ArduPilot's default, see how to address this and other ArduPilot setup issues here: <https://www.expresslrs.org/quick-start/ardupilot-setup/>
 
 Oscar Liange ExpressLRS setup page (both RX and TX): <https://oscarliang.com/setup-expresslrs-2-4ghz>
-Joshua Bardwell's ExpressLRS getting started guide (RX and TX as well) - very good: <https://www.youtube.com/watch?v=J3Hg2f7RL1A>
+
+Joshua Bardwell's:
+
+* ExpressLRS getting started guide (RX and TX as well) - very good: <https://www.youtube.com/watch?v=J3Hg2f7RL1A>
+* ExpressLRS setup shot take: <https://www.youtube.com/watch?v=MFFUsN9ZHSU>
+* ExpressLRS model match: <https://www.youtube.com/watch?v=3S6eUWCqvUY>
 
 Good list of pretty much every ExpressLRS TX and module: <http://www.multirotorguide.com/news/list-of-expresslrs-hardware-transmitters-and-receivers/>
 
@@ -1103,3 +1118,21 @@ You might be tempted to use an adapter board like these:
 * <https://www.aliexpress.com/item/1005002589808018.html>
 
 But they're cut from carbon-fiber so, with its conductivity, this doesn't seem great (and not great IMHO as a material for their intended use as adapters either).
+
+---
+
+Cooling fan - in this video - https://www.youtube.com/watch?v=Z8ztDFvQt88 - JB recommends this:
+
+<https://www.youtube.com/watch?v=Z8ztDFvQt88>
+
+I looked for a version with a 12V supply on AliExpress, even by AliExpress's standards there seem to be a lot of people doing complete replications of whatever original store provides this. The fans _seem_ to come from Younuon but they've sold none of them themselves: <https://www.aliexpress.com/item/1005004276419122.html>
+
+The oldest store with a high rating that I could find, selling them: <https://www.aliexpress.com/item/32626023064.html>
+
+---
+
+Mounting RX on top of digital VTX: <https://www.youtube.com/watch?v=a2qHDb7LZqo>
+
+So, he and Ummagawd find this an OK approach (Jan 12, 2022).
+
+But in this Jun 7, 2022 video at the 59m 24s mark - <https://www.youtube.com/watch?v=2T_JC4v5T3E&list=PLwoDb7WF6c8neIAQBkchfiXf-C8KbzG5M&t=3564s> - he worries about mounting the RX on top of the VTX but I think the real issue is with the RX having a tiny ceramic antenna that would be entirely masked by the VTX.

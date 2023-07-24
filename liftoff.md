@@ -1,3 +1,12 @@
+Progress:
+
+* On hay stacks - just getting to the point where I wasn't crashing every few seconds and could move about a bit but in a very uncontrolled manner and without practicing anything specific.
+* Moved of to drill 1, first happy if I could hover (badly) at the height of the top of the middle pilon - after nudging forward and sideways to mean I was continously adjusting pitch and roll as well as throttle just to stay steady.
+* Then I moved on to trying to swing right and left at the height of the top of the pilons and swinging right once I'd reached the left pilon and swinging left when I'd reached the right. Around this time I adjusted my camera angle up from 5&deg; to 10&deg;.
+* I didn't try to reach the point where I could do the up-down/left-right manoever that was the ultimate goal of the first drill. Instead, I move onto drill 2.
+* Initially, I was happy if I could charge up and down the laid out lane - over time I tried to get lower and lower, i.e. run down the lane very low without bouncing off the ground.
+* Only, after about 20 hours (of total Liftoff flight time) did I try slowing down and speeding up again at the dividers on the lane. At this point, I adjusted my camera angle up from 5&deg; to the 10&deg; suggested by Jack (FPV Academy) for this stage. And removed the expo from my throttle - I didn't find this a problem to adjust to.
+
 Liftoff
 =======
 
@@ -91,7 +100,7 @@ To quickly choose the same track and drone, that you used last time, _Quick Play
 Camera angles
 -------------
 
-Liftoff defaults to a camera angle of 30&deg; which is considered way too high for a beginner - most videos etc. recommend around 10&deg; and some suggest even lower values.
+Liftoff defaults to a camera angle of 30&deg; which is considered way too high for a beginner - most videos etc. recommend between 5&deg; and 10&deg; - I started at 5&deg;.
 
 You can adjust the camera angle while playing with the up and down arrows but it'll revert to 30&deg; each time you restart.
 
@@ -100,7 +109,7 @@ To make a permanent angle change, go to the main menu and:
 * Select _Tools_, then select _Drone Editor_ in the _Workbench_ section. 
 * Select your drone (the copy you created in the previous step).
 * Here, you can give it a cooler name than "[Copy] Borrum 180 X (Tutorial)"
-* Now, select the camera and click _Edit Part_ and under _Set Camera Angle_ adjust the value to 10&deg;
+* Now, select the camera and click _Edit Part_ and under _Set Camera Angle_ adjust the value to 5&deg;
 * Click _Save_ and then _Exit_.
 
 While on the workbench, I also changed the color of the front two props to red and the back two to cyan (as [How to fly Line Of Sight : Acro Tutorial Part 1](https://www.youtube.com/watch?v=RSaPPGa626c) recommended this for keeping track of orientation when doing LoS). I was sceptical the colors would be very visible but it actually does help.

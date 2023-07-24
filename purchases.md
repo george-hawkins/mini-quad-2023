@@ -341,11 +341,15 @@ Shipping took from June 24th until July 5th - came in padded envelope with addit
 
 ---
 
+VIFLY:
+
 US$28 - 2 x VIFLY StoreSafe - LiPo Battery Discharger (2 packs each containing 2 dischargers, i.e. 4 in total)
 
 Shipping was free.
 
 Note: if I'd bought the VIFLY smoke stopper here rather than at GetFPV, it would have been US$1.30 cheaper.
+
+Shipping took from Jun 24th until July 10th and came in a padded envelope.
 
 ---
 
@@ -430,3 +434,20 @@ Shipping was EUR32.70 (for some reason, you could also opt for a far more expens
 Import duties were CHF33.50  (24.50 of which was UPS's fee for handling import duties).
 
 ---
+
+Helifree.ch
+
+CFF4 - BetaFPV screws and rubber dampers
+CF8 - Flywoo 20x20mm insulation board (10 pieces)
+CF8.40 - Flywoo 30x30mm insulation board (10 pieces)
+
+Shipping was CHF7
+
+If buying again, I'd get the BetaFPV item as part of my BetaFPV order. And I _might_ get the clear GepRC insulation boards rather than the Flywoo ones.
+
+---
+
+Would have bought but didn't:
+
+* Diatone M2 o-rings: <https://www.aliexpress.com/item/4001264267019.html>
+
