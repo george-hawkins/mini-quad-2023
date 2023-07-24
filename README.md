@@ -337,7 +337,7 @@ Chris Rossler (after testing 40 5" propellers from all the major manufacturers) 
 
 So, I'm choosing this.
 
-**Update:** as a video recommended brightly color props (the opposite of the grey HQProp 5.1X2.5X3) for initial LoS practice, I also ordered:
+**Update:** as a video - https://www.youtube.com/watch?v=RSaPPGa626c - recommended brightly color props (the opposite of the grey HQProp 5.1X2.5X3) for initial LoS practice, I also ordered:
 
 * Gemfan 51466 V2 (mixed colors): <https://www.aliexpress.com/item/32990552395.html> (also recommended by Rossler).
 * DALPROP CYCLONE T5045C PRO (mixed colors): <https://www.aliexpress.com/item/32841991315.html> (recommended by OL as "robust").
@@ -356,6 +356,8 @@ So, basically, all these propellers (i.e. Dalprop, HQProp and Gemfan) are all go
 <https://www.premium-modellbau.de/holybro-qav250-propeller-ersatzpropeller-t5040-2-paar>
 
 For propellars etc. look at recommended parts for frames down below. See if there's a clearer list of parts for the Holybro QAV250 kits.
+
+---
 
 Note: Diatone and iFlight also produce H7 FCs that can be uses with ArduPilot but they seem either less readily available or have serious issues (e.g. one of the iFlight FCs can't use a compass).
 
