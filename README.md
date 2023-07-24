@@ -393,7 +393,7 @@ Unfortunately, Ronnie Mac seems to no longer be a member of the group and I can'
 
 Team BlackSheep LOUNGE: <https://www.facebook.com/groups/BlackSheepLOUNGE/media>
 
-TODO: screen captures is in ~/git directory on Linux box.
+Screen captures from video showing noise by location of cap: ![noise by location of cap](noise-by-location-of-cap.png)
 
 TLDR; mount directly to the ESC pads if possible.
 
