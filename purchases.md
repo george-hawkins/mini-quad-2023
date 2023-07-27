@@ -437,7 +437,7 @@ Import duties were CHF33.50  (24.50 of which was UPS's fee for handling import d
 
 Helifree.ch
 
-CFF4 - BetaFPV screws and rubber dampers
+CFF4 - BetaFPV M2 screws and rubber dampers
 CF8 - Flywoo 20x20mm insulation board (10 pieces)
 CF8.40 - Flywoo 30x30mm insulation board (10 pieces)
 
@@ -451,3 +451,10 @@ Would have bought but didn't:
 
 * Diatone M2 o-rings: <https://www.aliexpress.com/item/4001264267019.html>
 
+Actually, the BetaFPV rubber dampers (above) turned out to be the perfect thing - needed for mounting the Flywoo insulation board above the VTX. Anything larger than the BetaFPV ones wouldn't have worked - on the Diatone M2 o-ring page they also have M2 dampers but they look too tall.
+
+* M3 lock nuts:
+  * <https://www.aliexpress.com/item/4000284996320.html>
+  * <https://www.aliexpress.com/item/33034833428.html>
+
+Oddly, the QAV R-2 didn't come with any nuts.
