@@ -139,7 +139,8 @@ Which side of main VTX unit is the top.
 
 Weirdly, the QAV R-2 doesn't come with nuts of any kind for top of stack.
 
----
+ESC wiring
+----------
 
 JB almost has his XT60 leads pointing back into the ESC rather than away - that seems likely to result in the wires knocking against the stack and causing vibration.
 
@@ -187,6 +188,12 @@ Even with 5 or 6mm clearance for the cap, the leads still intersect with it - if
 But I think that'd be hard to combine with the cap on the underside - I think I'd go with it on the top - solder them in first then tin the pads.
 
 I did redo it - with the cap on the top-side, I completely over compensated for having been too near the first time and moved the cap so far away from the FC that I might as well have used a tall cap.
+
+---
+
+Note for future - you can plug the ESC into the FC at this point and do a wiring continuity check (see below) and smoke test and then check that everything's good with the ESC as in <https://www.youtube.com/watch?v=5ke6LabvtGM&list=PLwoDb7WF6c8neIAQBkchfiXf-C8KbzG5M&index=4> before doing the FC wiring.
+
+If I'd done that, I'd have found an ESC issue before all the other wiring made it far more complex to diagnose and address.
 
 ---
 
@@ -293,6 +300,8 @@ For more details on the Short Saver see OL's [page](https://oscarliang.com/vifly
 
 The Short Saver is also really nice as it allows you to turn on and off the quad without prising the XT60 connectors apart - if you leave the quad powered up most of the components will get hot and some will get very hot (they rely on being cooled by moving air when in flight).
 
+Note: the one horrible feature of the Short Saver is that it has a weird XT60 that gives you almost nothing to grip and so makes unplugging it even more trouble that a normal XT60 (I found it easier gripping the connector with a dish cloth).
+
 Charging batteries
 ------------------
 
@@ -369,8 +378,108 @@ Go to <https://betaflight.com/download>, click _Latest configurator releases_ an
 
 Install it, open the _Applications_ folder, find it there, right click it and select _Open_ (just for the first time you use it to get past your Mac trying to protect you against applications that macOS can't verify). It's extremely slow to load so, I presume they're still just building x86_64 binaries and macOS is converting it for M1 or M2 chips.
 
-JB powers his quad from a battery while doing all this - I did not, the USB power from the laptop is enough.
+JB powers his quad from a battery while doing all this - I did not, 
 
-Connect the FC to your laptop using its USB-C connector.
+For the first steps you just need the USB power from the laptop is enough (and doing this meant everything except the RX stayed cooler than with the battery).
 
+[ JB initially shows a setup with the battery also connected but it's clear later that you should only connect it when you need it to test the motors. ]
 
+Once the Configurator is running, connect the FC to your laptop using its USB-C connector (macOS will ask you if you want to allow the device to connect). The FC and other components power on but it doesn't beep when there's no battery connected - surprisingly, it's the motors that make the beeps and without the battery the ESC and the motors aren't powered.
+
+You get a very scary warning for the Configurator on first connecting (see images/betaflight folder).
+
+It auto-connects, so go to the _Presets_ tab and click _Save Backup_ - when it's done it quickly disconnects and reconnects (and you see the scary warning again).
+
+Looking at the save `BTFL_cli_backup_20230727_144658.txt`, there's absolutely no changes from the defaults except for:
+
+```
+feature -RX_PARALLEL_PWM
+```
+
+[ This disables support for parallel PWN receivers - see <https://betaflight.com/docs/development/Rx> ]
+
+The files does show some useful information:
+
+```
+# Betaflight / STM32H743 (SH74) 4.3.1 Jul 13 2022 / 03:37:48 (8d4f005) MSP API: 1.44
+# config: manufacturer_id: HBRO, board_name: KAKUTEH7V2, version: cd183ad2, date: 2022-06-08T04:12:46Z
+```
+
+So, it came with Betaflight 4.3.1 and the board name is `KAKUTEH7V2`.
+
+So now click the _Disconnect_ button (upper right) in the Configurator, then select the _Firmware Flasher_ tab (left side) and click the _Auto-detect_ button (upper-left panel).
+
+It correctly detects `KAKUTEH7V2` and shows the latest firmware version (4.4.2 at the time of writing).
+
+Unlike JB, I didn't select _Show unstable releases_ as the current latest version was fine.
+
+Click _Load Firmware [Online]_ (lower right) and then _Flash Firmware_ - it'll actually switch the FC into a special DFU mode so, to macOS it'll look like a new device and it'll ask you again if you want to allow it to connect.
+
+Once the flashing is finished, click the _Connect_ button - it'll ask you if you want to apply custom defauls - you do so, select this. The same scary warning appears again.
+
+Let's fix that warning...
+
+It should go to the _Setup_ tab - place the quad flat on the table and click _Calibrate Accelerometer_ - this just takes a second.
+
+Note: it's probably a good idea to put on landing pads later and redo this step when the quad can lie flatter better (without them, the antennas under the back legs cause the quad to tip forward slightly).
+
+I hoped it might detect the compass in the GPS but the _Calibrate Magnetometer_ is greyed out.
+
+Then I went to the _Motors_ tab and selected _DSHOT600_ in the _ESC/Motor Features_ panel (the H7 is a powerful MCU and can support _DSHOT600_).
+
+NOTE: the Tekko32 product page says it supports DSHOT1200 - but it turns out that Betaflight removed DSHOT1200 support back in late 2019 (see this [post](https://intofpv.com/t-dshot1200-removed-from-betaflight-4-1)) so, _DSHOT600_ is as good as it gets.
+
+Then I selected _Bidirectional DSHOT_ and agreed to the warning that popped up.
+
+Then I clicked _Save and Reboot_.
+
+Once it reconnects, go back to the _Motors_ tab - you'll see "E: 100%" (errors at 100% which means bidirectional DSHOT is enabled but the ESC isn't powered up).
+
+Now's the time to plug in the battery (it'd be good to have a small desktop fan to keep air moving over everything and help keep things cool). So, I folded over two strips of black electrical tape and hid them under them.
+
+Once plugged in the _E_ values should go to 0%.
+
+At this point I found one of my motors wasn't working - one of the _E_ values stayed at 100%.
+
+HERE
+
+Now, click _Reorder motors_, enable the _I understand the risks_ option and click _Start_.
+
+---
+
+BLHeli_32
+---------
+
+Note: BLHeliSuite32xm crashed on me a couple of times (often when it disconnected from the FC), sometimes killing it and restarting it wasn't enough - I had to power down the quad and power it up again.
+
+Note that if you've got Betaflight Configurator, it'll automatically reconnect to the quad each time you plug it in - the Configurator always has to be disconnected for BLHeliSuite32xm to be able to access the ESCs (via the FC).
+
+The BLHeli_32 main page is in a rather odd place, they don't have a website and the main page is in the `BLHeli_32 ARM` subdirectory of their GitHub repo <https://github.com/bitdump/BLHeli/tree/master/BLHeli_32%20ARM>
+
+But just go to [releases](https://github.com/bitdump/BLHeli/releases) and select the latest MacOS release (`BLHeliSuite32xm_MacOS64_1042.zip` at the time of writing), the `.zip` file contains a `.dmg` file and from this you can install _BLHeliSuite32xm_. As with the Betaflight Configurator, right click it and select _Open_ the first time you use it.
+
+Important: initially, I connected the battery first then the USB and the USB didn't show up. Turning the battery off (using the Short Saver on/off switch) and then plugging in and out the USB fixed things.
+
+TODO: check this is always the case.
+
+For me, _BLHeliSuite32xm_ was already set up to use _Betaflight/Cleanflight_ as the interface (and so to use what's called _passthru_ whereby it takes to the ESC via Betaflight on the FC) and when I plugged in USB it auto detected the correct port.
+
+So, I just turned on the battery and then clicked _Connect_ and then _Read Setup_ - the reading was quite slow but it found 3 ESCs (the Tekk 32 is a 4-in-1 ESC) but couldn't talk to the forth one.
+
+The ESCs had rev 32.8 of BLHeli_32 (released Mar 14th, 2012).
+
+From the _ESC Setup_ menu, I selected _Save MultipleESC Setup to ini file_ and saved `BLHeli32_TEKKO32_F4_4in1_H - Rev. 32.8 - Multi_230727.ixi`.
+
+**NEXT TIME** try the _ESC flash_ tab - is its behavior any different (can you just say yes to all four at once there?).
+
+I pressed _Flash BLHeli_ and it suggested 32.9 as the latest version (I checked - at the time of writing it is the latest version, released Mar 10th, 2022 but patch releases seem to be release every so often - 32.9.0.5 released Aug 29th, 2022 is the latest shown on GitHub but maybe those patch releases only relate to BLHeliSuite32 and not to the firmware).
+
+You have to go through the process of saying yes to the desired version for all four ESCs in the 4-in-1.
+
+---
+
+Back right is the problem motor.
+
+---
+
+TODO: redo _Calibrate Accelerometer_ (see above) once you've added landing pads.
