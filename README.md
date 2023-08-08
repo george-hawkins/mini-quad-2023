@@ -554,6 +554,8 @@ Oscar has a good page on setting up your Boxer well: <https://oscarliang.com/rad
 Global RadioMaster store: <https://www.radiomasterrc.com/products/tx16s-mark-ii-radio->  
 [ Prices are in USD/RMB but from the shipping page it looks as if items ship from China - and you can get FCC and LBT variants. ]
 
+Update: according to OL - when reviewing the pocket here <https://oscarliang.com/radiomaster-pocket/> - _for the ExpressLRS variant_, switching between FCC and LBT is simply a matter of flashing the approriate firmware.
+
 EU store (items ship from the Netherlands): <https://www.radiomasterrc.eu/shop/transmitters/tx16s/radiomaster-tx16s-mark-ii/>
 
 Both global and EU store will ship TXs with 18650 batteries.
@@ -643,6 +645,8 @@ See also: <https://www.youtube.com/watch?v=OcpguW2v5es>
 Interesting: SF PV suggests covering the ESC with masking tape if you're nervous of getting splashes of solder onto the rest of the board while soldering motors to ESC.
 
 OL has a great page on soldering - he uses Kapton tape, i.e. high temperature polyimide tape and has lots of other great advice: <https://oscarliang.com/soldering-guide/>
+
+OL actually says he favors masking tape over Kapton and I agree - I switched to it later - it's just easier to work with (and much easier to get hold of in whatever width you want).
 
 ImpulseRC ApexDC frame - <https://www.getfpv.com/impulserc-apexdc-fpv-frame.html>
 
@@ -1138,3 +1142,16 @@ Mounting RX on top of digital VTX: <https://www.youtube.com/watch?v=a2qHDb7LZqo>
 So, he and Ummagawd find this an OK approach (Jan 12, 2022).
 
 But in this Jun 7, 2022 video at the 59m 24s mark - <https://www.youtube.com/watch?v=2T_JC4v5T3E&list=PLwoDb7WF6c8neIAQBkchfiXf-C8KbzG5M&t=3564s> - he worries about mounting the RX on top of the VTX but I think the real issue is with the RX having a tiny ceramic antenna that would be entirely masked by the VTX.
+
+---
+
+Balance extension leads:
+
+* 20cm 0 <https://www.getfpv.com/balance-lead-extension-cable-4s-jst-xh.html>
+* 20cm - <https://www.aliexpress.com/item/4000007952841.html>
+* 20cm - <https://www.aliexpress.com/item/32238535012.html>
+* 10/15cm - <https://www.aliexpress.com/item/32962722046.html>
+* 10cm - <https://www.aliexpress.com/item/32579755092.html>
+* 10/15cm - <https://www.aliexpress.com/item/1005004733063820.html>
+
+I went with the [first one](https://www.aliexpress.com/item/4000007952841.html) from U-Angel-1988 as _from the pictures_ it looks like they're the only ones using female connectors designed for cables (while the rest have used female connectors that are meant to be connected to a PCB and soldered the PCB facing pins to the wires and then covered the connection with heat shrink).

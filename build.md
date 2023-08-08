@@ -74,6 +74,8 @@ JB 2022 Freestyle FPV Drone Build:
 
 At the 2m 50s mark, he comments he uses Gemfan Hurricance 51477 fans - I got the 51466 variant - I don't know what the difference is.
 
+[ The [SpeedyBee Master 5 V2](https://www.speedybee.com/speedybee-master-5-v2-hd-dji-o3-air-unit-fpv-5-freestyle-drone/) comes with 51466, i.e. the same ones I have. ]
+
 If you look at JB's video, you can see the o-rings make sense if you ESC has short gummies but the Tekko have tall gummies.
 
 He does reduce motor slack at the ESC end rather than the motor end due to fear of the cable being cut by the props.
@@ -99,7 +101,7 @@ Put the cap on the opposite side of ESC to XT60 pigtain?
 My build
 ========
 
-Bolt or screw? Be consistent.
+Is it "bolt" or "screw"? Be consistent.
 
 I started by loosely screwing down the X between the small plate and the bottom plate. I used thread locker for the following screws but not for this first one.
 
@@ -142,7 +144,7 @@ Weirdly, the QAV R-2 doesn't come with nuts of any kind for top of stack.
 ESC wiring
 ----------
 
-JB almost has his XT60 leads pointing back into the ESC rather than away - that seems likely to result in the wires knocking against the stack and causing vibration.
+JB almost has his XT60 lead pointing back into the ESC rather than away - that seems likely to result in the wires knocking against the stack and causing vibration.
 
 Mr. Steele creates the pigtail, then cuts the length of cable extending beyond the connector down to 55mm, then cuts 5mm off the red one so that it when soldered down it protrudes at 45&deg;.
 
@@ -158,6 +160,11 @@ Second time around, I switched to:
 
 And chopped the shorter wire down by 8mm.
 
+---
+
+Once the XT60 and the cap is connected, you can test out everything - create a stack with just the ESC and FC, connect the 2 with the 8-pin cable and do a mini-continuity check (there's not much that can be miswired at this stage) and connect up the ShortSaver and battery.
+
+Then you can do the initial BF setup and upgrade BLHeli_32.
 
 ---
 
@@ -251,6 +258,8 @@ I cut the SiK wires down to 70mm plus 3mm of bare wire - I gave up on using my n
 
 In retrospect, I'd install the VTX and camera before the ESC - detaching the camera connector from the VTX was stressful and I wouldn't recommend it.
 
+**Update:** I did do this - make sure the camera cables is where you want it (I wanted mine off to the side of the ESC rather than running under it) and that it doesn't end up to the wrong side of any cables when e.g. soldering down the motor wires. Also, I covered the VTX cable in masking tape to protect it (mainly from just being marked with flux - I assume it's coated with silicone and would survice contact with the soldering iron) but the tape was hard to remove after everything was soldered in place - so, avoid wrapping it around the cable such that the tape sticks to itself.
+
 Unlike the antenna side (which is super simple), the little latch on the camera side of the VTX is stuck down with a little pad but just ease it off (it won't pull anything else with it). To remove the camera connector, go in under the cable with somthing thin and narrow and pry the connector up from its center.
 
 You can see someone making it look easy (working with the same kind of camera connector but on a DJI VTX module) at around the 24s mark in this [video](https://www.youtube.com/watch?v=r9Yb4ThHNGA).
@@ -290,17 +299,17 @@ JB reminds you - when powering up any device that has an antenna, e.g. the RX on
 
 I plugged the battery into the smoke stopper - the yellow LED went on. Then I plugged the smoke stopper into the quad, the LED stayed yellow - so, all good so far.
 
-There's two buttons on the Short Saver - ignore the one at the edge of the boards - it's for changing the current that it'll allow to flow (useful if you want a bit more current while doing more than basic smoke testing).
+There's two buttons on the ShortSaver - ignore the one at the edge of the boards - it's for changing the current that it'll allow to flow (useful if you want a bit more current while doing more than basic smoke testing).
 
 Just short press the other button (long pressing lets you adjust the sensitivity, again a feature we don't need for basic short testing).
 
 On pressing it, the LED went green and the FC beeped and LEDs went on on the TC, FC and GPS. The one on the TX was annoyingly bright - I find [Light Dim stickers](https://www.lightdims.com/store.htm) work very well (the web site is quite cheesy but they work way better than e.g. using black electrical tape).
 
-For more details on the Short Saver see OL's [page](https://oscarliang.com/vifly-short-saver-2/) and for a short intro (including using the other button and adjusting sensitivity), see Mads Tech's [video](https://www.youtube.com/watch?v=RT_5AQTq5Ig).
+For more details on the ShortSaver see OL's [page](https://oscarliang.com/vifly-short-saver-2/) and for a short intro (including using the other button and adjusting sensitivity), see Mads Tech's [video](https://www.youtube.com/watch?v=RT_5AQTq5Ig).
 
-The Short Saver is also really nice as it allows you to turn on and off the quad without prising the XT60 connectors apart - if you leave the quad powered up most of the components will get hot and some will get very hot (they rely on being cooled by moving air when in flight).
+The ShortSaver is also really nice as it allows you to turn on and off the quad without prising the XT60 connectors apart - if you leave the quad powered up most of the components will get hot and some will get very hot (they rely on being cooled by moving air when in flight).
 
-Note: the one horrible feature of the Short Saver is that it has a weird XT60 that gives you almost nothing to grip and so makes unplugging it even more trouble that a normal XT60 (I found it easier gripping the connector with a dish cloth).
+Note: the one horrible feature of the ShortSaver is that it has a weird XT60 that gives you almost nothing to grip and so makes unplugging it even more trouble that a normal XT60 (I found it easier gripping the connector with a dish cloth).
 
 Charging batteries
 ------------------
@@ -371,8 +380,41 @@ For a more detailed look at getting started with charging batteries, see Supa FP
 
 The other nice feature of the D6 Pro is that you can use it as a desktop power supply, i.e. if you had a XT60 female to Xt60 female cable, you can switch the task (see above) _Power Supply_ and adjust this tasks output voltage setting to 14.8V (or whatever voltage you want), then use it to power your quad rather than a battery, e.g. while testing things on your desk. When doing this you can also adjust the maximum current down to e.g. 5A to make sure you never provide enough power to accidentally spin up the props or anything else dangerous. It also has short circuit protection which means if you do short anything it _should_ shut down very quickly. However, for smoke testing,  people still seem to favor a specialized smoke stopper like the VIFLY one.
 
+---
+
+Putting batteries to storage voltage is dead simple - just select _Storage_ as the _Task_ rather than _Charge_ and put in the current as before (2.2A for my 2200mAh batteries).
+
+Unlike charging, when it reaches green it's finished (there's no additional blue phase) and it starts beeping every minute or so to tell you it's done.
+
+As expected, discharging is _way_ slower than charging. That's why there are purpose made dischargers.
+
+Hmm... looking at <https://oscarliang.com/vifly-storesafe/> and the times stated (10 hours!!!) maybe the VIFLY ones are pointless, I should have tried with the battery I had.
+
+Wiring setup
+------------
+
+| Device | UART |
+|--------|------|
+| VTX    | UART1 |
+| Bluetooth | UART2 |
+| Telemetry radio | UART3 |
+| GPS    | UART4 |
+| RX     | UART6 |
+| ESC    | UART7 |
+
+Notes:
+
+* UART2 is reserved for the FC's Bluetooth module and should be left alone (in BF, under ports, it should show with MSP enabled but everything else as toggled off or _Disabled_).
+* UART7 is reserved for the FC's connection with the ESC.
+* The above UART assignments for VTX, GPS and RX are the ones recommended by Holybro.
+* Holybro list UART3 and 4 as spare - I used 3 for the telemetry radio (which will only be used if using ArduPilot rather than BF).
+
 FC configuration
 ----------------
+
+Important: always connect USB before connecting the battery - connecting the battery first results results in the FC ignoring the USB connection if you connect if afterwards.
+
+TODO: check this is always the case.
 
 Go to <https://betaflight.com/download>, click _Latest configurator releases_ and download `betaflight-configurator_10.9.0_macOS.dmg` or whatever the latest version currently is for Mac.
 
@@ -382,9 +424,13 @@ JB powers his quad from a battery while doing all this - I did not,
 
 For the first steps you just need the USB power from the laptop is enough (and doing this meant everything except the RX stayed cooler than with the battery).
 
-[ JB initially shows a setup with the battery also connected but it's clear later that you should only connect it when you need it to test the motors. ]
+[ JB initially shows a setup with the battery also connected but it's clear later that you should only connect it when you need it to test the motors. Easiest is just to connect the ShortSaver and leave it turned off until you need battery power. ]
 
-Once the Configurator is running, connect the FC to your laptop using its USB-C connector (macOS will ask you if you want to allow the device to connect). The FC and other components power on but it doesn't beep when there's no battery connected - surprisingly, it's the motors that make the beeps and without the battery the ESC and the motors aren't powered.
+Once the Configurator is running, connect the FC to your laptop using its USB-C connector (macOS will ask you if you want to allow the device to connect). The FC and other components power on but it doesn't beep when there's no battery connected. Surprisingly, it's the motors that make the beeps and without the battery the ESC and the motors aren't powered.
+
+Update: actually the buzzer also emits some noises too - but it too only does so if there's battery power - it's silect when using just USB power.
+
+See <https://recorder.google.com/> for comparison of buzzer only startup and buzzer with motors startup.
 
 You get a very scary warning for the Configurator on first connecting (see images/betaflight folder).
 
@@ -397,6 +443,8 @@ feature -RX_PARALLEL_PWM
 ```
 
 [ This disables support for parallel PWN receivers - see <https://betaflight.com/docs/development/Rx> ]
+
+I don't see any value in replicating this later when reflashing the firmware - as we're not using a PWM RX and disabling features that you don't use doesn't typically gain anything.
 
 The files does show some useful information:
 
@@ -417,7 +465,14 @@ Click _Load Firmware [Online]_ (lower right) and then _Flash Firmware_ - it'll a
 
 Once the flashing is finished, click the _Connect_ button - it'll ask you if you want to apply custom defauls - you do so, select this. The same scary warning appears again.
 
-Let's fix that warning...
+The custom defaults don't add anything to the normal configuration besides these slightly odd changes:
+
+```
+set osd_canvas_width = 30
+set osd_canvas_height = 13
+```
+
+So... Let's fix that warning...
 
 It should go to the _Setup_ tab - place the quad flat on the table and click _Calibrate Accelerometer_ - this just takes a second.
 
@@ -439,18 +494,316 @@ Now's the time to plug in the battery (it'd be good to have a small desktop fan 
 
 Once plugged in the _E_ values should go to 0%.
 
-At this point I found one of my motors wasn't working - one of the _E_ values stayed at 100%.
+At this point I found one of my motors wasn't working - one of the _E_ values stayed at 100%. Resolving this involved a lot of resoldering, work with my multimeter and eventually a new ESC.
 
-HERE
+### Reorder motors
 
 Now, click _Reorder motors_, enable the _I understand the risks_ option and click _Start_.
+
+### Motor direction
+
+Now, click _Motor directions_, enable the _I understand the risks_ option and click _Wizard_.
+
+Note: if you try this with the ShortSaver in place, it'll cut the power to ESC as spinning up a motor beyond the minimum will bring you above the default 1A ShortSaver limit.
+
+It turns out a bug introduced in 4.4.2 has broken changing motor direction via BF - see [issue #12860](https://github.com/betaflight/betaflight/issues/12860) - it _should_ be resolved whenever 4.4.3 or 4.5 comes out.
+
+So, instead first work out which motors are turning in the wrong direction. I found it easiest not to use the _Wizard_ and clicked _Individually_ instead.
+
+Note: doing things _Individually_ rather than with the _Wizard_ also has the advantage that it doesn't draw enough current to trip the ShortSaver if you've got it connected as only one motor runs at a time.
+
+Here you can e.g. click 3 to start motor 3 and then determine if it's turning the same way as shown. The motors turn far to fast to see which direction they're turning - people use different approaches:
+
+* Attach a small piece of tape to the shaft or body of the motor to act as a flag.
+* Hold a small piece of card against the turning motor to feel if it's dragged one way or another.
+* Gently touch your finder against the body of the turning motor.
+
+I found using my finger the easiest way (and it's the way Mr. Steele suggests).
+
+In my case the upper-right and lower-left motors were turning in the wrong direction. Now, you have to map those to the numbering used by the ESC:
+
+![Tekko32 motor assignment](images/tekko32-motors.png)
+
+So, these motors are M2 and M3 (when the ESC is oriented, as in this setup, with the XT60 connector pointing forward).
+
+I then reversed the direction of these motors as described below in the section on BLHeli_32.
+
+Note: if you leave the battery plugged in too long without doing anything with the FC, the buzzer will eventually start beeping to remind you that maybe you should diconnect the battery.
+
+# Pitch, roll and yaw
+
+As the last basic check, go to the _Setup_ tab and look at the quad shown there then:
+
+* Pitch the real quad forward and backwards and confirm the one shown in BF does the same thing.
+* Roll the quad from side to side and confirm this matches too.
+* Turn the quad clockwise and counter-clockwise and confirm this matches too.
+
+VTX, camera and goggles
+-----------------------
+
+Resources: Painless360's ["Walksnail for new owners: All you need to know in one video!"](https://www.youtube.com/watch?v=ATLZLxGSSJg), OL's ["How to Setup Walksnail Avatar Digital HD FPV System
+"](https://oscarliang.com/setup-avatar-fpv-system/).
+
+Note: the goggles have a fan (which stops them fogging up when you're wearing them) and it makes quite a lot of noise.
+
+Note: when working with the VTX setup, the ShortSaver sometimes tripped so, I pressed its second button - this turns on a blue LED to indicate that the ShortSaver has raised its current limit from 1A to 2A.
+
+Note: sometimes I didn't get video out via the USB-C connector of the goggles and only solution was to disconnect and reconnect them to power.
+
+If you've got a 9V or 12V power adapter with a 5.5x2.1mm barrel jack, you can power your goggle with that. Otherwise use a 2S battery and use the XT60 to barrel jack lead that comes with the goggles.
+
+If you've got a USB-C to HDMI adapter, you can plug the output of the googles into a monitor or TV. Otherwise, just look at the output in the googles themselves.
+
+TODO: put photo of setup with mains power and HDMI output here.
+
+You'll need a 32GB U3 micro SD card (ideally, but any class 10 card will probably do).
+
+Using _Disk Utility_, format it as _MS-DOS (FAT32)_ (rather than the more normal _ExFat_ which can handle cards larger than 32GB) - according to OL and others, Fatshark goggles work best with FAT32.
+
+I named my card "FATSHARK".
+
+Go to the Fatshark Recon HD [support page](https://fatshark.helpscoutdocs.com/article/177-recon-hd) and download the latest firmware (33.39.10 at the time of writing).
+
+Note: the Recon HD PDF manual that's also linked to there is fairly useless.
+
+Extract the downloaded `.zip` file - it contains a `README.md.txt` which tell you exactly how to update the firmware on the goggles:
+
+```
+Remove the SD card from your goggles and insert it into your computer.
+Put the correct firmware file onto the SD card.
+Eject the SD card from your computer and insert it back into the goggles.
+Power up the goggles. Wait until you see the Standby screen.
+Using a tool, push and hold the red Link button for 8 seconds. The headset screens will go black indicating the start of the update process.
+The update will take approximately 10 minutes.
+During the update, the goggles will beep. This is normal. DO NOT turn off the headset until the update is finished.
+When the update is complete, the beeping will stop and the goggles return to the Standby screen
+Enter goggle settings menu and select RESET
+```
+
+The correct firmware file is the `AvatarMini_Gnd_XX.XX.XX.img` file (the other `.img` file is for the VTX).
+
+When they say "push and hold the red Link button", they mean press the bind button (that's under the little hole above the goggle's power connector). I used a toothpick to press it.
+
+Once you've held it down for 8 seconds, the screen only black very temporarily before returning to the usual boot screen showing "AVATAR HD SYSTEM" - after a few seconds it starts to beep loudly and repeatedly and goes on for several minutes like this before ending ending with a long beep and then starting up properly.
+
+If you then navigate to _Settings / Device / Device Info_, the _Goggle SW Version_ should now show the version you just installed.
+
+Painless360 suggests also doing a full reset at this stage (I presume to ensure there are no old settings that _might_ not be appropriate for the new firmware). To do this go to _Settings / Device / Reset All_ - click _OK_ and the goggles will reboot.
+
+### Updating VTX firmware
+
+Initially, I just powered the FC via USB but the VTX is only powered up if a battery is connected.
+
+So, power the quad with a battery (a little LED on the VTX should starts to blink green, showing that it's powered) and plug connect the VTX's USB adapter to your laptop with a USB-C cable - the VTX should show up as a drive on your laptop.
+
+Note: when the VTX is connected via USB-C to the laptop the LED is actually blinking between green and red but in bright light, and depending on the angle, the red is hard to notice.
+
+The `.zip` downloaded above for the goggles also contains a corresponding `.img` file for the VTX.
+
+This `.img` file is also available from Caddx (Caddx is the creator of the Avatar system and the maker of the VTX while Fatshark is the maker of the Recon HD goggles) - I checked their [download page](https://caddxfpv.com/pages/download) and the latest Avatar firmware version was the same as the one that came with the goggles.
+
+Note: Painless360 says its not necessary that the goggles and the VTX be on exactly the same version so, if Caddx release a new firmware version for the VTX before Fatshark pick it up it should be OK to use it without also updating the goggles.
+
+So, I copied the `Avatar_Sky_XX.XX.XX.img` file, included in the Fatshark `.zip` file, to the VTX drive.
+
+**Important:** I had to switch USB-C cable - with the first one I tried, the drive didn't show up (despite the fact that that cable had worked fine when connecting the FC so, I don't know what the issue might be).
+
+Then, I just followed the instructions in the Caddx quickstart guide for the V2 system:
+
+> 2. Press and hold the VTX linking button for 8 seconds, and release the button after the indicator light goes out. At this time, the VTX will automatically restart and enter the upgrade state, and the indicator light will change from blinking red to solid red and then turn off. The upgrade time is about 20 seconds, please do not power off during the upgrade process! (f the VTX continues to light up red, it means that the firmware cannot be detected or the firmware is wrong, please check the firmware file)
+>
+> 3. After the upgrade is successful, the VTX indicator turns green and blinks.
+
+The drive contains a `Avatar_version.txt`. After my first upgrade attempt, this file still contained the old version number. Things worked better the second time when I also disconnected the USB-C cable from my laptop after ejecting the VTX drive (this also stopped the Mac complaining, during the update process, about the drive become unreadable and being ejected incorrectly).
+
+At the start of the update process, the LED first went dark for a while, blinked red for a while then solid red for a while and then at the end of the process went dark for quite a few seconds before flashing green again. At this point I reconnected the USB-C cable and checked the `Avatar_version.txt` file.
+
+Note: in general, you should pull out cables by their leads but with the VTX USB-C adapter it's hard to see how you can do anything else - just hold the leads and gently pull it out.
+
+### Bind the goggles to the VTX
+
+Briefly press the bind button on the goggles (with a toothpick or whatever) - it should start to beep.
+
+With the VTX powered up (and the USB-C adapter disconnected), it's LED should be blinking green - briefly press it's bind button.
+
+The goggles should stop beeping and after a few seconds the video feed from the camera should be visible in the goggles.
+
+Whenever the quad was powered from the battery, the VTX became extremely hot. I was hoping that once connected to the goggles that the goggles might tell the VTX to go into 25mW standby mode.
+
+But, I now think the VTX is in 25mW anyway when not connected to the goggles and being connected makes no difference - the VTX still quickly overheats even in 25mW mode.
+
+### Betaflight setup
+
+TODO: check if these settings were around _before_ the following steps - they seem unrelated but they appeared to be added as a result of one of the step here (but maybe it's something I changed earlier and didn't notice):
+
+```
+feature -TELEMETRY                                                                                  
+feature ESC_SENSOR
+```
+
+The VTX is connected the FC's VTX port which uses T1 and R1, i.e. UART1.
+
+Just select _VTX (MSP + Displayport)_ from the _Peripherals_ colum for UART1. And click _Save and Reboot_.
+
+![VTX UART1 setup](images/betaflight/004-vtx-uart1-setup.png)
+
+**Important:** I think OL has this shown incorrectly - he shows _VTX (MSP + Displayport)_ selected (which is correct) but also show _Serial RX_ enabled (which is **incorrect**) - it's the _MSP/Configuration_ toggle that should be enabled (and selecting _VTX (MSP + Displayport)_ does this automatically if it's not already enabled). If you look at Painless360 and 
+
+**Update:** you can skip this ports step and let the preset (see next step do it for you).
+
+Go to the _Presets_ tab, search for "Avatar" and select "OSD for FPV.wtf, DJI O3, Avatar HD", click it - a little dialog will pop up, click the _Options_ dropdown and tick the _use displayport and MSP VTX on uart1_ option, then click the _Pick_ button. Then click _Save and Reboot_.
+
+This will add the following lines to your configuration:
+
+```
+serial 0 131073 115200 57600 0 115200
+set osd_displayport_device = MSP
+set vcd_video_system = HD
+```
+
+If you go to the OSD tab, you'll see the preset also caused _HD_ to become selected in the _Video Format_ panel.
+
+On the OSD tab, I switched the font to bold (as OL says this is his favorite). The default OSD layout is very minimal:
+
+![default OSD layout](images/005-bold-font-default-osd-layout.png)
+
+You can configure three different profiles, and tick items you want included in the display and then drag them around on the image to place them where you want.
+
+### OSD dimensions
+
+Remember the odd `osd_canvas_width` and `osd_canvas_height` values that were setup as part of the inital firmware installation (see up above if you've forgotten).
+
+It turns out we **don't** want those settings for HD video. You can get rid of them by going to the OSD tab and toggling the _Video Format_ from _HD_ to any of the other values and then back to _HD_ and pressing _Save_ - this will cause it to override and remove those `osd_canvas_width` and `osd_canvas_height` values.
+
+If you go to the CLI tab and query for these values now, you'll see:
+
+```
+osd_canvas_width = 53
+Allowed range: 0 - 63
+osd_canvas_height = 20
+Allowed range: 0 - 31
+```
+
+According to the BF [OSD documentation](https://betaflight.com/docs/wiki/configurator/osd-tab) these are the default HD values and:
+
+> When the VTX is online BetaFlight will query via MSP Displayport to determine the optimum grid size and may update the grid to match what is supported by the digital VTX system.
+
+However, I don't see any such updating occuring with the Avatar VTX.
+
+---
+
+In the goggles the upper SD card icon shows the available capacity on the SD card in the goggles while the lower icon shows the space available on the VTX's internal storage.
+
+Rather than setting up all the OSD elements by hand, I just used OL's setup for HD with GPS that he provides on his ["How to Setup Betaflight OSD"](https://oscarliang.com/betaflight-osd) page:
+
+These are OL's settings from for a non-GPS setup from his [Avatar page](https://oscarliang.com/setup-avatar-fpv-system/#Betaflight-44):
+
+```
+set osd_craft_name_pos = 2083
+set osd_pilot_name_pos = 2115
+save
+```
+
+```
+set osd_avg_cell_voltage_pos = 2520
+set osd_current_pos = 3563
+set osd_flymode_pos = 3596
+set osd_link_quality_pos = 2237
+set osd_mah_drawn_pos = 2531
+set osd_rssi_dbm_pos = 2229
+set osd_throttle_pos = 3532
+set osd_tim_2_pos = 2563
+set osd_vbat_pos = 2499
+set osd_warnings_pos = 14677
+save
+```
+
+######################################
+TODO: work out if the width and height are now good/bad.
+Is this the reason the layout above doesn't look anything like in his photo (tho' his photo includes GPS thingies that clearly aren't in the items above)?
+Does the default font have all the nice elements (like satelites etc.) that can be seen in OLs photos?
+
+==> Seems the defaults are good - it is 53 wide, the useable height is 18 (because there are goggle icons already at the bottom). And the SD card icons cut out a rather pointless 4 high x 7 wide chunk from the upper-right.
+So, get rid of the stupid custom values and live with the defaults.
+######################################
+
+
+These are the ones from his [Betaflight OSD page](https://oscarliang.com/betaflight-osd/#HD-with-GPS) for HD with GPS.
+
+However, on that page he explicitly sets a width and height that may not be Avatar appropriate:
+
+```
+set osd_canvas_width = 60
+set osd_canvas_height = 22
+```
+
+Note that these non-GPS related values are different, e.g. 2049 here vs 2083 above.
+
+```
+set osd_craft_name_pos = 2049
+set osd_pilot_name_pos = 2081
+```
+
+```
+set osd_avg_cell_voltage_pos = 2587
+set osd_current_pos = 3636
+set osd_flymode_pos = 3670
+set osd_link_quality_pos = 2337
+set osd_mah_drawn_pos = 2561
+set osd_rssi_dbm_pos = 2305
+set osd_throttle_pos = 3606
+set osd_tim_2_pos = 2625
+set osd_vbat_pos = 2529
+set osd_warnings_pos = 14712
+```
+
+```
+set osd_altitude_pos = 18587
+set osd_flight_dist_pos = 2593
+set osd_gps_lat_pos = 3087
+set osd_gps_lon_pos = 3119
+set osd_gps_sats_pos = 2369
+set osd_gps_speed_pos = 3382
+set osd_home_dir_pos = 2269
+set osd_home_dist_pos = 2235
+set osd_log_status_pos = 1616
+set osd_sys_lq_pos = 225
+save
+```
+
+TODO: do remaining Painless360 points like 700mW output and double-check for additional items in OLs guide.
+
+### Extra channels
+
+My goggles came with only the public channel (CHP) and three other channels (CH1-3) available for use - these are the channels allowed in the EU. If you're in the US (and hence subject to FCC rules), you can enable four additional channels. This is covered in OL's section on ["Unlocking FCC Mode"](https://oscarliang.com/setup-avatar-fpv-system/#Unlocking-FCC-Mode).
+
+### Goggle's DVR
+
+For the best recorded video quality, you should use the video recorded directly by the VTX.
+
+But there's still a good reason to always have the DVR running in your goggles - when you crash, it usually happens suddenly and afterwards it can be difficult to remember or line up what you saw just before the crash and what you see when you take the goggles off and go search for the quad. If the DVR is running, you can review the last moment before the crash to try and get a grasp of exactly where the quad was before it crashed. Even if the quad has GPS and a buzzer, this could still be very useful.
+
+LEDs
+----
+
+Setting up the LEDs isn't very well [documented](https://betaflight.com/docs/development/LedStrip) and even OL's [HOWTO](https://oscarliang.com/setup-led-betaflight/) isn't terribly clear.
+
+My steps:
+
+* Go to the _Configuration_ tab, and under _Other Features_, enable _LED_STRIP_ and click _Save and Reboot_.
+* Go to the now showing _LED Strip_ tab.
+* Click the _Wire Ordering Mode_ button and just click four locations on the grid so they end up numbered 0 to 3. If you had a larger LED panel, you'd lay things out so the layout on the grid matched that on the physical panel.
+* Then click the _Wire Ordering Mode_ button again (so, it returns to its green state).
+* Now, click the grid location with the 0 LED, go to _Function_ and select _Color_ and then select e.g. white (number 1) from the grid of colors below.
+* Repeat this for the remaining 3 LEDs, i.e. for each set _Function_ to _Color_ and select a color.
+* Once done, click _Save_.
 
 ---
 
 BLHeli_32
 ---------
 
-Note: BLHeliSuite32xm crashed on me a couple of times (often when it disconnected from the FC), sometimes killing it and restarting it wasn't enough - I had to power down the quad and power it up again.
+Note: BLHeliSuite32xm hung on me quite often (usually when connecting or disconnecting) and sometimes _Force Quit_ and restarting it wasn't enough - I had to power down the quad and power it up again.
 
 Note that if you've got Betaflight Configurator, it'll automatically reconnect to the quad each time you plug it in - the Configurator always has to be disconnected for BLHeliSuite32xm to be able to access the ESCs (via the FC).
 
@@ -458,27 +811,124 @@ The BLHeli_32 main page is in a rather odd place, they don't have a website and 
 
 But just go to [releases](https://github.com/bitdump/BLHeli/releases) and select the latest MacOS release (`BLHeliSuite32xm_MacOS64_1042.zip` at the time of writing), the `.zip` file contains a `.dmg` file and from this you can install _BLHeliSuite32xm_. As with the Betaflight Configurator, right click it and select _Open_ the first time you use it.
 
-Important: initially, I connected the battery first then the USB and the USB didn't show up. Turning the battery off (using the Short Saver on/off switch) and then plugging in and out the USB fixed things.
-
-TODO: check this is always the case.
-
 For me, _BLHeliSuite32xm_ was already set up to use _Betaflight/Cleanflight_ as the interface (and so to use what's called _passthru_ whereby it takes to the ESC via Betaflight on the FC) and when I plugged in USB it auto detected the correct port.
 
-So, I just turned on the battery and then clicked _Connect_ and then _Read Setup_ - the reading was quite slow but it found 3 ESCs (the Tekk 32 is a 4-in-1 ESC) but couldn't talk to the forth one.
+So, I just connected the battery and clicked _Read Setup_ (it automatically connects as part of this) - the reading was quite slow but it found 3 ESCs (the Tekk 32 is a 4-in-1 ESC) but couldn't talk to the forth one.
 
 The ESCs had rev 32.8 of BLHeli_32 (released Mar 14th, 2012).
 
 From the _ESC Setup_ menu, I selected _Save MultipleESC Setup to ini file_ and saved `BLHeli32_TEKKO32_F4_4in1_H - Rev. 32.8 - Multi_230727.ixi`.
 
-**NEXT TIME** try the _ESC flash_ tab - is its behavior any different (can you just say yes to all four at once there?).
+Go to the _ESC Flash_ tab and the check boxes beside all four ESCs should be selected and the _Flash to_ column should show 32.9 (or whatever the current version is) - just press _Flash Selected ESC_.
 
-I pressed _Flash BLHeli_ and it suggested 32.9 as the latest version (I checked - at the time of writing it is the latest version, released Mar 10th, 2022 but patch releases seem to be release every so often - 32.9.0.5 released Aug 29th, 2022 is the latest shown on GitHub but maybe those patch releases only relate to BLHeliSuite32 and not to the firmware).
+The writing process takes some time and is repeated for each ESC in turn.
 
-You have to go through the process of saying yes to the desired version for all four ESCs in the 4-in-1.
+Using the _ESC Flash_ tab is simpler than using the _Flash BLHeli_ button on the main tab - if you use this your presented with a more complicated dialog where you have to select the appropriate version and then have agree to the update for each motor in turn.
+
+Note: releases of BLHeli_32 seem to come out about at most once year - 32.9 was released Mar 10th, 2022 - while patch releases of the software suite seem to come out slightly more often, e.g. 32.9.0.5 (the latest currently shown version of the GitHub releases page) was released Aug 29th, 2022.
+
+Once done flashing, I clicked _Disconnect_ (at which point the suite hung and _Force Quit_ was required).
+
+Before hanging, it warned that you must completely power-off the quad and restart it - which I did.
+
+### Reversing motor direction
+
+As reversing motor direction isn't working in BF 4.4.2 (see above), I did it in BLHeliSuite32xm.
+
+Connect things up as before and click _Read Setup_.
+
+Beside the _Disconnect_ button, you should see a little panel labeled "Multiple ESC / Master#1" and containing numbered buttons for the 4 ESCs.
+
+If you want to change the direction of e.g. motor 2 then click the buttons for the _other_ ESCs so the labels for those buttons become replaced with "..".
+
+Once that's done the label for the panel becomes "Single ESC#2" - this means any change made will only apply for ESC 2.
+
+Now, drag the _Motor Direction_ slider slightly to the right so it switches from _Normal_ to _Reversed_ and then click _Write Setup_.
+
+Make the same change for any other ESCs where the motor direction needs to be reversed.
+
+### Music editor
+
+There's one other fun feature that maybe worth looking at - the _Music Editor_ - it's possible to customize the sounds the motors make when the ESCs power up, it can even be polyphonic with different ESCs playing different notes - see the 5m mark in JB's [""BLHeli32 100% Explained - Part 1](https://www.youtube.com/watch?v=WuaJNxTUc8o&t=300s) video.
 
 ---
 
 Back right is the problem motor.
+
+Putting it into "Octo Flat X" and then looking at the last four motors showed "E: 0.00%" for the ESCs once I got a new one - you don't need to have connected the motors.
+
+Go to CLI and:
+
+```
+> resource
+...
+resource MOTOR 1 B00
+resource MOTOR 2 B01
+resource MOTOR 3 B03
+resource MOTOR 4 B10
+resource MOTOR 5 A00
+resource MOTOR 6 A02
+resource MOTOR 7 C08
+resource MOTOR 8 C09
+...
+```
+
+Then:
+
+```
+resource motor 1 c09
+resource motor 2 c08
+resource motor 3 a02
+resource motor 4 a00
+```
+
+Note: when reassigning the motors we assigned the 5 to 8 values in reverse order to motors 1 to 4, i.e. 8 became 1, 7 became 2 etc. as we rotated the ESC and we want to take this into account so BF sees the motors in their standard expected order.
+
+For each motor, it'll warn you:
+
+```
+NOTE: C08 already assigned to MOTOR 7. MOTOR 7 disabled.
+```
+
+Then:
+
+```
+> save
+```
+
+The FC will reboot. And "brick" my FC.
+
+Unbricking the FC
+-----------------
+
+Holding down the button on the FC while connecting the USB puts it into bootloader mode. Some FCs may have e.g. a red LED to indicate bootloader mode. On the Kakute, the only difference is that the blinking blue LED does not come on, the solid green LED comes on (as normal).
+
+Flashing is almost identical to the normal process - click _Update Firmware_ and:
+
+* Toggle on _No reboot sequence_.
+* Leave _Flash on connect_ off.
+* Toggle on _Full chip erase_ (to wipe the bad configuration that's bricking things).
+* Leave _Manual baud rate_ off.
+
+Then just click _Load Firmware [Online]_, then _Flash Firmware_ and, once finished, just click _Connect_. That's it.
+
+I repeated the `resource motor 1 a00` etc. steps and second time around all seemed to work - I suspect the issue was me having put it into "Octo Flat X" mode and not switching back to "Quad X" before saving.
+
+---
+
+JB and Mr. Steele route their XT60 out the side. But I've also seen OL route it out front top (i.e. he orients the ESC like I did): <https://oscarliang.com/speedybee-master-5-v2-drone/>
+
+But this wouldn't work with QAV R-2 frame - holes in top plate aren't big enough.
+
+Others route it out the back under the VTX etc.
+
+---
+
+Remember PIT switch. And look at BT - the FC has an ESP32-C3! Apparently, it can be used with the SpeedyBee iOS & Android apps.
+
+---
+
+I wondered why everyone has the GPS in an angled TPU holder when Mateksys etc. have dire warnings that it must be flat. But what's flat in flight? It should be at about the same angle as the camera.
 
 ---
 

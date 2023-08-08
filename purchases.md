@@ -128,6 +128,8 @@ SFr156.52 Holybro Kakute H7 V2 Flight Controller and Tekko32 F4 4in1 50A
 
 TODO: see what revisions you get of FC and ESC - the pictures show v2.1 for the FC and v1.5 for the ESC. Hopefully, the actual FC version is 2.2 and the ESC version is 1.9:
 
+The ESC version was 1.7 and the FC was version 2.1, i.e the original version with the 1.5A BEC rather than the 2.2 one with a 3A BEC.
+
 * [Kakute H7 version differences](https://docs.holybro.com/fpv-flight-controller/kakute-h7-version-difference).
 * [ESC current sensor scale](https://docs.holybro.com/esc/current-sensor-scale).
 
@@ -293,6 +295,16 @@ Note: it was very non-obvious (to me) how to open the Ethix cable set box withou
 
 ---
 
+SD card - the Recon HD goggles don't come with an SD card and you'll need one if you want to upgrade the firmware or record the received video.
+
+The cheapest SD cards these days are class 10 U1 cards. But you should go for a U3 card (which will be more than adaquate for this purpose - there's no need for anything higher end).
+
+A 32GB _SanDisk Extreme U3 V30 A1_ costs around US$10. There's no point buying a larger card as Fatshark googles typically work best with FAT32 which doesn't support more than 32GB.
+
+Any U3 card will be more than capable 
+
+---
+
 I put the GetFPV order together after the FeiYing one, if doing again, I'd buy the battery checker from FeiYing for 1/4 the price.
 
 See note about CellMeter-7 and 8 in README.
@@ -447,6 +459,19 @@ If buying again, I'd get the BetaFPV item as part of my BetaFPV order. And I _mi
 
 ---
 
+flyingtech.co.uk
+
+GBP57 - Tekko32 F4 4in1 50A
+GBP2.60 - 8 x M3 lock nuts (black)
+GBP4 - Holybro long and short 8 Pin JST-SH ribbon cables for ESC
+GBP1.60 - 8 Pin JST-SH male plug with 200mm silicone wire pigtail
+
+I suspect I thought the 200mm cable had a plug on both ends but it was just a pigtail.
+
+The ESC was version 1.7 - the same as the one bought via Banggood.
+
+---
+
 Would have bought but didn't:
 
 * Diatone M2 o-rings: <https://www.aliexpress.com/item/4001264267019.html>
@@ -458,3 +483,56 @@ Actually, the BetaFPV rubber dampers (above) turned out to be the perfect thing 
   * <https://www.aliexpress.com/item/33034833428.html>
 
 Oddly, the QAV R-2 didn't come with any nuts.
+
+---
+
+The VTX really did start to overheat even in standby mode when working with it on my desk. I ordered something similar to what JB recommends in [this video](https://www.youtube.com/watch?v=Z8ztDFvQt88).
+
+Fans are generally 12V so, powering them via 5V USB will mean you're getting less power from them than they can deliver (however, it's probably still more than enough).
+
+I ordered two versions:
+
+* Sensda Electronics - a version with a 12V wall power adapter - <https://www.aliexpress.com/item/32626023064.html>
+* Gdstime Technology - a simple 5V USB version - <https://www.aliexpress.com/item/32684380486.html>
+
+Note: Gdstime seem to be the producers of the fans that are sold on many other AliExpress stores, they have high sales for other fans - the particular one I chose had no previous sales but it was the size I wanted (the higher sales ones were larger 120mm fans - I wanted a smaller 75mm one).
+
+---
+
+U-Angle-1988
+
+US$2.35 - 20cm JST-XH balance lead extension cable (5 pieces)
+
+Shipping was US$3.75 as I wanted faster shipping but the default was US$0.35.
+
+---
+
+FPV24.com
+
+EUR2.44 - iFlight M3 rubber damper balls for FPV F4 F7 FC (20 pieces)
+EUR3.28 - Mateksys FC vibration damping M3*7+4.5 (4 pieces)
+
+GetFPV have the same products:
+
+* <https://www.getfpv.com/anti-vibration-flight-controller-standoff-7mm.html>
+* <https://www.getfpv.com/iflight-m3-rubber-damper-balls-for-f4-f7-flight-controller-20-pcs.html><
+
+Shipping was EUR11.68 and came in a few days (from Germany).
+
+Surprisingly, the products look to really be iFlight and Mateksys branded products.
+
+The iFlight grommets are somewhat longer on one side than the other (they're half-way between the ones that came from Holybro and the ones below from FlightOne).
+
+---
+
+FPVracing.ch
+
+CH3.50 - Soft mount grommet (black, 5 pieces)
+CHF3.90 - M3 Aluminium lock nut (green, 4 pieces)
+CHF3.90 - M3 multipurpose o-ring (8 pieces)
+
+The o-rings are from Lumenier and also available from GetFPV - <https://www.getfpv.com/multipurpose-o-ring-set-of-8.html>
+
+Shipping was CHF5 and came in a few days.
+
+The grommets are perfect - unlike the iFlight ones they're equally long on both sides. However, they come from a company - FlightOne - that according to JB is [dead or should be dead](https://www.youtube.com/watch?v=JvqtlnPCbMM).
