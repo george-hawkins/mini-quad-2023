@@ -1155,3 +1155,13 @@ Balance extension leads:
 * 10/15cm - <https://www.aliexpress.com/item/1005004733063820.html>
 
 I went with the [first one](https://www.aliexpress.com/item/4000007952841.html) from U-Angel-1988 as _from the pictures_ it looks like they're the only ones using female connectors designed for cables (while the rest have used female connectors that are meant to be connected to a PCB and soldered the PCB facing pins to the wires and then covered the connection with heat shrink).
+
+---
+
+HDMI capture:
+
+The MS2130 seems to the chip to look out for. This seems to be the most popular form <https://www.aliexpress.com/item/1005004990708725.html>
+
+I however went with a USB-C variant: <https://www.aliexpress.com/item/1005005117882668.html> - they is the 60Hz variant (they also have a 30Hz variant).
+
+If the one I ordered works with <https://obsproject.com/> then it's _probably_ MS2130 based - and perhaps OBS Studio can even display details about the capture hardware.

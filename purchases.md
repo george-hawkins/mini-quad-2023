@@ -245,6 +245,27 @@ The XT60+ connectors actually appear to be genuine Amass XT60H connectors (that 
 
 ---
 
+Digitec.ch 2nd order:
+
+Fr. 11.60 XT60 female to female cable  <https://www.digitec.ch/de/s1/product/ep-adapterkabel-xt60-fem-auf-xt60-fem-rc-kabel-stecker-12011982>
+
+This cable can be used with the HOTA charger to use it as a bench powersupply.
+
+I bought this after discharging one of my LiPo batteries beyond the point of no return while setting up the quad.
+
+This cable is manufactured by EP: <https://www.epproduct.com/de/adapterkabel/20346-ep-adapterkabel-xt60-fem-auf-xt60-fem-7613081055215.html>
+It seems readily available in Europe.
+But I couldn't find an equivalent on GetFPV or RDQ.
+But you can find something similar on AliExpress:
+
+* <https://hz.aliexpress.com/i/1005002863595028.html>
+* <https://www.aliexpress.com/item/1005003890494615.html>
+* <https://www.aliexpress.com/item/1005003396022942.html>
+
+You want the female head to female head variant.
+
+---
+
 Caddx FPV
 
 US$150 - Walksnail Avatar HD Kit V2 (with Gyroflow + 32GB)
@@ -536,3 +557,15 @@ The o-rings are from Lumenier and also available from GetFPV - <https://www.getf
 Shipping was CHF5 and came in a few days.
 
 The grommets are perfect - unlike the iFlight ones they're equally long on both sides. However, they come from a company - FlightOne - that according to JB is [dead or should be dead](https://www.youtube.com/watch?v=JvqtlnPCbMM).
+
+Actually, my intention was to add an o-ring under the grommet - so perhaps the iFlight ones are ideal and I can avoid the an o-ring.
+
+---
+
+Hagibis Offical store
+
+US$17.70 60Hz HDMI to USB-C capture device
+
+Shipping was US$2.50
+
+Check if works with https://obsproject.com/> and see if OBS Studio can display details about the capture hardware - is it really using an MS2130?
