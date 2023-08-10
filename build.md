@@ -692,86 +692,105 @@ However, I don't see any such updating occuring with the Avatar VTX.
 
 ---
 
-In the goggles the upper SD card icon shows the available capacity on the SD card in the goggles while the lower icon shows the space available on the VTX's internal storage.
+It turns out however, that the defaults are fine for the Avatar VTX 2. It has a useable area of 53x18 with a 7x4 chunk taken out from the upper-right by the rather pointless SD card icons (the upper SD card icon shows the available capacity on the SD card in the goggles while the lower one shows the space available on the VTX's internal storage).
 
-Rather than setting up all the OSD elements by hand, I just used OL's setup for HD with GPS that he provides on his ["How to Setup Betaflight OSD"](https://oscarliang.com/betaflight-osd) page:
+Note: the `osd_canvas_width` and `osd_canvas_height` values just tell BF how big the canvas is, they don't affect the VTX or the goggles - so if these values are wrong, all they affect is the size of the image and its grid that are used in the BD _OSD_ tab and just mean it doesn't match the real dimensions.
 
-These are OL's settings from for a non-GPS setup from his [Avatar page](https://oscarliang.com/setup-avatar-fpv-system/#Betaflight-44):
+OL provides a OSD setup in his [Walksnail Avatar setup guide](https://oscarliang.com/setup-avatar-fpv-system/#Betaflight-Configurations) but it doesn't include GPS related elements.
+
+So, instead I took his _HD (with GPS)_ setup from his [Betaflight OSD setup guide](https://oscarliang.com/betaflight-osd/). This setup is designed for a 60x22 canvas so, I layed things out again in the same relative positions for a 58x18 canvas (and took into account the chunk missing from the upper-right). I've split the settings into three sections.
+
+Note: I checked the setup on the Walksnail Avatar page - it's exactly the same set of elements as on the Betaflight OSD page, just without the GPS related items.
+
+**1.** The core non-GPS related items:
 
 ```
-set osd_craft_name_pos = 2083
-set osd_pilot_name_pos = 2115
+set osd_avg_cell_voltage_pos = 2519
+set osd_current_pos = 3597
+set osd_flymode_pos = 3631
+set osd_link_quality_pos = 2273
+set osd_mah_drawn_pos = 2529
+set osd_rssi_dbm_pos = 2241
+set osd_throttle_pos = 3567
+set osd_tim_2_pos = 2593
+set osd_vbat_pos = 2497
+set osd_warnings_pos = 14645
 save
 ```
 
-```
-set osd_avg_cell_voltage_pos = 2520
-set osd_current_pos = 3563
-set osd_flymode_pos = 3596
-set osd_link_quality_pos = 2237
-set osd_mah_drawn_pos = 2531
-set osd_rssi_dbm_pos = 2229
-set osd_throttle_pos = 3532
-set osd_tim_2_pos = 2563
-set osd_vbat_pos = 2499
-set osd_warnings_pos = 14677
-save
-```
-
-######################################
-TODO: work out if the width and height are now good/bad.
-Is this the reason the layout above doesn't look anything like in his photo (tho' his photo includes GPS thingies that clearly aren't in the items above)?
-Does the default font have all the nice elements (like satelites etc.) that can be seen in OLs photos?
-
-==> Seems the defaults are good - it is 53 wide, the useable height is 18 (because there are goggle icons already at the bottom). And the SD card icons cut out a rather pointless 4 high x 7 wide chunk from the upper-right.
-So, get rid of the stupid custom values and live with the defaults.
-######################################
-
-
-These are the ones from his [Betaflight OSD page](https://oscarliang.com/betaflight-osd/#HD-with-GPS) for HD with GPS.
-
-However, on that page he explicitly sets a width and height that may not be Avatar appropriate:
+**2.** The GPS related items:
 
 ```
-set osd_canvas_width = 60
-set osd_canvas_height = 22
-```
-
-Note that these non-GPS related values are different, e.g. 2049 here vs 2083 above.
-
-```
-set osd_craft_name_pos = 2049
-set osd_pilot_name_pos = 2081
-```
-
-```
-set osd_avg_cell_voltage_pos = 2587
-set osd_current_pos = 3636
-set osd_flymode_pos = 3670
-set osd_link_quality_pos = 2337
-set osd_mah_drawn_pos = 2561
-set osd_rssi_dbm_pos = 2305
-set osd_throttle_pos = 3606
-set osd_tim_2_pos = 2625
-set osd_vbat_pos = 2529
-set osd_warnings_pos = 14712
-```
-
-```
-set osd_altitude_pos = 18587
-set osd_flight_dist_pos = 2593
-set osd_gps_lat_pos = 3087
-set osd_gps_lon_pos = 3119
-set osd_gps_sats_pos = 2369
-set osd_gps_speed_pos = 3382
-set osd_home_dir_pos = 2269
-set osd_home_dist_pos = 2235
-set osd_log_status_pos = 1616
+set osd_altitude_pos = 18552
+set osd_flight_dist_pos = 2561
+set osd_gps_lat_pos = 3073
+set osd_gps_lon_pos = 3105
+set osd_gps_sats_pos = 2305
+set osd_gps_speed_pos = 3311
+set osd_home_dir_pos = 2234
+set osd_home_dist_pos = 2200
+set osd_log_status_pos = 1584
 set osd_sys_lq_pos = 225
 save
 ```
 
+**3.** The craft and pilot name:
+
+```
+set osd_craft_name_pos = 2049
+set osd_pilot_name_pos = 2081
+save
+```
+
+The craft and pilot name seem a little pointless but probably make more sense in a setup where there are multiple pilots each with potentially more than one craft and giving everything names like this makes it easier not to get goggles mixed up or be confused as to what's connected to what or, when sharing feeds, distinguish exactly whose feed one is looking at.
+
+### Fonts
+
+The two dropdowns (for OSD profile and font) above the image where you can layout your OSD elements are purely so you can see how the elements _would_ look if using that profile or font. They don't actually switch the profile or change the font used by your googles.
+
+#### Analog fonts
+
+Below this image, there is a _Font Manager_ button and while it's not clear from OL's Betaflight OSD guide or his Walksnail Avatar guide, the _Font Manager_ is just for setting the font when working with an _analog_ OSD setup.
+
+If you look at the Betaflight [OSD documentation](https://betaflight.com/docs/wiki/configurator/osd-tab), it does not that when "using a MAX7456 chip the font glyphs are uploaded from the Font Manager" and if you look at the relevant [Betaflight Configurator code](https://github.com/betaflight/betaflight-configurator/blob/a5fad5c/src/tabs/osd.html#L205), you can see:
+
+```
+<div class="btn">
+    <a class="requires-max7456-font-device-detected fonts" id="fontmanager" href="#" i18n="osdSetupFontManager"></a>
+</div>
+```
+
+I.e. if a `max7456-font-device` isn't detected, the _Font Manager_ button is disabled.
+
+#### HD fonts
+
+For HD systems, you need to upload fonts to the goggles, JB discusses how to do this for DJI, Walksnail and HDZero in his video ["Revamp Your OSD Instantly with Beautiful HD fonts!"](https://www.youtube.com/watch?v=Z6wNY-UG3lE).
+
+You can see what the various fonts (with names like Conthrax, Blinder, Sphere etc.) look like in the [custom font](https://oscarliang.com/fpv-wtf-dji-goggles-osd/#Custom-Font) section of OL's guide to setting things up for the DJI system.
+
+I just wanted a clear simple font, that looked better than the default fonts that are designed to mimic the classic blocky analog fonts, rather than a font that looks "cool".
+
+The clear simple font is the one called Blinder.
+
+
+The OSD information isn't embedded in the recorded video, instead it's recorded separately. If you want to recombine them then you have to use a tool like the [Walksnail OSD tool](https://github.com/avsaase/walksnail-osd-tool).
+
+However, this just uses whatever font you choose when using the tool, i.e. not the actual font used at the time in the goggles.
+
+So, I photographed the output (ideally, I'd have captured it with an HDMI capture device):
+
+![default font](images/goggles-default-font.png)
+
+You can see the blockiness on the 'V' characters in particular.
+
+
+######################################
+Does the default font have all the nice elements (like satelites etc.) that can be seen in OLs photos?
+
+To set the font, you have to use the 
+
 TODO: do remaining Painless360 points like 700mW output and double-check for additional items in OLs guide.
+######################################
 
 ### Extra channels
 
