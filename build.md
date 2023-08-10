@@ -590,6 +590,8 @@ If you then navigate to _Settings / Device / Device Info_, the _Goggle SW Versio
 
 Painless360 suggests also doing a full reset at this stage (I presume to ensure there are no old settings that _might_ not be appropriate for the new firmware). To do this go to _Settings / Device / Reset All_ - click _OK_ and the goggles will reboot.
 
+Note: the VTX (in the next step) automatically removes the `.img` file from its storage once its upgraded. However, the goggles just leave the `AvatarMini_Gnd_XX.XX.XX.img` file sitting on its SD card. You can remove it later if you want.
+
 ### Updating VTX firmware
 
 Initially, I just powered the FC via USB but the VTX is only powered up if a battery is connected.
@@ -632,12 +634,26 @@ Whenever the quad was powered from the battery, the VTX became extremely hot. I 
 
 But, I now think the VTX is in 25mW anyway when not connected to the goggles and being connected makes no difference - the VTX still quickly overheats even in 25mW mode.
 
+### OSD position
+
+By default, the goggles assume you're using an old version of Betaflight that doesn't support using the full "canvas" of the goggle's HD sceen.
+
+So, it assumes the layout of your OSD elements is targeted at a far lower resolution analog screen (as this is all that older versions of BF supported) and applies an offset to shift this layout into the center of the HD screen.
+
+![shifted OSD](images/goggles-osd-position.jpg)
+
+As BF now supports using the full canvas, we don't the goggles shifting everything down and right.
+
+To fix this in the goggles, go to _Settings / Display / OSD Position_ and move the corner of the red outline to the upper-left.
+
+Surprisingly (to me), this setting is only available if the VTX is powered up and connected to the goggles, i.e. I guess the location of OSD elements relative to the video image is determined by the VTX (rather than being determined later when everything is received by the goggles).
+
 ### Betaflight setup
 
 TODO: check if these settings were around _before_ the following steps - they seem unrelated but they appeared to be added as a result of one of the step here (but maybe it's something I changed earlier and didn't notice):
 
 ```
-feature -TELEMETRY                                                                                  
+feature -TELEMETRY
 feature ESC_SENSOR
 ```
 
@@ -764,14 +780,94 @@ I.e. if a `max7456-font-device` isn't detected, the _Font Manager_ button is dis
 
 #### HD fonts
 
+I was initially sceptical that uploading new fonts was really worth it but in the end, I think it is. The goggle's default fonts exactly mimic those used in classic analog OSDs and look very blocky. In the pictures below showing the difference, this may not be very obvious but when wearing the goggles the screen take up all your field of view and you really can see every small detail so a proper HD font looks much nicer than the highly pixelated default ones.
+
 For HD systems, you need to upload fonts to the goggles, JB discusses how to do this for DJI, Walksnail and HDZero in his video ["Revamp Your OSD Instantly with Beautiful HD fonts!"](https://www.youtube.com/watch?v=Z6wNY-UG3lE).
 
 You can see what the various fonts (with names like Conthrax, Blinder, Sphere etc.) look like in the [custom font](https://oscarliang.com/fpv-wtf-dji-goggles-osd/#Custom-Font) section of OL's guide to setting things up for the DJI system.
+
+The Sneaky FPV fonts are the ones that JB, OL and Painless360 cover (OL mentions a few other sources as well). So, on this basis, I'm taking their fonts as the ones to chose.
 
 I just wanted a clear simple font, that looked better than the default fonts that are designed to mimic the classic blocky analog fonts, rather than a font that looks "cool".
 
 The clear simple font is the one called Blinder.
 
+So, go to [Sneaky FPV's site](https://sites.google.com/view/sneaky-fpv/home). Go to Walksnail section and open the Ardupilot, Betaflight and INAV links in new tabs.
+
+Each of the links opens a Google Drive directory. The following reflects the directory structures that existed there at the time of writing:
+
+* For Ardupilot, ignore the folders called "Nexus" etc. and go for "V1.4" (or a higher version if there is one now). And download the Blinder ZIP file.
+* For Betaflight, go for the "V1.3" folder (or higher). And download the Blinder ZIP file.
+* For INAV, open the "INAV 6" folder (or higher - if already using the INAV flight control software chose the corresponding version). Then open the "Blinder" folder and download the ZIP file.
+
+I ended up with three ZIP files:
+
+* `SNEAKY_FPV_ARDU_WS_FONT_v1.4.1_Blinder.zip`
+* `SNEAKY_FPV_BF_WS_Blinder_v1.3.1.zip`
+* `SNEAKY_FPV_WS_INAV6_Blinder_V2.21.zip`
+
+Each contains two `.png` files (one for 1080p and one for 720p) and a `font_update.ini` file. You should unzip them all into a single folder and you can combine the multiple `.ini` files into one containing:
+
+JB shows in his video that you can combine the `font_update.ini` files for two flight controller systems into one like this:
+
+```
+[config]
+count=2
+1=BFWS
+2=ARDU_BLI
+3=INAV_Blinder
+
+[BFWS]
+imgname_720=WS_BF_24.png
+imgname_1080=WS_BF_36.png
+font_width_720=24
+font_height_720=36
+font_width_1080=36
+font_height_1080=54
+
+[ARDU_BLI]
+imgname_720=WS_ARDU_BLI_24.png
+imgname_1080=WS_ARDU_BLI_36.png
+font_width_720=24
+font_height_720=36
+font_width_1080=36
+font_height_1080=54
+```
+
+I tried extending this to cover the fonts for all three systems but this, for whatever reason, caused the update process to fail (and required the goggles to be plugged out and in again). Reducing it to just two did work.
+
+But it's probably easier to just unpack one ZIP file and copy its contents to the SD card for the goggles, update the fonts and then repeat the process for each of the other ZIP files.
+
+So, the process is simple:
+
+* Remove the SD card from your goggles and insert it into your laptop's card reader.
+* Copy the two `.png` files and the `font_update.ini` file from the first of the ZIP files onto the card.
+* Eject the card and reinsert it into your goggles.
+* Power up the goggles and power up the quad (with bench powersupply or battery) as the relevant settings aren't available if the googles and VTX aren't linked.
+* Go to _Settings / Display_, click the _Font Update_ option and click _OK_ in the resulting dialog.
+
+Hopefully, the process succeeds. Then repeat the whole process for the other ZIP files. If you know you're never going to use e.g. Ardupilot or INAV, then just skip the ZIP for that system.
+
+Then, in the goggles, go to _Settings / Display_ and:
+
+* Switch _Custom OSD_ from _Auto_ to _Custom_ (if it didn't already automatically switch).
+* Switch _Custom Font_ to _BFWS_ (for Betaflight).
+
+For whatever reason, switching the font caused the OSD position to revert to being shifted right and down (see this same issue described above). To fix this, just go to _Settings / Display / OSD Position_.
+
+You can remove the `.png` files and the `.ini` file from the SD card once finished.
+
+#### The details
+
+If you open the `.png` files, you'll see that they contain the glyphs for the font. The issue is that a standard ordering, for these glyphs, hasn't been agreed across between Ardupilot, Betaflight and INAV. So, different `.png` files, with different glyph orderings, are needed for each.
+
+When you set the _Custom OSD_ to _Auto_ then the goggles automatically determine the flight controller system being used by the quad that it's connected to and can chose the version of its own default blocky font that has a glyph ordering appropriate for that system.
+
+When using custom fonts, it can't currently do that so, you have to actively select the appropriate _Custom Font_, e.g. _BFWS_ when using Betaflight or _ARDU_BLI_ when using Ardupilot.
+
+Note: the README (at the time of writing) in the root of the INAV folders on Google Drive says that custom fonts do not work with version 29 of the Walksnail firmware. However, according to the Walksnail Avatar 33.39.10 firmware release notes, it does now support custom fonts for INAV.
+
+#### Font embedding
 
 The OSD information isn't embedded in the recorded video, instead it's recorded separately. If you want to recombine them then you have to use a tool like the [Walksnail OSD tool](https://github.com/avsaase/walksnail-osd-tool).
 
@@ -783,12 +879,11 @@ So, I photographed the output (ideally, I'd have captured it with an HDMI captur
 
 You can see the blockiness on the 'V' characters in particular.
 
+With the custom font, the blockiness is gone:
+
+![Blinder font](images/goggles-blinder-font.png)
 
 ######################################
-Does the default font have all the nice elements (like satelites etc.) that can be seen in OLs photos?
-
-To set the font, you have to use the 
-
 TODO: do remaining Painless360 points like 700mW output and double-check for additional items in OLs guide.
 ######################################
 
