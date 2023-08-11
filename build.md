@@ -550,6 +550,18 @@ Note: when working with the VTX setup, the ShortSaver sometimes tripped so, I pr
 
 Note: sometimes I didn't get video out via the USB-C connector of the goggles and only solution was to disconnect and reconnect them to power.
 
+---
+
+The goggles are easy to use, they have three buttons:
+
+* A little joystick-like button on the side - press it to enter the settings menu, and press it left, right, up and down to navigate.
+* A back button on the top - use it to go back a level in the settings.
+* A record button - use it to start and stop recording.
+
+There's a small SD card slot where the padding of the goggles would otherwise touch the top of your nose when wearing them.
+
+---
+
 If you've got a 9V or 12V power adapter with a 5.5x2.1mm barrel jack, you can power your goggle with that. Otherwise use a 2S battery and use the XT60 to barrel jack lead that comes with the goggles.
 
 If you've got a USB-C to HDMI adapter, you can plug the output of the googles into a monitor or TV. Otherwise, just look at the output in the googles themselves.
@@ -559,6 +571,8 @@ TODO: put photo of setup with mains power and HDMI output here.
 You'll need a 32GB U3 micro SD card (ideally, but any class 10 card will probably do).
 
 Using _Disk Utility_, format it as _MS-DOS (FAT32)_ (rather than the more normal _ExFat_ which can handle cards larger than 32GB) - according to OL and others, Fatshark goggles work best with FAT32.
+
+**Update:** you can get the goggles to format the card - go to _Settings / Record Set_ and click _Format SD Card_, then you know for sure that it's using the file system format that works best with the goggles.
 
 I named my card "FATSHARK".
 
@@ -883,9 +897,15 @@ With the custom font, the blockiness is gone:
 
 ![Blinder font](images/goggles-blinder-font.png)
 
-######################################
-TODO: do remaining Painless360 points like 700mW output and double-check for additional items in OLs guide.
-######################################
+### Transmit power
+
+By default, the VTX transmits at 25mW - this is the absolute minimum output power.
+
+Go to _Settings / Camera / Transmit Power_ and increase it to 700mW. This is the maximum allowed in the EU. In the US, you can unlock 1000mW and 1200mW. However, OL and Painless360 report that there are stability issues when running at 1000mW or higher so, 700mW seems a good upper limit no matter what the jurisdiction.
+
+OL suggests decrease the value to 200mW when flying with others.
+
+Note: when your quad is powered up on your bench, it'll output at 25mW, no matter what _Transmit Power_ is set to. It's only when the flight controller tells the VTX that it's armed and ready to fly that it switches to the configured transmit power.
 
 ### Extra channels
 
