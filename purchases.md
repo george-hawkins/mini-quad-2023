@@ -491,6 +491,16 @@ I suspect I thought the 200mm cable had a plug on both ends but it was just a pi
 
 The ESC was version 1.7 - the same as the one bought via Banggood.
 
+Oddly, M3 lock nuts seem are only available in plain steel color (and seem to be permanently out of stock) at GetFPV - <https://www.getfpv.com/m3-nylock-nut-set-of-16.html> (the also have M3 press nuts and M3 nylon nuts - these are _not_ lock nuts). RDQ have them - <https://www.racedayquads.com/products/m3-nylock-nut-choose-your-color>
+
+From AliExpress:
+
+* <https://www.aliexpress.com/item/4000284996320.html>
+* <https://www.aliexpress.com/item/4000226204425.html>
+* <https://www.aliexpress.com/item/33034833428.html>
+
+Outside the US, you can obviously buy M3 lock nuts in any hardware store (though just in plain steel color and only in normal height rather than the low-profile format stocked by some FPV stores).
+
 ---
 
 Would have bought but didn't:

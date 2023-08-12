@@ -1068,6 +1068,42 @@ Remember PIT switch. And look at BT - the FC has an ESP32-C3! Apparently, it can
 
 I wondered why everyone has the GPS in an angled TPU holder when Mateksys etc. have dire warnings that it must be flat. But what's flat in flight? It should be at about the same angle as the camera.
 
+Transmitter
+-----------
+
+Sources: OL's [Radiomaster Boxer setup guide](https://oscarliang.com/setup-radiomaster-boxer/).
+
+<!-- The SVG (taken from the PDF manual) is, at 12MB, huge and very slow to render. -->
+![TX layout](images/boxer-inkscape.png)
+
+Install the 18650 batteries - be very careful to get the polarity right. With normal button-top batteries it's easy to see which end is positive and which way around to insert them into a battery holder (the flat negative end is pressed down on the spring in the battery holder). But 18650 batteries are often flat on both ends so, check carefully which end is negative and press this end down against the spring in the battery holder spring when inserting them.
+
+Hold down the power button until it makes a small buzz and release (if you keep the button held down beyond this point it won't start - this, and a few other features, seem to be about e.g. preventing the TX from being accidentally turned on it transit).
+
+The TX will at this point often warn because the throttle isn't in its lowest position or one of the swtiches isn't in its "safe" position. You don't want your quad to suddently start doing something when your TX is powered up so, your throttle should be at zero (all the way down) and the swiches should all be in their up-most position (and when you program any switch to do something, you should program it such that its up-most position is its "safe" position, i.e. the position where it causes nothing active to happen).
+
+So, if necessary, push the throttle to zero and flip all switches to their up-most position.
+
+### Update EdgeTX
+
+Sources: OL's [EdgeTX update guide](https://oscarliang.com/flash-edgetx/), RC Video Review's [EdgeTX bootloader masterclass](https://www.youtube.com/watch?v=LItyAkJlcdU)
+
+The Boxer already comes with EdgeTX so, unlike some older radios, you don't have to worry about the more complex migration from something like OpenTX.
+
+You can update EdgeTX via its SD card or using a web based approach called [EdgeTX Buddy](https://edgetx.gitbook.io/edgetx-user-manual/edgetx-user-manual/installing-and-updating-edgetx/update-from-opentx-to-edgetx-1).
+
+To be honest, I think the SD card approach is simpler - it's documented [here](https://edgetx.gitbook.io/edgetx-user-manual/edgetx-user-manual/installing-and-updating-edgetx/update-from-an-earlier-version-of-edgetx-using-the-bootloader).
+
+#### Update the bootloader
+
+The bootloader is _sort of_ like the BIOS on your computer - it's the lowest level of the system that you can update. My Boxer came with version 2.8.0-factory.
+
+Only connect your TX to your laptop after you've turned on the TX (if you connect it before it's turned on, the left-most button above the TX's LCD will go orange and you won't be able to turn it on).
+
+When the TX ask you to select a mode, chose _USB Storage (SD)_.
+
+CONTINUED IN [`tx-setup.md`](tx-setup.md).
+
 ---
 
 TODO: redo _Calibrate Accelerometer_ (see above) once you've added landing pads.
