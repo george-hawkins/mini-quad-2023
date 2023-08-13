@@ -178,7 +178,7 @@ I tried various things, including trying to update it as if it were the Happymod
 
 **Update:** it may be that holding down the tiny boot button on the RX, as it's powered up, might have resolved things - see these [Betaflight passthru notes](https://www.expresslrs.org/software/updating/betaflight-passthrough/). However, in the end, despite initial reservations, I was satisfied with the WiFi approach described in the next section.
 
-**Update 2:** the most bomb proof way to update an RX is to do the updating _before_ soldering it up to the FC using something like the BetaFPV ExpressLRS [recovery dongle](https://betafpv.com/products/expresslrs-recovery-dongle). The electronics of this dongle are completely generic - it's just equivalent to a 5V FTDI breakout, like this [one](https://www.sparkfun.com/products/9716) from Sparkfun. But the BetaFPV dongle is very cheap and, even better, comes with a pogo-pin adapter (needed for connecting to something like the RX without having to solder down connections). I have a pogo pin adapter (bought [here](https://www.aliexpress.com/item/4001197263516.html) on AliExpress) and an FTDI breakout - while a full FTDI breakout is a bit more capable (it also breaks out RTS and CTS), the combined cost is far more than the BetaFPV dongle.
+**Update 2:** the most bomb proof way to update an RX is to do the updating _before_ soldering it up to the FC using something like the BetaFPV ExpressLRS [recovery dongle](https://betafpv.com/products/expresslrs-recovery-dongle). The electronics of this dongle are completely generic - it's just equivalent to a 5V FTDI breakout, like this [one](https://www.sparkfun.com/products/9716) from Sparkfun. But the BetaFPV dongle is very cheap and, even better, comes with a pogo-pin adapter (needed for connecting to something like the RX without having to solder down connections). I have a pogo pin adapter (bought [here](https://www.aliexpress.com/item/4001197263516.html) on AliExpress) and an FTDI breakout - while a full FTDI breakout is a bit more capable (it also breaks out RTS and CTS), the combined cost is far more than the BetaFPV dongle. The boot button is definitely used when using this approach, see RC Video Review's [video](https://www.youtube.com/watch?v=AH6e-ItZCo0) on how to do things using the BetaFPV dongle.
 
 ### Updating via WiFi
 
@@ -360,10 +360,26 @@ Presets
 
 [`30-pre-elrs-presets-etc.txt`](30-pre-elrs-presets-etc.txt) contains my configuration _before_ I started applying JB's suggested presets (32m 30s mark in video 3 of his 2022 build series).
 
+DO JB's presets section (and note how the conf changes with each step).
+
+Then do the non-DJI AUX setup chapter. There's nothing additional in the corresponding DJI chapter (even in the OSD bit) so skip 
+
+Most of the OSD chapter you've already done - BUT at 55m 28s he discusses meaning and limits for e.g. battery cell voltage and link quality and corecting the ELRS RSSI warning.
+
+You can see what the 110 value that JB uses for `osd_rssi_dbm_alarm` means on OL's ["LQ and RSSI explained for ELRS" page](https://oscarliang.com/lq-rssi/). The 110 value is at the limit of what OL considers safe for 50Hz.
+
+OL's suggested universal value of 95 is conservative and safe for all ELRS packet rates. Basically, just take the dBm value shown for your packet rate in OL's [lowest RSSI section](https://oscarliang.com/lq-rssi/#The-Lowest-RSSI), drop the negative sign and subtract 10 as a safety margin. So, e.g. for 150Hz the value is -112dBm, this becomes (112 - 10), i.e. 102.
+
+I set the value to 100 for my 150Hz setup.
+
+SKIP the analog VTX vtxtable channel.
+
+The last chapter (in this video) has some minor points that I think can be skipped.
+
 #######
 HERE. I've finished <https://oscarliang.com/setup-radiomaster-boxer/> and OL's Zorro guide.
 
-I think, I should set packet rate and do the _Receiver_ tab setup as per JB's "you can" video. And then come back to <https://oscarliang.com/setup-expresslrs-2-4ghz/#Betaflight-Setup-for-ExpressLRS-Receiver> and make sure failsafe etc. are done if they weren't part of JB's video.
+I think, I should set packet rate and do the _Receiver_ tab setup as per JB's "you can" video. And then come back to <https://oscarliang.com/setup-expresslrs-2-4ghz/#Betaflight-Setup-for-ExpressLRS-Receiver> and make sure FAILSAFE etc. are done if they weren't part of JB's video.
 
 Also look if there's any additional info in JB's three other guides linked to above.
 #######
