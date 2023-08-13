@@ -141,6 +141,15 @@ Which side of main VTX unit is the top.
 
 Weirdly, the QAV R-2 doesn't come with nuts of any kind for top of stack.
 
+Soldering
+---------
+
+Practicing with the practice solder boards is boring but probably worth it to warm up if one hasn't soldered for a long time. My final solder joints were way better than my initial ones so I wish I'd warmed up on a practice board rather than the real thing.
+
+The main trick was to hold everything in place (with my Panavice or bluetack), hold the wires in place with hands, use tweasers or pliers to push wires down when soldering and:
+
+**rest both elbows on something so that both hands are as stable as possible**.
+
 ESC wiring
 ----------
 
@@ -247,6 +256,8 @@ The connectors are on the understand but they're angled such that the wires will
 
 [ You'd still need to solder the telemetry radio. ]
 
+TODO: add a section at the very end to cover any points like this that you _didn't_ correct but would have liked to.
+
 ---
 
 The FC side, the plastic coating of the wire of  VTX connector could be stripped with the 28AWG hole (26AWG almost worked but sometimes slipped).
@@ -276,6 +287,8 @@ I cut the SiK wires down to 70mm plus 3mm of bare wire - I gave up on using my n
 In retrospect, I'd install the VTX and camera before the ESC - detaching the camera connector from the VTX was stressful and I wouldn't recommend it.
 
 **Update:** I did do this - make sure the camera cables is where you want it (I wanted mine off to the side of the ESC rather than running under it) and that it doesn't end up to the wrong side of any cables when e.g. soldering down the motor wires. Also, I covered the VTX cable in masking tape to protect it (mainly from just being marked with flux - I assume it's coated with silicone and would survice contact with the soldering iron) but the tape was hard to remove after everything was soldered in place - so, avoid wrapping it around the cable such that the tape sticks to itself.
+
+**Update 2:** I don't know why I ran the cable to the side of the ESC, if doing again I'd run it under the ESC and tape it down with gaffer tape.
 
 Unlike the antenna side (which is super simple), the little latch on the camera side of the VTX is stuck down with a little pad but just ease it off (it won't pull anything else with it). To remove the camera connector, go in under the cable with somthing thin and narrow and pry the connector up from its center.
 
