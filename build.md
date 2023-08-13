@@ -232,6 +232,23 @@ I took the JST-GH to DF13 SiK cable and chopped off the DF13 end
 FC wiring
 ---------
 
+**Update:** if the idea is to avoid things bumping against the FC then my wiring approach was very bad - I wired everything thru the holes on the FC so that the wires hang down underneath the FC towards the ESC - even when bent outwards away from the FC, this arrangement maximizes the chance some wire will bump against the ESC. If doing again, I'd:
+
+* Either treat the thru whole pads as if they had no hole and treat them as a plain pad and solder the wires to the _top_ side (this is what JB does - see 35m 8s mark of [video 1](https://youtu.be/2T_JC4v5T3E?list=PLwoDb7WF6c8neIAQBkchfiXf-C8KbzG5M&t=2108)).
+* But this would get hard for the double row of pads - so for these maybe the trick is to use the thru holes but end up with the wires facing up rather than down.
+
+I looked at JB and Mr. Steele's videos and OL's soldering guide but couldn't see any where one can see how they deal with double rows. In fact if I didn't have a GPS and the telemetry radio, the double row would hardly be used. And I googled a lot but found nothing high quality - if you find something tell me.
+
+For the moment, I'm inclined towards treating them as flat pads where possible and connecting the wires facing upwards for the double row of pads. Or, even better, get an FC where everything is connected using connectors rather than soldering like the SpeedyBee F7 V3 FC:
+
+<https://cdn11.bigcommerce.com/s-fhxxhuiq8q/images/stencil/1280x1280/products/193/1011/F7V3_4__42245.1685366926.jpg>
+
+The connectors are on the understand but they're angled such that the wires will point outward from the FC rather than down.
+
+[ You'd still need to solder the telemetry radio. ]
+
+---
+
 The FC side, the plastic coating of the wire of  VTX connector could be stripped with the 28AWG hole (26AWG almost worked but sometimes slipped).
 
 For the VTX side, with silicone coating, I nipped off the ends with my nails - using even 30AWG with the wire stripper sometimes just took the whole end off.
