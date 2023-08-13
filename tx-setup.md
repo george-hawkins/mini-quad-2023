@@ -86,16 +86,18 @@ Important: now, page to the _HARDWARE_ page and scroll down to the _ADC filter_ 
 
 ### Models
 
+Note: the `*` to the left of a model name indicates that it's the currently selected model (TODO: maybe add a picture).
+
 I created two models:
 
-* Press the _MDL_ button, select the _MODEL01_ entry (by clicking the scroll wheel and selecting _Select model_)) if it's not already selected (marked by an `*` to the left of its name).
+* Press the _MDL_ button, scroll to a free slot, click the scroll wheel and and select _Create model_.
 * Page to the _SETUP_ page and:
   * Set _Model name_ to "Sim".
-  * Scroll all the way down to the _Internel RF_ section and set its _Mode_ to _OFF_, Do the same for the _Mode_ in the _External RF_ section below. This makes sure the power hungry radio hardware isn't on when using this model with simulators like Liftoff.
+  * Scroll all the way down to the _Internel RF_ section and set its _Mode_ to _OFF_ (if it's not already off). Do the same for the _Mode_ in the _External RF_ section below. This makes sure the power hungry radio hardware isn't on when using this model with simulators like Liftoff.
 
-Back on the main _MODELSEL_ page, click the "Sim" model (with the scroll wheel) and select _Copy model_ and then scroll to a free slot and click the scroll wheel again.
+Back on the main _MODELSEL_ page, click on the entry for the "Sim" model (with the scroll wheel) and select _Copy model_ and then scroll to a free slot and click the scroll wheel again.
 
-Now, select this model (with the scroll wheel, as above, so, it is now marked with the `*`), page to _SETUP_ and:
+Now, select this model (by clicking it with the scroll wheel and selecting _Select model_ so, it is now marked with the `*`), page to _SETUP_ and:
 
 * Rename it to "QAV-R 2 DC" (the name of the quad frame or given it some more personalized name).
 * Scroll down to _Internel RF_ section and set the _Mode_ to _CSRF 400k_.
@@ -175,6 +177,8 @@ And after output dots for a while, it gave up.
 I tried various things, including trying to update it as if it were the Happymodel model that it's current firmware claimed it was and trying to update it via WiFi by connecting to it in access point mode (rather than connecting it to my home WiFi network which is what I eventually did).
 
 **Update:** it may be that holding down the tiny boot button on the RX, as it's powered up, might have resolved things - see these [Betaflight passthru notes](https://www.expresslrs.org/software/updating/betaflight-passthrough/). However, in the end, despite initial reservations, I was satisfied with the WiFi approach described in the next section.
+
+**Update 2:** the most bomb proof way to update an RX is to do the updating _before_ soldering it up to the FC using something like the BetaFPV ExpressLRS [recovery dongle](https://betafpv.com/products/expresslrs-recovery-dongle). The electronics of this dongle are completely generic - it's just equivalent to a 5V FTDI breakout, like this [one](https://www.sparkfun.com/products/9716) from Sparkfun. But the BetaFPV dongle is very cheap and, even better, comes with a pogo-pin adapter (needed for connecting to something like the RX without having to solder down connections). I have a pogo pin adapter (bought [here](https://www.aliexpress.com/item/4001197263516.html) on AliExpress) and an FTDI breakout - while a full FTDI breakout is a bit more capable (it also breaks out RTS and CTS), the combined cost is far more than the BetaFPV dongle.
 
 ### Updating via WiFi
 
@@ -272,7 +276,9 @@ We'll actually change the rate later
 
 If you unplug the quad, the TX will announce "telemetry lost" and if you plug the quad back in it'll eventually announce "telemetry recovered". In the field "telemetry lost" would be a very bad thing and gnerally mean the quad has flown out of radio distance and you've lost control of it.
 
-In the next section, we'll get to the _Receiver_ section in _Betaflight Configurator_ and see somewhat more impressive evidence that the TX can now talk to the RX.
+Note: if you move the TX too close to the RX, the TX may also report "telemetry lost" - this is because the signal is actually too strong and "flooding" the RX.
+
+In the next section, we'll get to the _Receiver_ tab in _Betaflight Configurator_ and see somewhat more impressive evidence that the TX can now talk to the RX.
 
 BF RX setup
 -----------
@@ -283,11 +289,79 @@ When wiring the RX up to the FC, we made sure to wire it up to UART6 which is th
 
 If for some reason, the RX had to be connected to some other UART, then you'd have to disable _Serial RX_ for UART6 and enable it for the actual one being used.
 
+### BF Receiver tab
+
+Now, we're going to really see that the TX is talking to the RX and has the ability to control it.
+
+Power up your TX, _then_ connect your quad to your laptop via USB and check that the LED on the RX has stopped blinking at that TX shows the little connected icon (the bars mentioned above).
+
+Then connect to the FC with _Betaflight Configurator_, switch to the _Receiver_ tab and move the sticks on your TX about - you should see the movement reflected in the bars to _Roll_, _Pitch_, _Yaw_ and _Throttle_ and you should see the quad in the _Preview_ panel moving as you'd expect in response to the stick movements.
+
+Now, move each stick all the way up and down and left and right. You might think, after the calibration process done earlier, that the sticks would move from the 1000 to 2000 values that BF wants. But they don't - most of mine moved from 989 to 2012.
+
+So, on the TX, press the _MDL_ button, make sure the correct model is selected (i.e. has the `*` to the left of its name). Then page to the _OUTPUTS_ page and:
+
+* Click _CH1_, select _Edit_, scroll to the _Min_ option and click again.
+* Move the right stick to the bottom-left corner.
+* While watching the _Roll_ bar in _BF Configurator_, adjust (i.e. scroll) the _Min_ value until the _Roll_ bar reaches 1000.
+* Click to finish the adjustment of _Min_.
+
+That's it, now, do push the right stick to upper-right corner and adjust the _Max_ value in the same way until the _Roll_ bar reaches 2000.
+
+On my TX, the final _Min_ and _Max_ values were -97.8 and 97.7 respectively.
+
+If you find the value shown in _BF Configurator_ jumping around when you push the stick into a corner, try releasing the stick and pushing it there again or instead of using a corner push it to one of the  center markers around the edge of the gimbal (or anywhere where things are stable, just as long as the stick is at maximum on the particular axis that's relevant).
+
+Note: JB favors pushing towards the center markers while OL favors the corners.
+
+Now, do the same for _CH2_, _CH3_ and _CH4_ - you don't have to know which channels maps to which stick, just select a channel, e.g. _CH2_, look at the &mu;s value in the upper-right corner and move each stick in turn when you see the &mu;s value change you know you've got the relevant stick. Push the stick to the lower-left and do the process above, i.e. adjust _Min_ and look to see which bar in _BF Configurator_ changes and adjust things until that bar reaches 1000. And so on.
+
+**Update:** I don't think you even have to look at _BF Configurator_, you just have to look at the &mu;s value and adjust the _Min_ and _Max_ values so that this value shows 1000&mu;s for _Min_ and 2000&mu;s for _Max_ when the relevant stick is pushed to its minimum and maximum values. Given this, it seems it _should_ be possible for EdgeTX to do all this for you as part of the calibration process (and be specific to the TX rather than individual models).
+
+Note: when adjusting the values on the TX, I found that typically e.g. 97.7 to 97.9 would map to 2000 so, I'd choose the value if the middle of this range, i.e. 97.8 for this example.
+
+My final values were -97.8 and 97.7 for all channels.
+
+#### Thresholds
+
+Now, the endpoints have been corrected, the thresholds can be adjusted from their conservative values (that assume you may not have gone through the process above).
+
+In _BF Configurator_, change:
+
+* The _'Stick Low' Threshold_ from 1050 down to 1010.
+* The _'Stick High' Threshold_ from 1900 up to 1990.
+
+And, as always, remeber to hit _Save_.
+
+### ELRS packet rate
+
+See OL's section on [packet rate](https://oscarliang.com/setup-expresslrs-2-4ghz/#Packet-Rate) if you want more details.
+
+On the TX, press the _SYS_, click the _ExpressLRS_ LUA script - you should see a little `C` if your TX is connected to your RX.
+
+Now, click the _Packet Rate_ option and adjust the rate to 150Hz.
+
+The TX should announce a few warnings before announcing "telemetry recovered" (meaning "all's good") and the RX should become a purple color (see the color to frequency diagram above).
+
+Note: JB suggests going all the way down to 50Hz but when I tried that things seemed to work, _but_ the radio would never announce "telemetry recovered" and the `C` would never show up again. 50Hz was the only problematic frequency - no other frequency had this issue. So, I switched to the next lowest _normal_ rate, i.e. 150Hz - 100Hz and 333Hz are special [_full resolution switch configuration modes_](https://www.expresslrs.org/software/switch-config/#full-resolution-switch-configuration-modes) so ignore them (for more see the ExpressLRS [documentation](https://www.expresslrs.org/software/switch-config/#full-resolution-switch-configuration-modes)). I don't know if the 50Hz issue is specific to my RX or to my version of ELRS or something else.
+
+Note: by default my _Packet Rate_ was set to _F1000_ - this has the fastest packet rate but the shortest range - we want the opposite (long range with no noticeable change in "feel" for anyone other than expert pilots).
+
+Once the _Packet Rate_ is set, go down to the _Switch Mode_ option and make sure it's set to _Wide_ (for more on wide and hybrid, see the [switch mode chapter](https://www.youtube.com/watch?v=J3Hg2f7RL1A&t=2058s) of JB's "ExpressLRS definitive getting started guide").
+
+Now, to to the _TX Power_ section, click it and adjust the _Max Power_ value. Mine showed _ERR_ initially and I suspect this was because the radio was configured with a higher power setting than the 100mW allowed in the EU.
+
+I adjusted my _Max Power_ to the 100mW maximum allowed in the EU and JB suggests 250mW for the US (I believe 250mW is anyway the max for the internal ELRS module).
+
+TODO: move this section somewhere more sensible above - it's in the middle of unrelated _BF Configurator_ stuff.
+
+Presets
+-------
+
+[`30-pre-elrs-presets-etc.txt`](30-pre-elrs-presets-etc.txt) contains my configuration _before_ I started applying JB's suggested presets (32m 30s mark in video 3 of his 2022 build series).
+
 #######
 HERE. I've finished <https://oscarliang.com/setup-radiomaster-boxer/> and OL's Zorro guide.
-So set packet rate etc. as per JB's "you can" video.
-
-So, go to _Receiver_ tab - this is where things get cool.
 
 I think, I should set packet rate and do the _Receiver_ tab setup as per JB's "you can" video. And then come back to <https://oscarliang.com/setup-expresslrs-2-4ghz/#Betaflight-Setup-for-ExpressLRS-Receiver> and make sure failsafe etc. are done if they weren't part of JB's video.
 
