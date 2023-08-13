@@ -911,6 +911,10 @@ Note: when your quad is powered up on your bench, it'll output at 25mW, no matte
 
 My goggles came with only the public channel (CHP) and three other channels (CH1-3) available for use - these are the channels allowed in the EU. If you're in the US (and hence subject to FCC rules), you can enable four additional channels. This is covered in OL's section on ["Unlocking FCC Mode"](https://oscarliang.com/setup-avatar-fpv-system/#Unlocking-FCC-Mode).
 
+### Channel selectio
+
+A really nice feature of digital is that you can't accidentally nuke someone elses video feed - the system will only allow a VTX to transmit on a channel if it sees no one else is already using that channel. If someone else is using the channel you'd previously selected, it'll push you onto the public channel and from there you need to select a free channel.
+
 ### Goggle's DVR
 
 For the best recorded video quality, you should use the video recorded directly by the VTX.
