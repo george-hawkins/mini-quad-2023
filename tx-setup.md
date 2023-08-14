@@ -272,6 +272,8 @@ Note: this diagram is one of the very few useful bits of information in the Beta
 
 If you look at the TX LCD, you'll now see a set of bars on the main screen to the right of the little block showing the current voltage of the TX battery, these show that it's connected to the TX. The bars are just a static icon - they don't go up or down to show signal strength.
 
+**Update:** it's not an icon - if you move far enough away, you'll eventually see the biggest bar dissappear.
+
 We'll actually change the rate later 
 
 If you unplug the quad, the TX will announce "telemetry lost" and if you plug the quad back in it'll eventually announce "telemetry recovered". In the field "telemetry lost" would be a very bad thing and gnerally mean the quad has flown out of radio distance and you've lost control of it.
@@ -362,6 +364,8 @@ Presets
 
 DO JB's presets section (and note how the conf changes with each step).
 
+Given that the RX works, it's a surprising no. of addititional entries to fine tune it to its best. Note that the diffs between freqs are minimal (three settings).
+
 Then do the non-DJI AUX setup chapter. There's nothing additional in the corresponding DJI chapter (even in the OSD bit) so skip 
 
 Most of the OSD chapter you've already done - BUT at 55m 28s he discusses meaning and limits for e.g. battery cell voltage and link quality and corecting the ELRS RSSI warning.
@@ -376,6 +380,40 @@ SKIP the analog VTX vtxtable channel.
 
 The last chapter (in this video) has some minor points that I think can be skipped.
 
+#### ELRS Presets
+
+In _Betaflight Configurator_, go to the _Presets_ tab, enter "ELRS" in the search field and select the preset for the frequency you chose (for me that was 150Hz, you might have chosen 50Hz if it worked for you).
+
+Note: in the preset dialog, it includes the warning "make ABSOLUTELY SURE that the OpenTx or EdgeTx Hardware ADC Filter is un-checked!" We already took care of that when setting up the TX.
+
+Then under options, I just chose _Serial, separated Rx_ and the _connection method_ and _Single Cell value_ under _Voltage readings_. I did not choose any of the _Fine-tuning_ options.
+
+Then I clicked _Pick_ and then _Save and Reboot_.
+
+This resulted in the following changes:
+
+```
+set feedforward_smooth_factor = 30
+set report_cell_voltage = ON
+```
+
+At other frequencies, more things are changed, e.g. at 250MHz the same options result in:
+
+```
+set feedforward_smooth_factor = 45
+set feedforward_averaging = 2_POINT
+set feedforward_jitter_factor = 6
+set report_cell_voltage = ON
+```
+
+Selecting _serial_ as the connection method resulted in no change (as serial was already the default).
+
+By default `report_cell_voltage` is off but as JB points out, you want it on. See OL's [explanation](https://oscarliang.com/averaged-cell-voltage-crossfire/) for more details. In short, the telemetry value for the battery voltage by default gives you the total voltage, but turning this setting on gives you an average cell voltage. This means that as you get to the end of your flight, you'll always see the voltage nearing 3.5V, and know it's time to come into land, rather than seeing a value that depends on the number of cells in the battery you're currently using (around 14V when flying with a 4S battery or 21V with a 6S).
+
+TODO: I suspect if one sets `report_cell_voltage` one gets _both_ the total and the average - see TODO in telemetry section below.
+
+For details on what every single option affects, including the fine tuning ones for racing, freestyle etc., see [`elrs-preset-options.md`](elrs-preset-options.md).
+
 #######
 HERE. I've finished <https://oscarliang.com/setup-radiomaster-boxer/> and OL's Zorro guide.
 
@@ -383,6 +421,22 @@ I think, I should set packet rate and do the _Receiver_ tab setup as per JB's "y
 
 Also look if there's any additional info in JB's three other guides linked to above.
 #######
+
+Telemetry
+---------
+
+Press _MDS_, page backward to _TELEMETRY_ (it's the second last page so, paging backward is quicker). Go down to the _Sensors_ section and click _Discover new_.
+
+It'll discover a whole list of telemetry data items that are transmitted back to the TX by the RX. Click _stop_ to tell it so stop trying to discover further items.
+
+**TODO:** none of them looked like the battery voltage (see `report_cell_voltage` above) and if I press the _TELEM_ button I just see the TX battery voltate and the time. How do I get the quad battery voltage and RSSI as shown here <https://oscarliang.com/averaged-cell-voltage-crossfire/>  it looks like I should get both the total and the individual.
+
+Buzzer
+------
+
+Kind of cool is that it looks like you can do without a buzzer altogether and use the motors to beep - see <https://oscarliang.com/esc-beacon-lost-model-alarm/>
+
+As OL notes (and JB in his comment near the top of the comments section on [this video](https://www.youtube.com/watch?v=3LL2caB3r88)), beeping too loud and too long can be very bad for your motors.
 
 BF bluetooth
 ------------
