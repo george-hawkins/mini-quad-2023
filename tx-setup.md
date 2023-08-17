@@ -362,24 +362,6 @@ Presets
 
 [`30-pre-elrs-presets-etc.txt`](30-pre-elrs-presets-etc.txt) contains my configuration _before_ I started applying JB's suggested presets (32m 30s mark in video 3 of his 2022 build series).
 
-DO JB's presets section (and note how the conf changes with each step).
-
-Given that the RX works, it's a surprising no. of addititional entries to fine tune it to its best. Note that the diffs between freqs are minimal (three settings).
-
-Then do the non-DJI AUX setup chapter. There's nothing additional in the corresponding DJI chapter (even in the OSD bit) so skip 
-
-Most of the OSD chapter you've already done - BUT at 55m 28s he discusses meaning and limits for e.g. battery cell voltage and link quality and corecting the ELRS RSSI warning.
-
-You can see what the 110 value that JB uses for `osd_rssi_dbm_alarm` means on OL's ["LQ and RSSI explained for ELRS" page](https://oscarliang.com/lq-rssi/). The 110 value is at the limit of what OL considers safe for 50Hz.
-
-OL's suggested universal value of 95 is conservative and safe for all ELRS packet rates. Basically, just take the dBm value shown for your packet rate in OL's [lowest RSSI section](https://oscarliang.com/lq-rssi/#The-Lowest-RSSI), drop the negative sign and subtract 10 as a safety margin. So, e.g. for 150Hz the value is -112dBm, this becomes (112 - 10), i.e. 102.
-
-I set the value to 100 for my 150Hz setup.
-
-SKIP the analog VTX vtxtable channel.
-
-The last chapter (in this video) has some minor points that I think can be skipped.
-
 #### ELRS Presets
 
 In _Betaflight Configurator_, go to the _Presets_ tab, enter "ELRS" in the search field and select the preset for the frequency you chose (for me that was 150Hz, you might have chosen 50Hz if it worked for you).
@@ -414,10 +396,70 @@ TODO: I suspect if one sets `report_cell_voltage` one gets _both_ the total and 
 
 For details on what every single option affects, including the fine tuning ones for racing, freestyle etc., see [`elrs-preset-options.md`](elrs-preset-options.md).
 
+It was only at this point that I noticed that _Pick_ just outlines a given preset in green - it's pressing _Save and Reboot_ that causes it to be marked with a star (and appear from then ahead of all the non-stared presets).
+
 Rates
 -----
 
+Sources: OL's ["Demystifying FPV Drone Rates"](https://oscarliang.com/rates/) and JB's ["Find YOUR perfect rates! With science!"](https://www.youtube.com/watch?v=Ql62iRkLX3s) video.
+
+If you go to the _PID Tuning_ tab in _BF Configurator_, switch to _Rateprofile Settings_, you'll see there's a dropdown called _Rate Types_.
+
+Basically, this allows you to select between different ways of defining the curves you see in the _Rates Preview_ panel below.
+
+If we ignore the throttle, you'll find, when you're flying, that the you'll spend most of your time making tiny movements around the center point of the sticks - you'll almost never push them to their extremes. In general (as a beginner), you'd like far more control towards the center of the sticks - and you can configure this through the curves. JB does a good job of explaining this in an intuitive manner in the "What are rates?" chapter of his "find your perfect rates" video (see link above).
+
+Over time people have come up with what they feel are  more intuitive ways to specify the curves in terms of a set of numbers - these different approaches are what you find in the _Rate Types_ menu.
+
+So, people have gotten used to different systems over time and may want to stick with them but basically _Betaflight_ rates was the classic system of expressing rates and then in BF 4.2 they introduced a more intuitive system called _Actual_ rates. So, it comes down to a choice between one or the other. As OL puts it:
+
+> Betaflight Rates are slightly more complex [than Actual rates] as the three terms are interdependent, making them less intuitive to use. However, as the oldest rate system in Betaflight, many experienced pilots continue to rely on them.
+
+JB has more on why _Betaflight_ are hard to work with and why _Actual_ rates are more intuitive in his ["what are ACTUAL RATES and how to convert them"](https://www.youtube.com/watch?v=m3A9xgRmcws).
+
+So, if you're starting out, then _Actual_ rates seem the obvious choice and it's the system JB uses in all his videos since _Actual_ became available.
+
+Nearly, everything I've done has fairly closely followed along with his [2022 drone build for beginners](https://www.youtube.com/playlist?list=PLwoDb7WF6c8neIAQBkchfiXf-C8KbzG5M) series.
+
+But here, I'm going to do something different - he uses presets to quickly chose a set of canned rates - this may be quick but it's opaque and makes one think the process may be more complicated than it is.
+
+So, instead, of a preset, find the _Rates Types_ dropdown, as described above and select _Actual_.
+
+These are the rates you get if you try the presets that JB suggests:
+
+_Headsup racing rates_
+![headsup racing rates](images/betaflight/010-headsup-racing-rates-actual.png)
+
+_JB rates_
+![JB rates](images/betaflight/011-jb-rates-actual.png)
+
+As JB explains, as a beginner you're probably going to want something closer to the more precise racing rates than to the JB's own rates that allow for extreme freestyle moves.
+
+After looking at these and watching his "pefect rates" video and looking into pages and videos on beginner rates, I went for this super conservative setup:
+
+![My rates](images/betaflight/012-my-rates.png)
+
+All you have to do is select _Actual_ as the _Rates Types_ and then enter the numbers shown for _ROLL_, _PITCH_ and _YAW_ - try adjusting them and see how they affects the curves.
+
+And _Save_ - done.
+
 #######
+Then do the non-DJI AUX setup chapter. There's nothing additional in the corresponding DJI chapter (even in the OSD bit) so skip 
+
+Most of the OSD chapter you've already done - BUT at 55m 28s he discusses meaning and limits for e.g. battery cell voltage and link quality and corecting the ELRS RSSI warning.
+
+You can see what the 110 value that JB uses for `osd_rssi_dbm_alarm` means on OL's ["LQ and RSSI explained for ELRS" page](https://oscarliang.com/lq-rssi/). The 110 value is at the limit of what OL considers safe for 50Hz.
+
+OL's suggested universal value of 95 is conservative and safe for all ELRS packet rates. Basically, just take the dBm value shown for your packet rate in OL's [lowest RSSI section](https://oscarliang.com/lq-rssi/#The-Lowest-RSSI), drop the negative sign and subtract 10 as a safety margin. So, e.g. for 150Hz the value is -112dBm, this becomes (112 - 10), i.e. 102.
+
+I set the value to 100 for my 150Hz setup.
+
+SKIP the analog VTX vtxtable channel.
+
+The last chapter (in this video) has some minor points that I think can be skipped.
+
+#-------
+
 HERE. I've finished <https://oscarliang.com/setup-radiomaster-boxer/> and OL's Zorro guide.
 
 I think, I should set packet rate and do the _Receiver_ tab setup as per JB's "you can" video. And then come back to <https://oscarliang.com/setup-expresslrs-2-4ghz/#Betaflight-Setup-for-ExpressLRS-Receiver> and make sure FAILSAFE etc. are done if they weren't part of JB's video.
