@@ -1147,7 +1147,7 @@ But in this Jun 7, 2022 video at the 59m 24s mark - <https://www.youtube.com/wat
 
 Balance extension leads:
 
-* 20cm 0 <https://www.getfpv.com/balance-lead-extension-cable-4s-jst-xh.html>
+* 20cm - <https://www.getfpv.com/balance-lead-extension-cable-4s-jst-xh.html>
 * 20cm - <https://www.aliexpress.com/item/4000007952841.html>
 * 20cm - <https://www.aliexpress.com/item/32238535012.html>
 * 10/15cm - <https://www.aliexpress.com/item/32962722046.html>

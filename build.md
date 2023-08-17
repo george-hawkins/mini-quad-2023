@@ -536,7 +536,7 @@ Now, click _Motor directions_, enable the _I understand the risks_ option and cl
 
 Note: if you try this with the ShortSaver in place, it'll cut the power to ESC as spinning up a motor beyond the minimum will bring you above the default 1A ShortSaver limit.
 
-It turns out a bug introduced in 4.4.2 has broken changing motor direction via BF - see [issue #12860](https://github.com/betaflight/betaflight/issues/12860) - it _should_ be resolved whenever 4.4.3 or 4.5 comes out.
+It turns out a bug introduced in 4.4.2 has broken changing motor direction via BF - see [issue #12860](https://github.com/betaflight/betaflight/issues/12860) - the fix will be included in 4.4.3 and 4.5 whenever they come out.
 
 So, instead first work out which motors are turning in the wrong direction. I found it easiest not to use the _Wizard_ and clicked _Individually_ instead.
 
@@ -969,6 +969,8 @@ My steps:
 * Now, click the grid location with the 0 LED, go to _Function_ and select _Color_ and then select e.g. white (number 1) from the grid of colors below.
 * Repeat this for the remaining 3 LEDs, i.e. for each set _Function_ to _Color_ and select a color.
 * Once done, click _Save_.
+
+Note: I've frequently noticed one LED not turning on or having a random color - I thought this was an issue with my no-name LED/buzzer board - but it may also be this H7 specific [LED bug](https://github.com/betaflight/betaflight/issues/12973) in 4.4.2, that's fixed in 4.4.3 and 4.5.0.
 
 ---
 

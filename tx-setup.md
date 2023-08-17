@@ -414,12 +414,19 @@ TODO: I suspect if one sets `report_cell_voltage` one gets _both_ the total and 
 
 For details on what every single option affects, including the fine tuning ones for racing, freestyle etc., see [`elrs-preset-options.md`](elrs-preset-options.md).
 
+Rates
+-----
+
 #######
 HERE. I've finished <https://oscarliang.com/setup-radiomaster-boxer/> and OL's Zorro guide.
 
 I think, I should set packet rate and do the _Receiver_ tab setup as per JB's "you can" video. And then come back to <https://oscarliang.com/setup-expresslrs-2-4ghz/#Betaflight-Setup-for-ExpressLRS-Receiver> and make sure FAILSAFE etc. are done if they weren't part of JB's video.
 
 Also look if there's any additional info in JB's three other guides linked to above.
+
+Your ARM switch *MUST* be AUX1 - see <https://www.expresslrs.org/quick-start/pre-1stflight/#modes> 
+
+The ELRS documentation says "make sure your ARM mode is on the AUX1 channel, and the armed state is set ~2000." (see the [mode section](https://www.expresslrs.org/quick-start/pre-1stflight/#modes) for an explanation of why anything else is a bad idea).
 #######
 
 Telemetry
@@ -430,6 +437,22 @@ Press _MDS_, page backward to _TELEMETRY_ (it's the second last page so, paging 
 It'll discover a whole list of telemetry data items that are transmitted back to the TX by the RX. Click _stop_ to tell it so stop trying to discover further items.
 
 **TODO:** none of them looked like the battery voltage (see `report_cell_voltage` above) and if I press the _TELEM_ button I just see the TX battery voltate and the time. How do I get the quad battery voltage and RSSI as shown here <https://oscarliang.com/averaged-cell-voltage-crossfire/>  it looks like I should get both the total and the individual.
+
+Note: the telemetry data transmitted via the RX to your TX isn't the only telemetry data channel - similar data is transmitted via the VTX to your goggles. In an FPV setup, you can't see the TX while you're flying so it's telemetry data is, relatively speaking, less important (but you can still hear audio warnings from the TX).
+
+Somehow, the `feature TELEMETRY` got disabled (perhaps it was automatically disabled for one of the passthru operations and never got correctly reset). Re-enable it in the CLI tab with:
+
+```
+feature TELEMETRY
+```
+
+Then the discover option (see above) will discover many more sensors - RxBAT is now there but it still shows up as 0% for me.
+
+**TODO:** Most telemetry data gets reported by the FC to the RX, but the RX reports the _Link Quality_ and _RSSI dBm value_. If you want this data displayed in the goodles, you may have to:
+
+> set "RSSI Channel to "Disabled" in the Receiver tab of the Betaflight/iNav Configurator, and RSSI_ADC should be disabled on the Configuration tab
+
+See [here](https://www.expresslrs.org/quick-start/pre-1stflight/#rssi-and-link-quality) in the ELRS documentation (you've already done the `osd_rssi_dbm_alarm` bit - but notice they use **minus** numbers). 
 
 Buzzer
 ------

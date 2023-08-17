@@ -523,18 +523,60 @@ Fans are generally 12V so, powering them via 5V USB will mean you're getting les
 
 I ordered two versions:
 
-* Sensda Electronics - a version with a 12V wall power adapter - <https://www.aliexpress.com/item/32626023064.html>
-* Gdstime Technology - a simple 5V USB version - <https://www.aliexpress.com/item/32684380486.html>
+* US$20.15 Sensda Electronics - a version with a 12V wall power adapter - <https://www.aliexpress.com/item/32626023064.html> (shipping was free)
+* US$6.50 Gdstime Technology - a simple 5V USB version - <https://www.aliexpress.com/item/32684380486.html> (shipping wsa US$4)
 
 Note: Gdstime seem to be the producers of the fans that are sold on many other AliExpress stores, they have high sales for other fans - the particular one I chose had no previous sales but it was the size I wanted (the higher sales ones were larger 120mm fans - I wanted a smaller 75mm one).
 
+I don't think I noticed at the time how big the price difference was between the two.
+
+Shipping for the Sensda one was from Aug 5th to Aug 15th (making it among the fastest deliveries) and was well packed in a cardboard box. The fan is ludicruously over powered for my needs - at full power, it pumps out way air than I would have imagined possible for such a smaall device - this means there's only a tiny portion at the start of the speed dial that's useful (above that it starts to push itself and other things around) - this makes it fiddly to get a suitable speed. Adding the provided funnel just makes the situation more extreme. The funnel is not designed to stay in place without glue. The fan picks up speed very slowly - it takes several seconds to get going but once it does it really goes. This is clearly a fan that could keep a substantial server cool - it's overkill for a tiny VTX. It's nice that it's speed adjustable but the useable range for my setup is so small as make this aspect less useful.
+
+The Sensda fan is 95mm and already feels quite big - I don't see any point in going for the larger 120mm fans, that seem to be the most popular size on AliExpress, for this purpose.
+
+The Gdstime fan is 75mm - they also have:
+
+* 60mm - <https://www.aliexpress.com/item/32834229283.html>
+* 50mm - <https://www.aliexpress.com/item/32687304125.html>
+
+TODO: see how much current the USB draws - is it more than 500mW that old style laptop USB-A connectors provided?
+
 ---
 
-U-Angle-1988
+U-Angle-1988 AliExpress store
 
 US$2.35 - 20cm JST-XH balance lead extension cable (5 pieces)
 
 Shipping was US$3.75 as I wanted faster shipping but the default was US$0.35.
+
+Shipping took from Aug 7th to Aug 16th and came is padded envelope.
+
+BUT the connectors weren't genuine JST-XH connectors (or good fakes) - they were slightly too high and more importantly the holes were holes were slightly too small and set slightly too high and so the female connectors couldn't be inserted in my charger.
+
+```
+      +-----+
+   d /     /|
+    +-----+ +
+  h |.....|/
+    +-----+
+       W
+```
+
+---
+
+AEROPS UAV AliExpress store
+
+US$2.80 - 10cm JST-XH balance lead extension cable (4 pieces)
+
+Shipping was US$1.70
+
+---
+
+DeKuSi Electron AliExpress store
+
+US$2.80 - 10cm JST-XH balance lead extension cable (4 pieces)
+
+Shipping was US$6.30, i.e. pretty expensive by AliExpress standards.
 
 ---
 
