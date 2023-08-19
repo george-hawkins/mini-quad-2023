@@ -646,6 +646,57 @@ But, if you want, go to the _Configuration_ tab and, in the _Arming_ panel, chan
 
 That's it - now it's time to finish assembly and finally fly the quad.
 
+Battery voltage and current
+---------------------------
+
+TODO: move this section to the same bit where I did the CLI setup for the motors.
+
+I hadn't notice it before but R7 is one of the pins on the ESC to FC connector, this means BLHeli_32 telemetry comes in via the RX pin of UART 7.
+
+And if I look at the _Ports_ tab in _Configurator_, I can see that UART7 is already set up with _ESC_ select from the dropdown in its cell of the _Sensor Input_ column.
+
+---
+
+In the _Configurator_, go to the _Power and Battery_ tab - in the _Amperage Meter_ panel, the defaul _Scale_ is shown as 168. If you look at the Holybro [current sensor scale](https://docs.holybro.com/esc/current-sensor-scale) page, you'll see that 168 is the correct value for the Tekko32 F4 4in1 50A ESC up to v1.7.
+
+My ESC is v1.7 so, the default is correct. After v1.7 different values need to be used - I _suspect_ this reflects Holybro having to switch to a non-standard chip, that doesn't use the usual scaling factor, due to something like the whole chip availability issue. So, for once not having the latest version number looks to be a good thing.
+
+It took me forever to get voltage sensing working. In the end it turns out it all comes down to using the second ESC port on the FC. Just like the motors had to be remapped, so do the battery voltage and current pins.
+
+Note: I'm unsure how both ESC ports can share the RX pin of UART7 but it seems to work.
+
+So, it was possible to switch the _Voltage Meter Source_ from _Onboard ADC_ to _ESC Sensor_ - this allows you to see a per motor voltage value (which, unlike e.g. a per-cell voltage, isn't particularly useful). But for whatever reason, _BF_ could see the individual motor values reported via the second ESC port but would only average the individual values if they came in via the first ESC port.
+
+Whether this is a _BF_ bug or whether some other configuration setting needs to be adjusted, I don't know.
+
+But in the end, I got things to work while leaving _Voltage Meter Source_ set to _Onboard ADC_.
+
+I was able to discover, from the ArduPilot hardware definition for the Kakute H7 V2, that the second battery voltage and current sensor pins were A01 and C04 respectively.
+
+See [`libraries/AP_HAL_ChibiOS/hwdef/KakuteH7v2/hwdef.dat:47`](https://github.com/ArduPilot/ardupilot/blob/338a4d6/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7v2/hwdef.dat#L47):
+
+```
+# second battery sensor on second ESC connector
+PA1 BATT2_VOLTAGE_SENS ADC1 SCALE(1)
+PC4 BATT2_CURRENT_SENS ADC1 SCALE(1)
+```
+
+Note: on the line below these ones, it says "second battery setup (note external current sensor required)" - this is a copy and paste error and has already been corrected elsewhere, you don't need an external current sensor.
+
+So, all one has to do is switch the _BF_ settings to match these. Go to the _CLI_ tab and enter:
+
+```
+resource ADC_BATT 1 C00
+resource ADC_CURR 1 C01
+save
+```
+
+Once, the quad has been restarted with a bench supply (or a battery), voltage and current  values finally show up in the _Voltage Meter_, _Amperage Meter_ and _Power State_ panels.
+
+And the _mAh used_ gradually starts tick up in the _Power State_ panel as the system keeps track of how much of the mAh value of your battery you've consumed so far.
+
+Note: assuming you were working with a more normal setup, e.g. using the first ESC port, then choosing the _Onboard ADC_ or the _ESC Sensor_ (i.e. telemetry data from the ESC) isn't a big deal, but for the current using the _Onboard ADC_ if possible is preferrable to getting it from the ESC for the reasons OL explains in the ["Limitation of ESC Telemetry"](https://oscarliang.com/esc-telemetry-betaflight/) section of his guide to ESC telemetry.
+
 ELRS checklist
 --------------
 
