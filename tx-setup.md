@@ -695,7 +695,40 @@ Once, the quad has been restarted with a bench supply (or a battery), voltage an
 
 And the _mAh used_ gradually starts tick up in the _Power State_ panel as the system keeps track of how much of the mAh value of your battery you've consumed so far.
 
+See the green half full battery icon in the top bar, the voltage and amp values in the _Voltage Meter_ and _Amperage Meter_ panels, and those value plus _mAh used_ in the _Power State_ panel.
+
+![power and battery tab](images/betaflight/014-power-and-battery.png)
+
+Assuming, the batteries that you used with a given quad all had the same mAh value, you _could_ fill this in in the _Capacity_ field of the _Battery_ panel above. This would allow it to calculate the remaining battery capacity in percent (as noted [here](https://betaflight.com/docs/wiki/configurator/power-tab) in the _Configurator_ docs).
+
 Note: assuming you were working with a more normal setup, e.g. using the first ESC port, then choosing the _Onboard ADC_ or the _ESC Sensor_ (i.e. telemetry data from the ESC) isn't a big deal, but for the current using the _Onboard ADC_ if possible is preferrable to getting it from the ESC for the reasons OL explains in the ["Limitation of ESC Telemetry"](https://oscarliang.com/esc-telemetry-betaflight/) section of his guide to ESC telemetry.
+
+### Calibrating the voltage reading
+
+Note: the voltage shown by BF and the value shown on my charger differed by about 0.1V - to get things exact, you need a multimeter.
+
+There is a _Calibration_ button on the _Power and Battery_ tab but I didn't find it very useful - when the quad is doing nothing, the current consumed is almost nothing and jumps around too much to get the steady value that I think is needed for the _Calibration_ feature.
+
+So, instead I just calibrated the voltage value as described in section 3 of OL's guide to [fixing the voltage displayed by BF](https://oscarliang.com/fix-wrong-voltage-betaflight/).
+
+I.e. measure the voltage across the terminals of a battery, connect the battery to the quad, and then in _Voltage Meter_ panel nudge the _Scale_ value up e.g. from the default 109 value to 111 and then press _Save_ (you won't see any change until you press _Save_) if this moved things in the right direction then great, otherwise adjust down to e.g. 107. Then keep adjusting up or down until the voltage value is as near as possible to what you expect - things aren't very fine grained, moving the value up or down e.g. just 0.4 changes the calculated value a lot. Repeat the proces a few time (as the voltage fo the battery may change as you're measuring things). In the end, I ended up using the 111 as my _Scale_ value.
+
+Note: I found a battery produced a far more stable voltage output than my charger.
+
+Calibrating current is more involved, OL describes two approaches in his [current sensor calibration](https://oscarliang.com/current-sensor-calibration/) guide - either by:
+
+* Trial and error, determining the amount of mAh you used during a number of flights.
+* With a multimeter - this involves spinning up the motors (which creates a clearer load that the at-rest situation I had) and requires multimeter probes with crocodile clips.
+
+As I didn't have probes with crocodile clips, I just left the current _Scale_ value as it was.
+
+As OL notes, you could also use a bench power supply instead of a multimeter and it would tell you the current being consumed. But that supply would have to be calibrated and after some experimentation, I can say this definitely isn't the case for my charger acting as a bench power supply.
+
+TODO: I have a ToolkitRC [P200](https://www.toolkitrc.com/P200) which is with 0.01V of what my multimeter reports - however, I haven't yet used it to try and improve the current scaling factor.
+
+Instead, I just calibrated the voltage (which, if you've got a proper current sensor, as we
+
+Note: on less capable ESCs, there's no real current sensor and the best you can do is create a virtual one 
 
 ELRS checklist
 --------------
