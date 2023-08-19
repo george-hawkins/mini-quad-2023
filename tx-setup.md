@@ -357,6 +357,20 @@ I adjusted my _Max Power_ to the 100mW maximum allowed in the EU and JB suggests
 
 TODO: move this section somewhere more sensible above - it's in the middle of unrelated _BF Configurator_ stuff.
 
+```
+########################################################################
+```
+
+I've finished <https://oscarliang.com/setup-radiomaster-boxer/> and OL's Zorro guide.
+
+But come back to <https://oscarliang.com/setup-expresslrs-2-4ghz/#Betaflight-Setup-for-ExpressLRS-Receiver> and make sure FAILSAFE etc. are done if they weren't part of JB's video.
+
+Also look if there's any additional info in JB's three other guides linked to above in the ELRS section.
+
+```
+########################################################################
+```
+
 Presets
 -------
 
@@ -443,33 +457,201 @@ All you have to do is select _Actual_ as the _Rates Types_ and then enter the nu
 
 And _Save_ - done.
 
-#######
-Then do the non-DJI AUX setup chapter. There's nothing additional in the corresponding DJI chapter (even in the OSD bit) so skip 
+These are the setting changes that result:
 
-Most of the OSD chapter you've already done - BUT at 55m 28s he discusses meaning and limits for e.g. battery cell voltage and link quality and corecting the ELRS RSSI warning.
+```
+set pitch_expo = 76
+set pitch_rc_rate = 10
+set pitch_srate = 40
+set roll_expo = 76
+set roll_rc_rate = 10
+set roll_srate = 40
+set yaw_expo = 64
+set yaw_rc_rate = 15
+set yaw_srate = 35
+```
 
-You can see what the 110 value that JB uses for `osd_rssi_dbm_alarm` means on OL's ["LQ and RSSI explained for ELRS" page](https://oscarliang.com/lq-rssi/). The 110 value is at the limit of what OL considers safe for 50Hz.
+As you can see, it's three numbers each for pitch, roll and yaw. The setting `rates_type` isn't changed as its default is `ACTUAL`.
 
-OL's suggested universal value of 95 is conservative and safe for all ELRS packet rates. Basically, just take the dBm value shown for your packet rate in OL's [lowest RSSI section](https://oscarliang.com/lq-rssi/#The-Lowest-RSSI), drop the negative sign and subtract 10 as a safety margin. So, e.g. for 150Hz the value is -112dBm, this becomes (112 - 10), i.e. 102.
+Acro trainer mode
+-----------------
 
-I set the value to 100 for my 150Hz setup.
+OL explains the various BF flight modes in the [flight modes](https://oscarliang.com/betaflight-modes/#Flight-Modes) section of his guide to BF modes.
 
-SKIP the analog VTX vtxtable channel.
+The ones we're interested in are:
 
-The last chapter (in this video) has some minor points that I think can be skipped.
+* Acro mode - this is the no hand-holding mode that experienced pilots use.
+* Angle mode - this is a much easier to fly self-levelling mode with various limits to ensure things don't get out of control and 
+* Acro trainer mode - this is a form of acro mode with various limits that prevent flipping over and behaviors that are likely to end in a crash while learning.
 
-#-------
+Lot's of videos discourage you from using _angle_ mode as it's felt to teach you bad habits that you'll have to unlearn once you switch to acro but it's the safest thing for your first flights when you're still working out if everything is setup correctly.
 
-HERE. I've finished <https://oscarliang.com/setup-radiomaster-boxer/> and OL's Zorro guide.
+The number of features that BF supported grew so large that including them all outgrew the memory available on many FCs. So, with BF 4.4 only a certain subset of features is included by default.
 
-I think, I should set packet rate and do the _Receiver_ tab setup as per JB's "you can" video. And then come back to <https://oscarliang.com/setup-expresslrs-2-4ghz/#Betaflight-Setup-for-ExpressLRS-Receiver> and make sure FAILSAFE etc. are done if they weren't part of JB's video.
+Acro trainer isn't one of these features so, if you want it you have to do the same steps as when updating the firmware. Except this time go to the _Build Configuraton_ section of the _Firmware Flasher_, click in the _Other Options_ section and add _Acro Trainer_ from the dropdown list of choices - and then flash the firmware as before
 
-Also look if there's any additional info in JB's three other guides linked to above.
+AUX switches
+------------
 
-Your ARM switch *MUST* be AUX1 - see <https://www.expresslrs.org/quick-start/pre-1stflight/#modes> 
+Source: the ["NON-DJI ONLY: Set up Aux switches and Modes"](https://www.youtube.com/watch?v=5ke6LabvtGM&list=PLwoDb7WF6c8neIAQBkchfiXf-C8KbzG5M&index=3&t=2079s) chapter of JB's of the third video ("Configuration and Setup") in his "2022 Freestyle FPV Drone Build" series.
 
-The ELRS documentation says "make sure your ARM mode is on the AUX1 channel, and the armed state is set ~2000." (see the [mode section](https://www.expresslrs.org/quick-start/pre-1stflight/#modes) for an explanation of why anything else is a bad idea).
-#######
+Turn on your TX, press _MDL_ and page to the _MIXES_ screen. In JB's video the channels after 1 to 4 (which are assigned to the sticks) are free. Oddly, on my setup, channels 5 to 10 were already assigned to switches `SA` to `SF`.
+
+The EdgeTX interface is a bit confusing here, clicking an entry allows you to "drag" the switch associated with that entry either to a free slot or to an existing slot (in which case multiple switches become associated with a single channel and the value of the most recently flipped switch becomes the channels value).
+
+Anyway, if you accidentally click an entry, just press _RTN_ to cancel dragging.
+
+Instead, long click an entry to being up a set of options that includes _Edit_ and _Delete_ - the easiest thing is just to delete the entries 5 to 10 if, as I found, they've already been assigned default values.
+
+The TX can transmit value on 12 channels (the number of available channels is a function of various factors but for us it's 12). The first four are already set up to communicate the stick values. And the remaining eight are free for us to associate with whatever we want. Here we're going to associate them with switch positions and then _BF Configurator_ we're going to associate those positions with various functions (like arming the quad).
+
+So, the channels you see on the _MIXES_ screen map to the values you see in the _Receiver_ tab of _BF Configurator_ like so:
+
+| EdgeTX | BF       |
+|--------|----------|
+| CH1    | Roll     |
+| CH2    | Pitch    |
+| CH3    | Yaw      |
+| CH4    | Throttle |
+| CH5    | AUX 1    |
+| CH6    | AUX 2    |
+| CH7    | AUX 3    |
+| CH8    | AUX 4    |
+| CH9    | AUX 5    |
+| CH10   | AUX 6    |
+| CH11   | AUX 7    |
+| CH12   | AUX 8    |
+
+Note: that roll, pitch etc. are mapped to those particular channels is just convention and it happens that the TX and _BF Configurator_ agree on the convention but some TX manufacturers assume a different convention and for these case you'd have to change the _Channel Map_ setting in _BF Configurator_ to match.
+
+So, we're going to associate switches with with AUX 1 to 3, i.e. `CH5` to `CH8` in EdgeTX.
+
+So, on the _MIXES_ page (assuming you've deleted any existing assignments for `CH5` and up) and:
+
+* Go to `CH5`, click it (if the slot is free, you don't have to long click), go to _Source_, click it and press switch _SE_, click the scroll wheel again (to stop the _Source_ value blinking) and press _RTN_ twice to get back to the main _MIXES_ page.
+* Then do the same for `CH6`, `CH7` and `CH8` but use switches _SF_, _SC_ and _SD_ respectively.
+
+Note that _SC_ is a three position switch and _SD_ is a two position switch.
+
+We've completed the setup on the TX side (just press _RTN_ a few times to get back to the main EdgeTX screen).
+
+Now, open _BF Configurator_, go to the _Receiver_ tab and try using switches _SE_, _SF_, _SC_ and _SD_ and see that the values of the expected AUX channels also change between 1000 and 2000 (or in the case of _SC_ the middle position maps to ~1500).
+
+Then switch to the _Modes_ tab and go to _ARM_, click its _Add Range_ button - see the little yellow marker below the bar, initially its at 1500, click the _SE_ switch in and out and see the marker move about. Now, with _SE_ pressed in, so the marker is at 2000, drag the yellow bar so the center of the bar is above the marker (or, as 2000 is too near the upper end of the scale, as near as possible).
+
+Note: you can adjust the size of the yellow bars - reducing their size would make sense if you wanted to associate lots of positions on a single channel with different modes but isn't needed here.
+
+Now, go to _BEEPER_ and do the same, this time pressing _SF_ (you don't have to keep it pressed while dragging the yellow bar - you just need to know where the marker will be when it's pressed).
+
+Now, go to _FLIP OVER AFTER CRASH_ and set it to be enabled when _SD_ is down.
+
+Now, go to _ANGLE_ and flip the _SC_ switch to its down position and place the yellow bar. Finally, go to _ACRO TRAINER_ (which will only be listed if you reflashed the firmware, as discussed above, with _Acro Trainer_ added as an option) and flip _SC_ not to its middle position and place the yellow bar.
+
+Press _Save_ after setting up the modes and then enable the _Hide unused modes_ toggle.
+
+Now, try pressing _SE_ and the other switches, you should see the _ARM_ go red when you press _SE_ (but with "(DISABLED)" shown as you can only really arm once various checks are passed, including not being connected to USB), _ANGLE_ and _ACRO TRAINER_ should go yellow as you flip _SC_ and _FLIP OVER AFTER CRASH_ and _BUZZER_ when you press _SD_ and _SF_ respectively.
+
+as you might have noticed, _SC_ is associated with two flight modes (and when no flight mode is explicitly selected BF defaults to _ACRO_) so:
+
+* _ACRO_ flight mode is used when _SC_ is up (this position isn't mapped to any mode so, BF uses the default).
+* _ACRO TRAINER_ flight mode is used when it's in its middle position,
+* _ANGLE_ flight mode is used when it's down.
+
+Make sure to flip _SC_ all the way down to _ANGLE_ mode for your first flights.
+
+TODO: get some screenshots of what you see in the goggles when you arm/disarm, change flight modes or switch on the buzzer.
+
+### Beeper
+
+If you power the quad from your charger (or a battery), you can also test the beeper.
+
+Press down the _SF_ button and it should make a very loud beeping sound that will help you find it when it crashes.
+
+Note: up until this point I hadn't removed the "REMOVE SEAL AFTER WASHING" sticker on the beeper (washing is done as part of the production process after soldering in order to remove flux). Removing it makes a surprising difference to the loudness of the beep.
+
+### AUX 1
+
+Normally, you're free to assign AUX channels to whatever function you want. However, you must assign ARM to AUX 1 (and the armed state must be set to ~2000) - as we did above.
+
+This is because the RX wants to know the armed state and assumes it's associated with AUX 1. See the [mode section](https://www.expresslrs.org/quick-start/pre-1stflight/#modes) of the ELRS first-flight checklist for an explanation of why using another channels is a bad idea and for more details, including further assumptions like unarmed being ~1000 and armed being ~2000. This ELRS documentaion notes that there are only between 1 and 4 bits available per AUX channel - that's not case for us as we're using _wide_ switch mode (this was covered when doing the main ELRS setup).
+
+**Question:** why does the RX look at this channel, surely the FC can communicate the armed state to the RX using CRSF?
+
+### AUX 11 and 12
+
+In our setup, there are only eight useable AUX channels, but in the _Receiver_ tab, you'll see that _AUX 11_ and _AUX 12_ may be around 1940 and 2010 respectively (these are the values they have when my Radiomaster Boxer TX is about 1m away from the BetaFPV SuperD ELRS RX) and the values may be jiggling around.
+
+Generally, it's the TX that then generates the value you see for a given channel. However, for _AUX 11_ or _AUX 12_, it's the RX generating theses values - it's using them to indicate link quality (LQ) and received signal strength (RSSI) respectively.
+
+Using AUX channels is essentially a backup way to make these values available and only of interest to users of the DJI system (who don't want to [root](https://oscarliang.com/fpv-wtf-root-hack-dji/) them so, they can take advantage of full BF OSD support). The RX talks to the FC, using a protocl called CRSF, and communicates LQ and RSSI (and lots of other information) to the FC this way. For everyone, except users of unrooted DJI goggles, it's this data, rather than the AUX channel data, that's displayed as the _Link Quality_ and _RSSI dBm_ values in the OSD.
+
+Note: there are actually two RSSI values - _RSSI dBm_ and the confusingly named _RSSI Value_ - the second is a historical oddity and should be ignored whenever you have a choice between the two (e.g. when setting up the values displayed in your OSD).
+
+For everyone, except users of DJI goggles, go to the _Receiver_ tab in _BF Configurator_ and make sure:
+
+* The _RSSI_ADC_ toggle is set to disabled.
+* _Disabled_ is selected in the _RSSI Channel_ dropdown.
+
+For even more information on LQ and RSSI and how they related to each other, see the ELRS page on [signal health](https://www.expresslrs.org/info/signal-health/). However, the "RSSI Value OSD field" section is a bit confusing - it seems to suggest that setting _RSSI Channel_ to _Disabled_ in _BF Configurator_ is not recommnded - this is _just for DJI users_ who have to use one of these channels if they want LQ or RSSI information in their googles.
+
+DJI setup
+----------
+
+We've largely been following JB's "2022 Freestyle FPV Drone Build" but at this point, he also covers setting up things for DJI and even though DJI is a digital system and we're also using a digital system (Walksnail) there's no additional useful information in the DJI specific chapters.
+
+OSD part 2
+----------
+
+After the DJI sections, JB gets on to setting up the OSD for analog. Oddly, this section is more relevant to Walksnail that the corresponding DJI one. This is because the DJI system is more locked down and can't take advantage of the full _BF_ OSD support whereas Walksnail is more open and can take advantage of all the features that _BF_ already supported for analog systems.
+
+However, we've already set up the OSD, driven by OL's guides (TODO: <link-here>). So, nearly all of JB's analog OSD chapter can be ignored BUT at 55m 28s he discusses the meaning and limits for e.g. battery cell voltage and link quality and corecting the ELRS RSSI warning.
+
+### Battery voltage
+
+We already setup single cell battery voltage above and now JB notes that once you see it hitting 3.5V it's time to come home.
+
+Note: 3.5V is also the value OL recommends in the ["when to land"](https://oscarliang.com/lipo-battery-guide/#When-to-Land) section of LiPo battery guide. He also has a whole ["Monitor Battery Voltage & Decide When to Land"](https://oscarliang.com/monitor-measure-battery-voltage-alarm-drone/) page where he discusses monitoring the voltage _and current_ via FC, OSD and TX and the related alarms.
+
+Note: OL states that the 3.5V rule applies for all cell counts except 1S. 1S suffer extreme voltage sag and so, it's normal to keep flying them until 3.2V (they'll recover to 3.5V after resting for 10 to 15 mins).
+
+### RSSI OSD alarm
+
+When setting up the OSD, JB sets `osd_rssi_dbm_alarm` to -110.
+
+You can see what this 110 value means on OL's ["LQ and RSSI explained for ELRS" page](https://oscarliang.com/lq-rssi/). The 110 value is at the limit of what OL considers safe for 50Hz.
+
+OL suggests a universal value of 95 which is conservative and safe for all ELRS packet rates.
+
+Basically, you just take the dBm value shown for your packet rate in OL's [lowest RSSI section](https://oscarliang.com/lq-rssi/#The-Lowest-RSSI), and add 10 as a safety margin. So, e.g. for 150Hz the value is -112dBm, this becomes (-112 + 10), i.e. -102.
+
+I went to the _CLI_ tab and set the value to -100 for my 150Hz setup:
+
+```
+set osd_rssi_dbm_alarm = -100
+save
+```
+
+Setup (almost) complete
+-----------------------
+
+JB then covers VTX tables for an analog VTX. This isn't relevant for Walksnail or other HD system (thankfully the digital systems are much smarter/convenient/safer when it comes to VTX channel selection).
+
+So, at this stage, the setup of _FC_ and the other components is complete.
+
+The last chapter (in JB's "Configuration and Setup" video) covers some minor points - setting how flat on the ground the quad has to be before the FC will let you arm and using the motors as beepers.
+
+As we've got a real beeper, we don't need to configure the motors to act as beepers (which one could do using the _Dshot Beacon Configuration_ panel on the _Configuration_ tab).
+
+But, if you want, go to the _Configuration_ tab and, in the _Arming_ panel, change the _Maximum ARM Angle_ from 25 to 180 so, you can arm even when your quad is at a very odd angle. Then _Save and Reboot_.
+
+That's it - now it's time to finish assembly and finally fly the quad.
+
+ELRS checklist
+--------------
+
+Above, we covered `osd_rssi_dbm_alarm`, setting _RSSI_ADC_ and _RSSI Channel_ to disabled and setting AUX 1 as your arm channel.
+
+If you've got all these things done then you've completed everything relevant in the ELRS ["Before First Flight"](https://www.expresslrs.org/quick-start/pre-1stflight) checklist.
 
 Telemetry
 ---------
@@ -488,13 +670,9 @@ Somehow, the `feature TELEMETRY` got disabled (perhaps it was automatically disa
 feature TELEMETRY
 ```
 
-Then the discover option (see above) will discover many more sensors - RxBAT is now there but it still shows up as 0% for me.
+Or go to the _Receiver_ tab in _BF Configurator_ and enable it there.
 
-**TODO:** Most telemetry data gets reported by the FC to the RX, but the RX reports the _Link Quality_ and _RSSI dBm value_. If you want this data displayed in the goodles, you may have to:
-
-> set "RSSI Channel to "Disabled" in the Receiver tab of the Betaflight/iNav Configurator, and RSSI_ADC should be disabled on the Configuration tab
-
-See [here](https://www.expresslrs.org/quick-start/pre-1stflight/#rssi-and-link-quality) in the ELRS documentation (you've already done the `osd_rssi_dbm_alarm` bit - but notice they use **minus** numbers). 
+Now, if you retry the discover option (see above), it will discover many more sensors - RxBAT is now there but it still shows up as 0% for me.
 
 Buzzer
 ------

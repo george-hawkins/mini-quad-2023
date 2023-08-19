@@ -78,7 +78,7 @@ Let's put on some training wheels:
 * Back in the main _Pause Menu_, select _Flight Controller Settings_ this time, it'll ask you "Would you like to copy this drone to your Fleet?" Click _Yes_.
   * And in the _Rates_ section:
     * Set _Selected Model_ to _Actual_.
-    * And then for _Roll_, _Pitch_ and _Yaw_ set the _Center Sensitivity_ to 100, the _Max Rate_ to 500 and the _Expo_ to 0.8.
+    * And then for _Roll_, _Pitch_ and _Yaw_ set the _Center Sensitivity_ to 100, the _Max Rate_ to 500 and the _Expo_ to 0.76.
   * And in the _Throttle_ section set _Expo_ to 50.
 
 These values are at the complete beginner end of the range and are based on watching JB's video on rates <https://www.youtube.com/watch?v=Ql62iRkLX3s> and reading Oscar Liang's page on rates <https://oscarliang.com/rates/>
