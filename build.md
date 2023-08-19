@@ -1106,6 +1106,119 @@ Remember PIT switch. And look at BT - the FC has an ESP32-C3! Apparently, it can
 
 I wondered why everyone has the GPS in an angled TPU holder when Mateksys etc. have dire warnings that it must be flat. But what's flat in flight? It should be at about the same angle as the camera.
 
+Battery voltage and current
+---------------------------
+
+I hadn't notice it before but R7 is one of the pins on the ESC to FC connector, this means BLHeli_32 telemetry comes in via the RX pin of UART 7.
+
+And if I look at the _Ports_ tab in _Configurator_, I can see that UART7 is already set up with _ESC_ select from the dropdown in its cell of the _Sensor Input_ column.
+
+---
+
+In the _Configurator_, go to the _Power and Battery_ tab - in the _Amperage Meter_ panel, the defaul _Scale_ is shown as 168. If you look at the Holybro [current sensor scale](https://docs.holybro.com/esc/current-sensor-scale) page, you'll see that 168 is the correct value for the Tekko32 F4 4in1 50A ESC up to v1.7.
+
+My ESC is v1.7 so, the default is correct. After v1.7 different values need to be used - I _suspect_ this reflects Holybro having to switch to a non-standard chip, that doesn't use the usual scaling factor, due to something like the whole chip availability issue. So, for once not having the latest version number looks to be a good thing.
+
+It took me forever to get voltage sensing working. In the end it turns out it all comes down to using the second ESC port on the FC. Just like the motors had to be remapped, so do the battery voltage and current pins.
+
+Note: I'm unsure how both ESC ports can share the RX pin of UART7 but it seems to work.
+
+So, it was possible to switch the _Voltage Meter Source_ from _Onboard ADC_ to _ESC Sensor_ - this allows you to see a per motor voltage value (which, unlike e.g. a per-cell voltage, isn't particularly useful). But for whatever reason, _BF_ could see the individual motor values reported via the second ESC port but would only average the individual values if they came in via the first ESC port.
+
+Whether this is a _BF_ bug or whether some other configuration setting needs to be adjusted, I don't know.
+
+But in the end, I got things to work while leaving _Voltage Meter Source_ set to _Onboard ADC_.
+
+I was able to discover, from the ArduPilot hardware definition for the Kakute H7 V2, that the second battery voltage and current sensor pins were A01 and C04 respectively.
+
+See [`libraries/AP_HAL_ChibiOS/hwdef/KakuteH7v2/hwdef.dat:47`](https://github.com/ArduPilot/ardupilot/blob/338a4d6/libraries/AP_HAL_ChibiOS/hwdef/KakuteH7v2/hwdef.dat#L47):
+
+```
+# second battery sensor on second ESC connector
+PA1 BATT2_VOLTAGE_SENS ADC1 SCALE(1)
+PC4 BATT2_CURRENT_SENS ADC1 SCALE(1)
+```
+
+Note: on the line below these ones, it says "second battery setup (note external current sensor required)" - this is a copy and paste error and has already been corrected elsewhere, you don't need an external current sensor.
+
+So, all one has to do is switch the _BF_ settings to match these. Go to the _CLI_ tab and enter:
+
+```
+resource ADC_BATT 1 C00
+resource ADC_CURR 1 C01
+save
+```
+
+Once, the quad has been restarted with a bench supply (or a battery), voltage and current  values finally show up in the _Voltage Meter_, _Amperage Meter_ and _Power State_ panels.
+
+And the _mAh used_ gradually starts tick up in the _Power State_ panel as the system keeps track of how much of the mAh value of your battery you've consumed so far.
+
+See the green half full battery icon in the top bar, the voltage and amp values in the _Voltage Meter_ and _Amperage Meter_ panels, and those value plus _mAh used_ in the _Power State_ panel.
+
+![power and battery tab](images/betaflight/014-power-and-battery.png)
+
+Assuming, the batteries that you used with a given quad all had the same mAh value, you _could_ fill this in in the _Capacity_ field of the _Battery_ panel above. This would allow it to calculate the remaining battery capacity in percent (as noted [here](https://betaflight.com/docs/wiki/configurator/power-tab) in the _Configurator_ docs).
+
+Note: assuming you were working with a more normal setup, e.g. using the first ESC port, then choosing the _Onboard ADC_ or the _ESC Sensor_ (i.e. telemetry data from the ESC) isn't a big deal, but for the current using the _Onboard ADC_ if possible is preferrable to getting it from the ESC for the reasons OL explains in the ["Limitation of ESC Telemetry"](https://oscarliang.com/esc-telemetry-betaflight/) section of his guide to ESC telemetry.
+
+### Calibrating the voltage reading
+
+Note: the voltage shown by BF and the value shown on my charger differed by about 0.1V - to get things exact, you need a multimeter.
+
+There is a _Calibration_ button on the _Power and Battery_ tab but I didn't find it very useful - when the quad is doing nothing, the current consumed is almost nothing and jumps around too much to get the steady value that I think is needed for the _Calibration_ feature.
+
+So, instead I just calibrated the voltage value as described in section 3 of OL's guide to [fixing the voltage displayed by BF](https://oscarliang.com/fix-wrong-voltage-betaflight/).
+
+I.e. measure the voltage across the terminals of a battery, connect the battery to the quad, and then in _Voltage Meter_ panel nudge the _Scale_ value up e.g. from the default 109 value to 111 and then press _Save_ (you won't see any change until you press _Save_) if this moved things in the right direction then great, otherwise adjust down to e.g. 107. Then keep adjusting up or down until the voltage value is as near as possible to what you expect - things aren't very fine grained, moving the value up or down e.g. just 0.4 changes the calculated value a lot. Repeat the proces a few time (as the voltage fo the battery may change as you're measuring things). In the end, I ended up using the 111 as my _Scale_ value.
+
+Note: I found a battery produced a far more stable voltage output than my charger.
+
+Calibrating current is more involved, OL describes two approaches in his [current sensor calibration](https://oscarliang.com/current-sensor-calibration/) guide - either by:
+
+* Trial and error, determining the amount of mAh you used during a number of flights.
+* With a multimeter - this involves spinning up the motors (which creates a clearer load that the at-rest situation I had) and requires multimeter probes with crocodile clips.
+
+As I didn't have probes with crocodile clips, I just left the current _Scale_ value as it was.
+
+As OL notes, you could also use a bench power supply instead of a multimeter and it would tell you the current being consumed. But that supply would have to be calibrated and after some experimentation, I can say this definitely isn't the case for my charger acting as a bench power supply.
+
+TODO: I have a ToolkitRC [P200](https://www.toolkitrc.com/P200) which is with 0.01V of what my multimeter reports - however, I haven't yet used it to try and improve the current scaling factor.
+
+Instead, I just calibrated the voltage (which, if you've got a proper current sensor, as we
+
+Note: on less capable ESCs, there's no real current sensor and the best you can do is create a virtual one 
+
+Rethink - orienting FC and ESC
+------------------------------
+
+The issues with motors and voltage and current sensors are a result of rotating the ESC so the main power connector faces toward the front of the quad rather than backward.
+
+If doing things again, I'd still make this choice (and you can see the same choice in setups like the [SpeedyBee Master 5 V2](https://www.speedybee.com/speedybee-master-5-v2-hd-dji-o3-air-unit-fpv-5-freestyle-drone/) - see in the picture how the XT60 connector comes out at the head rather than the tail).
+
+However, using the second ESC port made things more complicated that they needed to be.
+
+The alternatives would have been:
+
+* Also turn the FC around, then I could have connected the FC to the first ESC with the tiny ESC cable. I'd then need to run the camera cable (rather than the long ESC cable) under the ESC to reach the camera port on the FC as it would now be on the far side of the FC. But then I'd only have to change one setting - go to the _Configuration_ tab and in the _Board and Sensor Alignment_ panel, change _Yaw Degrees_ to 180. This can get a bit confusing - if you check things out against the quad shown in the _Setup_ tab and find you want to rotate the quad relative to what you see, then disconnect the quad first (otherwise the displayed quad will also be rotated so meaning there's no relative change between the two).
+* Use a longer ESC cable. The ESC came with two cables, one very short and one that was only long enough to reach the second ESC port if routed under the ESC (which is what I wanted as I wanted to avoid cables in the space between ESC and FC as they might knock against the FC and generate unwanted vibration). The ESC also came with two much longer cables where one end had to be soldered to the ESC rather than ending in a plug and this is what I tried first and it worked well and could reach the first ESC port on the FC. However, the relevant pads on the ESC were tiny and I either damanged one of the four ESCs on the board in the soldering process (or the boards was already a dud) so, this put me off this approach and when I got a replacement ESC, I went with the approach of using the longer ESC cable that had a plugs on both ends and connected it to the second ESC port which it could reach.
+
+Speedybee sell a [75mm 8 pin ESC cable](https://www.speedybee.com/sh-1-0mm-8pin-cable-for-fc-esc-connection/). That's 75mm of cable between the plugs on both ends - the Holybro supplied cable was just 60mm in comparison.
+
+The plugs on the ends of the cables are JST-SH connectors, I tried finding suitable cables on AliExpress and just found two options:
+
+* [JST-SH cables](https://www.aliexpress.com/item/1005003489118351.html) from the Vicookin50 store.
+* [JST-SH cables](https://www.aliexpress.com/item/32807634326.html) from the Salena Wang store (make sure to select "SH 1.0mm" as the _Color_ option).
+
+Note: you have to choose between same position and reversed. For this setup you need _reversed_ 8-pin JST-SH cable.
+
+Using a slightly longer cable would have let me use the first ESC port without any CLI setting changes. Flipping the FC around would have let me to the same with just one commonly used change in the _Configurator_ (rather than changes to the motors in the CLI and finding pin assignments elsewhere for the voltage and current sensors).
+
+Both approaches would have still required reordering the motors but this can be done easily with the _Reorder motors_ button in the _Configurator_.
+
+If doing again, I'd get the slightly longer ESC cable from Speedybee or get one of the 100mm cables from AliExpress.
+
+Note: if using a Mamba interference isolation board in combination with a Flywoo 30.5x30.5 insulation board between ESC and FC then I mightn't be so worried about routing the ESC cable over the ESC if it still went under this board and so couldn't knock against the FC.
+
 Transmitter
 -----------
 
