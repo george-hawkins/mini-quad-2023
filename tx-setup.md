@@ -650,6 +650,132 @@ That's it - now it's time to finish assembly and finally fly the quad.
 
 The final config can be found [here](ready-to-fly.txt).
 
+Final assembly
+--------------
+
+In the end, I decided not to install the Mambe interference shield. If it hadn't required soldering to a GND connection on the FC:
+
+[xxx](images/mamba-isolation-to-fc.webp) TODO: clip and convert to PNG.
+
+Question: if you used an Flywoo insulation board could you put this directly above the ESC with no o-rings?
+
+**Note:** the stack is already at it's limit - a insulation board and interference would only add 1mm but would it push things over the limit - the lock nuts are already only just on.
+
+---
+
+Many stores, advertise low-profile locknuts, I bought some low-profile ones and some normal-profile ones from online FPV stores, both came in in a bag with no branding. I also bought a pack of branded normal-profile ones from a local hardware store.
+
+My calipers report:
+
+* 3.66mm for the low-profile ones.
+* 4.05mm for the no-brand normal-profile ones.
+* 3.94mm for the branded low-profile ones.
+
+So, there's a negligible 0.3mm difference between the so called low-profile ones and the branded normal-profile ones.
+
+In the end, I used the branded ones bought in a hardware store as I thought they were the least likely to be made of [chinesium](https://www.reddit.com/r/Chinesium/).
+
+I screwed them down with a 5.5mm socket driver. It'd be cool to have some feedback on torque and how many turns you've made to make installing it easier to install all four identically.
+
+I tigthened them to the point such that I could still push down on the FC and get a small gap (less than 1mm)  between nut and gummy.
+
+No threadlocker was used with these - they're locknuts and don't need additional "help".
+
+---
+
+Of the screws that came with the frame, I had left:
+
+* 2 12mm screws.
+* 12 8mm screws.
+* 8 14mm screws.
+
+I decided to use the 14mm scews for screwing down the top plate.
+
+And used the two 12mm scews for the two standoffs just behind the stack, where the bolt has to go through several layers of carbon fiber, and 8mm screws for all the other standoffs.
+
+I used threadlocker - of course - but applied a drop to the end of the standoffs rather than to the screws (which made things less messy when poking the screws through the carbon fiber plates).
+
+---
+
+Attached buzzer with 2mm wide zip ties.
+
+---
+
+Make sure arrow on camera is pointing upward.
+
+Initially, I'd thought the little rubber micro-to-mini camera adapters that came with the frame weren't relevant.
+
+But the Avatar camera is micro format (i.e. 19mm wide rather than the 28mm of a mini camera).
+
+So, I had to screw the camera to these adapters rather than the side plate.
+
+It was quite tiresome to line up the adapters on both sides - in the end a 12mm gap between the bottom plate and the bottom edge of the adapters seemed about right.
+
+Of the shorter screws that came with the camera, I still had 4mm and 5mm screws - the 5mm are too long.
+
+And the 4mm have to be used with a washer (between the screw head and the adapter rather than between camera and adapter).
+
+Without the washers the screw heads sink into the rubber and even fully tightened the camera can still move around.
+
+With the washers, I found it odd that the screws didn't have to be scewed down particularly tight before the camera became locked in place.
+
+So, don't try and tighten up these screws until they stop moving (my usual strategy).
+
+Make sure to angle the camera at a good beginner angle - i.e. between 5&deg; and 10&deg;
+
+Once you install the rubber camera adapters on the standoffs, you can no longer install the carbon fiber camera side plates as they're designed to touch up against the standoffs and the adapters prevent this.
+
+---
+
+I tied down the telemetry cable to one of the stadoffs with a zip tie.
+
+---
+
+Before installing the top plate, I did a final check with bench power supply and TX connected that all looked good in _BF_.
+
+Then I used the two zip ties that came with the frame
+
+These were 2.5mm zip ties (it turns out the size refers to the width of the head, not the width of the tie).
+
+I put the 8mm screws in a little bowl, applied a little threadlocker to the top of each standoff and then screwed down the top plate.
+
+Note: as the standoffs were now airtight at the other end, the threadlocker sat as little bubbles of glue on the ends of the standoffs - I had to poke thru them with a tooth pick (cleaning it after each pop or it didn't work) to make them descend into the standoffs.
+
+---
+
+I cut off about 1cm from the heatshrink for the GPS as it seemed too long but actually it shrinks down a lot - if doing again position it so it extends a bit more on the cable side than the other side.
+
+Due to how the connectors are placed on the board there's not much "bottom" to stick to - I put a thin slice of double sided tape and then stuck down a square on the top plate and stuck the GPS down on that.
+
+As always the difficulty of removing the covering from the top-side of the VHB tape makes me wonder if it's worth the trouble.
+
+---
+
+I used the 1mm Ummagrip Lite and stuck it to the top of the battery pad that came with the frame - because the top screws heads aren't recessed so I thought putting the 3mm Ummagrip down directly on the frame would be fiddly and I'd have to cut out holes in it for the screw heads.
+
+Initially, impression is that the Ummagrip grips better to the battery than it sticks to the rubber of the battery pad - so it tends to lift off the underlying battery pad when removing the battery.
+
+JB makes a big deal of using how Ummagrip is a must-have and how having his frame ship without one really annoys him in [this video](https://youtu.be/wC9NkVwgO4E?t=471) at the 7m 51s mark.
+
+So, I'm still inclinded to think Ummagrip is the way to go - and find it weird that non-slip mats aren't the norm these days as they seemed fairly standard in the large quad days.
+
+---
+
+I attached the landing pads.
+
+---
+
+I used two Ethix V2 230mm battery straps to tie down the battery - 230mm felt as long as needed.
+
+Strapping the battery lead safely to the side of the battery (with the balance lead tucked behind it) didn't seem the big issue that's sometime made of it.
+
+---
+
+There was more space between the top of the stack and the top plate than I expected. More than enough space for the 1 or 2mm that a isolation setup would have added. But slightly taller screws for the stack would have been good/necessary.
+
+TODO: is this still the case once one takes the battery straps into account? Probably.
+
+
 VTX pit switch
 --------------
 

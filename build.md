@@ -82,7 +82,7 @@ He does reduce motor slack at the ESC end rather than the motor end due to fear 
 
 Twisting cables to stop them splaying.
 
-Rounting the XT60 pigtail at 90&deg; looks like your only option
+Mounting the XT60 pigtail at 90&deg; looks like your only option
 
 Or you rotate the ESC 180&deg; - but you can't flip it upside down - otherwise you can't get at the ESC pads.
 
