@@ -751,6 +751,8 @@ Due to how the connectors are placed on the board there's not much "bottom" to s
 
 As always the difficulty of removing the covering from the top-side of the VHB tape makes me wonder if it's worth the trouble.
 
+Zip tied GPS cable to standoff.
+
 ---
 
 I used the 1mm Ummagrip Lite and stuck it to the top of the battery pad that came with the frame - because the top screws heads aren't recessed so I thought putting the 3mm Ummagrip down directly on the frame would be fiddly and I'd have to cut out holes in it for the screw heads.

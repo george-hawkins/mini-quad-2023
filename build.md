@@ -258,7 +258,7 @@ The connectors are on the understand but they're angled such that the wires will
 
 [ You'd still need to solder the telemetry radio. ]
 
-Treating them like pads allow you to have the wires going outsideways - but it's hard for the double row of pads. Going up still risks bumping against battery strap and top plate but probably less risk that down to very close ESC. Perhaps taping the wire down to the board (so, it's pointing outward) rather than using a helping hand would help get such wires going at right-angles to the bit of the wire going through the hole, i.e. do this while the wire is still flexible before it's wicked in solder. Do outer row first so holes aren't blocked by wires of inner row.
+Treating them like pads allow you to have the wires going outsideways - but it's hard for the double row of pads. Going up still risks bumping against battery strap and top plate but probably less risk that down to very close ESC. Perhaps taping the wire down to the board (so, it's pointing outward) rather than using a helping hand would help get such wires going at right-angles to the bit of the wire going through the hole, i.e. do this while the wire is still flexible before it's wicked in solder. Do outer row first so holes aren't blocked by wires of inner row. And perhaps make the exposed bit of wire a little longer, i.e. instead of a tiny fiddly length poking thru the hole, I longer lenth that's cut down a bit after soldering.
 
 TODO: add a section at the very end to cover any points like this that you _didn't_ correct but would have liked to.
 
