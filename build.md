@@ -1202,7 +1202,7 @@ The alternatives would have been:
 * Also turn the FC around, then I could have connected the FC to the first ESC with the tiny ESC cable. I'd then need to run the camera cable (rather than the long ESC cable) under the ESC to reach the camera port on the FC as it would now be on the far side of the FC. But then I'd only have to change one setting - go to the _Configuration_ tab and in the _Board and Sensor Alignment_ panel, change _Yaw Degrees_ to 180. This can get a bit confusing - if you check things out against the quad shown in the _Setup_ tab and find you want to rotate the quad relative to what you see, then disconnect the quad first (otherwise the displayed quad will also be rotated so meaning there's no relative change between the two).
 * Use a longer ESC cable. The ESC came with two cables, one very short and one that was only long enough to reach the second ESC port if routed under the ESC (which is what I wanted as I wanted to avoid cables in the space between ESC and FC as they might knock against the FC and generate unwanted vibration). The ESC also came with two much longer cables where one end had to be soldered to the ESC rather than ending in a plug and this is what I tried first and it worked well and could reach the first ESC port on the FC. However, the relevant pads on the ESC were tiny and I either damanged one of the four ESCs on the board in the soldering process (or the boards was already a dud) so, this put me off this approach and when I got a replacement ESC, I went with the approach of using the longer ESC cable that had a plugs on both ends and connected it to the second ESC port which it could reach.
 
-Speedybee sell a [75mm 8 pin ESC cable](https://www.speedybee.com/sh-1-0mm-8pin-cable-for-fc-esc-connection/). That's 75mm of cable between the plugs on both ends - the Holybro supplied cable was just 60mm in comparison.
+Speedybee sell a [75mm 8 pin ESC cable](https://www.speedybee.com/sh-1-0mm-8pin-cable-for-fc-esc-connection/). That's 75mm of cable between the plugs on both ends - the Holybro supplied cable was just 60mm in comparison. Also available from the offical Runcam store on AliExpress [here](https://www.aliexpress.com/item/1005005505839375.html).
 
 The plugs on the ends of the cables are JST-SH connectors, I tried finding suitable cables on AliExpress and just found two options:
 
@@ -1217,7 +1217,7 @@ Both approaches would have still required reordering the motors but this can be 
 
 If doing again, I'd get the slightly longer ESC cable from Speedybee or get one of the 100mm cables from AliExpress.
 
-Note: if using a Mamba interference isolation board in combination with a Flywoo 30.5x30.5 insulation board between ESC and FC then I mightn't be so worried about routing the ESC cable over the ESC if it still went under this board and so couldn't knock against the FC.
+Note: if using a [Mamba interference shield](https://www.diatone.us/products/mamba-interference-shielding-fpc) in combination with a Flywoo [30.5x30.5 insulation board](https://flywoo.net/products/10-pcs-20x20mm-30-5x30-5mm-insulation-board-short-circuit-protection-for-f3-f4-f7-flight-controller-esc) between ESC and FC then I mightn't be so worried about routing the ESC cable over the ESC if it still went under this board and so couldn't knock against the FC.
 
 Transmitter
 -----------

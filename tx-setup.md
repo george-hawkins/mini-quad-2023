@@ -488,7 +488,9 @@ Lot's of videos discourage you from using _angle_ mode as it's felt to teach you
 
 The number of features that BF supported grew so large that including them all outgrew the memory available on many FCs. So, with BF 4.4 only a certain subset of features is included by default.
 
-Acro trainer isn't one of these features so, if you want it you have to do the same steps as when updating the firmware. Except this time go to the _Build Configuraton_ section of the _Firmware Flasher_, click in the _Other Options_ section and add _Acro Trainer_ from the dropdown list of choices - and then flash the firmware as before
+Acro trainer isn't one of these features so, if you want it you have to do the same steps as when updating the firmware. Except this time go to the _Build Configuraton_ section of the _Firmware Flasher_, click in the _Other Options_ section and add _Acro Trainer_ from the dropdown list of choices - and then flash the firmware as before.
+
+**Important:** make sure _Full chip erase_ is disabled - if, like me, you ever flipped this to enabled in order to unbrick an invalid setup, then unflip it in order not to lose existing settings.
 
 AUX switches
 ------------
@@ -647,6 +649,112 @@ But, if you want, go to the _Configuration_ tab and, in the _Arming_ panel, chan
 That's it - now it's time to finish assembly and finally fly the quad.
 
 The final config can be found [here](ready-to-fly.txt).
+
+VTX pit switch
+--------------
+
+As above, and set `CH9` to _SA_. In the _Modes_ tab, find _USER1_ and move the yellow bar over the marker when it's in the _off_ position, i.e. at ~1000. This feels back-to-front to me, for all the other modes the yellow bar was moved to a position where it marked a feature being _enabled_ but I guess for the pit switch, you can think of its off position as being the position where its changing behavior (disabling the VTX when it with otherwise always be enabled).
+
+Click _Save_ and done.
+
+It works really nicely - note that it takes about 15s between flipping the switch and the VTX completing boot-up and transmitting the first images to the goggles.
+
+Magnetometer (AKA compass)
+--------------------------
+
+GPS is one of the default BF options. But for magnetometers, you have to go to the _Firmware Flasher_ and add _Magnetometers_ (and also _Acro Trainer_ as it doesn't remember options we set before). For me, this took a long time - look at the _Cloud Build Status_ progress bar to see that something is actually happening.
+
+![no mag](images/betaflight/015-no-mag.png)
+
+**Important:** even though I didn't have _Full chip erase_, this update still lost all my settings - making it all the clearer that you should always backup your settings before flashing.
+
+There are various YouTube videos on using CLI settings to set up the magnetometer but after the firmware flashing process (and restoring the existing settings), my magnetometer showed up automatically:
+
+![mag](images/betaflight/015-no-mag.png)
+
+You **must** calibrate the magnetometer - without calibration it's worse than useless as it'll be highly inaccurate.
+
+Connect the quad with a long USB cable (you want as few encumerances as possible so unplug the bench power supply if connected) and make sure you have plenty of room to move.
+
+Go to the _Setup_ tab and click _Calibrate Magnetometer_ - the button will become disabled and you have 30 seconds in which to rotate the quad through 360&deg; on its three axes.
+
+I.e. pick the quad up and rotate thru 360&deg; on the axis running from its tail to its nose, i.e. the roll axis. Then do the same for the pitch axes and finally for the yaw axis.
+
+If you don't complete the moves within the 30 seconds then repeat the process until you do. If you complete them before the 30 seconds is up then just continue rotating on different axes until the 30 seconds is up.
+
+Once, the magnetometer is added, you may notice more little jiggling movements in the quad shown on the _Setup_ tab.
+
+Ideally, you should recalibrate before each flight. And with a battery connected rather than USB power, it's certainly easier to rotate in through 360&deg;
+
+But how do you enable calibration without having BF connected? By using the [stick controls](https://betaflight.com/docs/development/Controls). If you look at the diagram of stick controls, you'll see you just have to:
+
+* Push the left stick to upper-right.
+* And push the right stick to bottom-center.
+
+There's no visual feedback that you've entered calibration mode - but you'll hear a beep after the 30 second calibration period that tells you the process is finished.
+
+TODO: is there an OSD option to tell you that a stick control has been activated? I couldn't have one. It'd be way better if it even just beeped at the start of the process (as well as at the end).
+
+TODO: there's a stick position to save settings but I don't think this is needed for calibration (as in the _Configurator_ _Setup_ tab there's no _Save_ button). Can I confirm this.
+
+Note: arming is one of the stick controls but if you've bound arming to a switch, you can't also use stick controls to arm.
+
+Once the magnetometer is set up, you can add the _Compass bar_ element to your OSD _if you want_, this gives you a cool compass direction bar like the one you see in Liftoff.
+
+Adding the magnetometer resulted in no setting changes but doing the calibration resulted in:
+
+```
+set mag_calibration = -1230,-58,658
+```
+
+Clearly, this setting is specific to my setup, don't copy it!
+
+GPS setup
+---------
+
+Source: OL's [GPS setup guide](https://oscarliang.com/gps-mini-quad/).
+
+The GPS is connected to UART4 in our setup. So, in the _Ports_ tab, go to the _Sensor Input_ cell for the _UART4_ row and select _GPS_ from the dropdown. And then click _Save and Reboot_.
+
+Then in the _Configuration_ tab, go to the _GPS_ panel and you should already find:
+
+* The _GPS_ toggle is enabled.
+* _UBLOX_ is selected as the protocol.
+* The _Auto Config_ toggle is enabled - this will only actually work for m10q modules once _BF_ 4.5 is released.
+
+So, just toggle _Auto Baud_ to enabled and click _Save and Reboot_.
+
+It takes about 20s after rebooting for the GPS icon to become enabled (but became far quicker on subsequent restarts):
+
+![GPS enabled](images/betaflight/017-gps.png)
+
+I think this is enough confirmation that the GPS is alive, but I also went to the CLI tab and entered `gpspassthrough` and saw the expected binary gibberish - *warning:* this data overwhelmed the _Configuration_ and this was one of the first times I had to force quit it (and unplug and reconnect GPS to push the FC out of passthru mode).
+
+**Update:** again `TELEMETRY` got disabled - so, I strongly suspect this is connected to resets during passthru. So, again fixed with:
+
+```
+feature TELEMETRY
+save
+```
+
+If you go to the _Setup_ tab, you can see a _GPS_ panel - if you're inside, it'll never see anything - so, ideally go out onto a balcony or into a garden (if you have either - I don't).
+
+Note: on your OSD, it displays GPS coordinates to 7 decimal places but if you look at the table at the end of OL's guide, you'll see there's no point in anything beyond 5 decimal places as this type of GPS unit is at best accurate to between 1 and 2m. If you go to the _OSD_ tab, you can go from 7 places to 4 (unfortunately, 5 isn't an option).
+
+If you try _Discover new_ on your TX, it finds 5 new GPS related sensors (initally, I thought _Hdg_ might be from the magnetometer but it doesn't update - so, I suspect it's from the GPS and will only work once it has satelites).
+
+### TODO: setup failsafe
+
+Source: <https://oscarliang.com/setup-gps-rescue-mode-betaflight/>
+
+**NOTE:** to see the _Failsafe_ tab, you have to toggle on _Enable Expert Mode_ (left of the _Update Firmware_) button - OL mentions this but I didn't notice initially.
+
+TODO:
+
+* Look at GPS passthru.
+  * And try <https://learn.sparkfun.com/tutorials/how-to-upgrade-firmware-of-a-u-blox-gnss-receiver/all>
+  * I don't believe there's firmware to update - go to <https://www.u-blox.com/en/product/sam-m10q-module?legacy=Current#Documentation-&-resources> and expand _Release Notes_ - I don't think you can do anything other than confirm if you have the latest ROM.
+* I'm not sure it's worth doing much with the m10q until <https://github.com/betaflight/betaflight/pull/12799> ships - see 4.5 mileston <https://github.com/betaflight/betaflight/milestones>
 
 ELRS checklist
 --------------
