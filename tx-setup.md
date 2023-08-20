@@ -713,6 +713,8 @@ It was quite tiresome to line up the adapters on both sides - in the end a 12mm 
 
 Of the shorter screws that came with the camera, I still had 4mm and 5mm screws - the 5mm are too long.
 
+I **didn't** use thread locker.
+
 And the 4mm have to be used with a washer (between the screw head and the adapter rather than between camera and adapter).
 
 Without the washers the screw heads sink into the rubber and even fully tightened the camera can still move around.

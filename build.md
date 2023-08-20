@@ -105,6 +105,8 @@ Is it "bolt" or "screw"? Be consistent.
 
 I started by loosely screwing down the X between the small plate and the bottom plate. I used thread locker for the following screws but not for this first one.
 
+Note: you don't have to be quick with thread locker - see this picture <https://iflight.oss-cn-hongkong.aliyuncs.com/store/product/FPV-Motor/XING2-2207/2207-02.png>
+
 Then I put in one of the back arms, got it to engage with one of the arms of the X and swivilled things until all the appropriate holes lined up.
 
 I emptied the 12mm bolts into a tiny dish.
@@ -256,7 +258,7 @@ The connectors are on the understand but they're angled such that the wires will
 
 [ You'd still need to solder the telemetry radio. ]
 
-Treating them like pads allow you to have the wires going outsideways - but it's hard for the double row of pads. Going up still risks bumping against battery strap and top plate but probably less risk that down to very close ESC.
+Treating them like pads allow you to have the wires going outsideways - but it's hard for the double row of pads. Going up still risks bumping against battery strap and top plate but probably less risk that down to very close ESC. Perhaps taping the wire down to the board (so, it's pointing outward) rather than using a helping hand would help get such wires going at right-angles to the bit of the wire going through the hole, i.e. do this while the wire is still flexible before it's wicked in solder. Do outer row first so holes aren't blocked by wires of inner row.
 
 TODO: add a section at the very end to cover any points like this that you _didn't_ correct but would have liked to.
 
