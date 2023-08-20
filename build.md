@@ -256,6 +256,8 @@ The connectors are on the understand but they're angled such that the wires will
 
 [ You'd still need to solder the telemetry radio. ]
 
+Treating them like pads allow you to have the wires going outsideways - but it's hard for the double row of pads. Going up still risks bumping against battery strap and top plate but probably less risk that down to very close ESC.
+
 TODO: add a section at the very end to cover any points like this that you _didn't_ correct but would have liked to.
 
 ---
@@ -611,6 +613,8 @@ I named my card "FATSHARK".
 Go to the Fatshark Recon HD [support page](https://fatshark.helpscoutdocs.com/article/177-recon-hd) and download the latest firmware (33.39.10 at the time of writing).
 
 Note: the Recon HD PDF manual that's also linked to there is fairly useless.
+
+TODO: extract the diagrams that show button positions etc. from manual PDF - they're at least useful.
 
 Extract the downloaded `.zip` file - it contains a `README.md.txt` which tell you exactly how to update the firmware on the goggles:
 
