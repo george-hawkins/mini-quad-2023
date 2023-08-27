@@ -881,10 +881,68 @@ Source: <https://oscarliang.com/setup-gps-rescue-mode-betaflight/>
 
 TODO:
 
-* Look at GPS passthru.
-  * And try <https://learn.sparkfun.com/tutorials/how-to-upgrade-firmware-of-a-u-blox-gnss-receiver/all>
-  * I don't believe there's firmware to update - go to <https://www.u-blox.com/en/product/sam-m10q-module?legacy=Current#Documentation-&-resources> and expand _Release Notes_ - I don't think you can do anything other than confirm if you have the latest ROM.
 * I'm not sure it's worth doing much with the m10q until <https://github.com/betaflight/betaflight/pull/12799> ships - see 4.5 mileston <https://github.com/betaflight/betaflight/milestones>
+
+---
+
+Installing Windows x64 as a VM worked extremely poorly (and I couldn't get U-Center 2 to run for more than a few minutes in such a setup).
+
+However, running Windows for ARM64 worked surprisingly well.
+
+I did things as described in <https://www.youtube.com/watch?v=za2CyrxKYFs> - for more see [`utm-vm-notes.md`](utm-vm-notes.md).
+
+U-Center 2 installed without problem.
+
+The Betaflight Configurator installer version (the `.exe`) complained that this app was only suitable for x64 Windows machines but the portable version (`.zip`) worked without any obvious issue (not true - i t did hang ocassionally).
+
+Actually, I didn't need BF in the VM. I could do all the BF stuff below on my Mac, then shut it down and then go to the VM and in the VMware Fusion Player menu bar, just go to _Virtual Machine / USB & Bluetooth_ and select _Connect STMmicroelectronics STM32H743_.
+
+Source: JB's ["Why Betaflight 4.4 GPS Sucks, and How To Fix It"](https://www.youtube.com/watch?v=5fBDqeAoqvI) video (which should really be called why "BF support for the newer m10 u-blox GPS modules sucks and will do until 4.5 is released").
+
+Plugging in the quad via USB-C, while VMware Fusion Player, was running worked perfectly - it asked if I wanted to connect the USB device to my Mac or to the VM - I selected the VM and BF running within the VM could see it without any issue.
+
+In the _Ports_ tab, I flipped the _Sensor Input_ cell for _UART4_ from _GPS / AUTO_ to _GPS / 115200_. And _Save and Reboot_.
+
+And in the _Configuration_ tab, in the _GPS_ panel, I toggled _Auto Baud_ to disabled. And _Save and Reboot_.
+
+Then in the CLI tab, I just entered `gpspassthrough` (which is a simpler than the `serialpassthrough` that JB uses as you don't have to specify a UART and baud rate as BF already know which UART is being used for the GPS and what baud rate its using).
+
+After entering `gpspassthrough`, immediately click the _Disconnect_ button (otherwise the _Configurator_ gets overwhelmed trying to dump the GPS data to the CLI console).
+
+Then connect the USB to the VM (see a few lines above), then in U-Center 2, click the _Device_ icon (looks like a microchip) and:
+
+* In the _COM port_ field select the only COM port shown - that has to be BF (now operating in passthru mode).
+* Untick _Enable autobauding_ and select 115,200 as the _Baud rate_.
+* Click _Add device_.
+
+If all goes well, you'll see "Receving data (115,200)" as shown on the left below. And if you switch from the _Views_ tab to the _Consoles_ tab, you can see the data that's being received (you see the raw binary data in the lower-right panel and the decoded messages in the upper-right panel):
+
+![U-Center 2 data](images/u-center-2-data.png)
+
+This is all the data that the GPS module would usuaully be communicating to the FC - and if you were outside it would be communicating the acquisition of satelites, current location etc.
+
+Click the _+_ icon, beside the _Views_ tab, to add a new blank tab, then click the other _+_ icon, the one upper-left in a black circle, and select _Message View_.
+
+Then in the tree view of the new view, expand _UBX / MON / VER_ and then to the right flip from _Tree View_ to _Table View_ (_Tree View_ looks nicer but I couldn't work out how to expand the table columns shown there so I could see the full values of the various fields):
+
+![Messages view](images/u-center-2-msg-view.png)
+
+So, you can see:
+
+* This is a SAM-M10Q module.
+* It has firmware version SPG 5.10 (stored in ROM).
+* It is using protocol version (`PROTVER`) 34.10
+
+If you were interested in how to communicate with the module, you can look at the M10 5.10 interface [PDF for protocol version 34.10](https://content.u-blox.com/sites/default/files/u-blox-M10-SPG-5.10_InterfaceDescription_UBX-21035062.pdf).
+
+If you go to the _Documents & resources_ section of the u-blox page for the [SAM-M10Q module](https://www.u-blox.com/en/product/sam-m10q-module?legacy=Current#Documentation-&-resources) and expand the _Release Note_ section, you should see the 5.10 release notes.
+
+If this were a non-ROM based module, you might also see a _Firmware Update_ section and be able to download a newer firmware (that could then be installed via U-Center 2 - see the [Sparkfun instructions](https://learn.sparkfun.com/tutorials/how-to-upgrade-firmware-of-a-u-blox-gnss-receiver/all) for how to do this using the older version 1 of U-Center - this gives you the general idea and things are similar-ish in version 2).
+
+Go to the AssistNow [product page](https://www.u-blox.com/en/product/assistnow), click _Sign in_ (upper-right corner), select _Sign in to u-blox_ and use the login details you created when installing U-Center. Oddly, on logging in, it takes you to their main portal page so, return to the AssistNow page and click the _AssistNow service evaluation_ button.
+
+Fill in the details and set the _Permanent expiry token_ field to _No_ (selecting _Yes_ would involve taking to a sales representitive). It took a few minutes for the token to arrive and it's only valid for 90 days (as it's for evaluation purposes).
+
 
 ELRS checklist
 --------------
