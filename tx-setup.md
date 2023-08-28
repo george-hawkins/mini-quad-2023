@@ -891,7 +891,7 @@ However, running Windows for ARM64 worked surprisingly well.
 
 I did things as described in <https://www.youtube.com/watch?v=za2CyrxKYFs> - for more see [`utm-vm-notes.md`](utm-vm-notes.md).
 
-U-Center 2 installed without problem.
+U-Center 2 installed without problem (when you start it first, it redirects you to login via the u-blox website and for this you first have to register).
 
 The Betaflight Configurator installer version (the `.exe`) complained that this app was only suitable for x64 Windows machines but the portable version (`.zip`) worked without any obvious issue (not true - i t did hang ocassionally).
 
@@ -905,6 +905,8 @@ In the _Ports_ tab, I flipped the _Sensor Input_ cell for _UART4_ from _GPS / AU
 
 And in the _Configuration_ tab, in the _GPS_ panel, I toggled _Auto Baud_ to disabled. And _Save and Reboot_.
 
+Note: there's no need to turn off _Auto Config_ - it simply doesn't work for M10 modules (until _BF_ 4.5 is available).
+
 Then in the CLI tab, I just entered `gpspassthrough` (which is a simpler than the `serialpassthrough` that JB uses as you don't have to specify a UART and baud rate as BF already know which UART is being used for the GPS and what baud rate its using).
 
 After entering `gpspassthrough`, immediately click the _Disconnect_ button (otherwise the _Configurator_ gets overwhelmed trying to dump the GPS data to the CLI console).
@@ -912,7 +914,7 @@ After entering `gpspassthrough`, immediately click the _Disconnect_ button (othe
 Then connect the USB to the VM (see a few lines above), then in U-Center 2, click the _Device_ icon (looks like a microchip) and:
 
 * In the _COM port_ field select the only COM port shown - that has to be BF (now operating in passthru mode).
-* Untick _Enable autobauding_ and select 115,200 as the _Baud rate_.
+* Leave _Enable autobauding_ ticked.
 * Click _Add device_.
 
 If all goes well, you'll see "Receving data (115,200)" as shown on the left below. And if you switch from the _Views_ tab to the _Consoles_ tab, you can see the data that's being received (you see the raw binary data in the lower-right panel and the decoded messages in the upper-right panel):
@@ -941,8 +943,50 @@ If this were a non-ROM based module, you might also see a _Firmware Update_ sect
 
 Go to the AssistNow [product page](https://www.u-blox.com/en/product/assistnow), click _Sign in_ (upper-right corner), select _Sign in to u-blox_ and use the login details you created when installing U-Center. Oddly, on logging in, it takes you to their main portal page so, return to the AssistNow page and click the _AssistNow service evaluation_ button.
 
-Fill in the details and set the _Permanent expiry token_ field to _No_ (selecting _Yes_ would involve taking to a sales representitive). It took a few minutes for the token to arrive and it's only valid for 90 days (as it's for evaluation purposes).
+Fill in the details and set the _Permanent expiry token_ field to _No_ (selecting _Yes_ would involve talking to a sales representitive). It took a few minutes for the token to arrive and it's only valid for 90 days (as it's for evaluation purposes).
 
+---
+
+Source: ["M10 GPS 3D Fix Enhancement"](https://iflight-rc.eu/en-ch/blogs/news/m10-gps-3d-fix-enhancement) iFlight blog post.
+
+In the VM, download [`M10_115200_config.ucf`](https://drive.google.com/file/d/1G0_jd9WnVG30PEvGIsJL6wtevVywxZuS/view) (it's a 67 line plain text JSON file that they've stored on Google Drive).
+
+You've already added your device (see image above) so, press the _Device configuration_ button. Then click the _Import_ button (below _Saved configurations_ on the left of the dialog that pops up) and download the `M10_115200_config.ucf` you just downloaded.
+
+Now, click _Send_ (if you look in the JSON file, you'll see that the JSON entries correspond to the shown _Configuration changes_ although in the JSON file, the keys have hex names like `0x10230001` rather than the human-readable ones shown here).
+
+For me, only the RAM and BBR entries went green on pressing send - the three FLASH entries all went red. But I carried on.
+
+Close the _Device configuration_ dialog, exit U-Center 2 and reopen it, click _Devices_ and _Add device_, select the COM port but this time untick _Enable autobauding_ and select 115,200 as the baud rate before clicking _Add device_.
+
+And again, click _Device configuration_ - this time the `M10_115200_config` will already be there below _Saved configurations_, click it and press _Send_ again (again the FLASH entries failed).
+
+Again close the _Device configuration_ dialog and this time click the _Tools and services_ icon (it looks like a wrench and is the third icon down on the left-hand side).
+
+And click _AssistNow Offline_ and in the resulting dialog, enter the token you received by email. Once you hit _Save settings_, the option in the _MGA data selection_ section become available.
+
+Tick all the checkboxes below both _GNSS for ANO_ and _GNSS for ALM_ but leave everything else as it is. The click _Download_ - it downloads a tiny 68KB file.
+
+Then scroll to the bottom of the dialog and click the _Transfer with reset and aiding_ button. It takes a while to transfer the 200+ blocks to the GPS module.
+
+Close the transfer dialog and now switch the _Storage for Ano data_ radiobutton choice from _Host_ to _Flash_ and click _Transfer with reset and aiding_ again.
+
+It NAKed - again there seems to be an issue with flash and this GPS module. [ I checked that it wasn't anything weird like the device had gone out of `gpspassthrough` mode at the end of the first upload, it hadn't and was still accessible - I could switch back to _Host_ and upload again without issue. ]
+
+It's unclear to be if anything was achieved by this process as there's clearly no long term flash memory on this particular module but there is a battery so, perhaps this keeps data alive long term.
+
+But even after disconnecting it and reconnecting it (so, it was without power and had to restart), it found 14 satellites despite just sitting on my window sill (which has a balcony directly above it and surrounding buildings and so a fairly limited view of the sky) within less than a minute. And the _GPS_ panel on the _Setup_ tab showed a true 3D fix:
+
+![BF GPS status](images/betaflight/018-gps-lock.png)
+
+And if I typed in the coordinate shown, e.g. "41.4033, 2.1740" then it was pretty close to where it should be - though _BF_ only displays 4 decimal places which is only precise to ~10m.
+
+As before the `TELEMETRY` got lost, so:
+
+```
+feature TELEMETRY
+save
+```
 
 ELRS checklist
 --------------

@@ -582,6 +582,10 @@ US$2.80 - 10cm JST-XH balance lead extension cable (4 pieces)
 
 Shipping was US$6.30, i.e. pretty expensive by AliExpress standards.
 
+Shipping took from Aug 16th to Aug 28th and came in a well padded bag.
+
+Unlike the U-Angle-1988 ones, they fit as expected. Note detaching the battery's balance connector from these extension leads isn't as nice/easy as detaching them directly from the charger.
+
 ---
 
 FPV24.com
@@ -625,3 +629,7 @@ US$17.70 60Hz HDMI to USB-C capture device
 Shipping was US$2.50
 
 Check if works with https://obsproject.com/> and see if OBS Studio can display details about the capture hardware - is it really using an MS2130?
+
+Shipping took from 10th Aug to 22 Aug and arrived in a thin plastic bag with no additional padding beyond the devices retail packaging lightweight cardboard box.
+
+It worked perfectly with [OBS Studio](https://obsproject.com/), though I could see any obvious way to display details about the capture hardware to confirm it was using an MS2130 - but whether it does or not, it worked perfectly for capturing output from the goggles (via the HDMI adapter that I already had).
