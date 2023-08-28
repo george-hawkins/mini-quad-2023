@@ -779,6 +779,32 @@ There was more space between the top of the stack and the top plate than I expec
 
 TODO: is this still the case once one takes the battery straps into account? Probably.
 
+Propeller
+---------
+
+Sources: JB's ["How to install quadcopter props correctly"](https://www.youtube.com/watch?v=nc1QG_Njo7Y) and ["Props-In (Standard) vs. Props-Out (Reversed)"](https://www.youtube.com/watch?v=bZL-BBl9JnE).
+
+Standard motor direction:
+
+![motor direction](images/motor-direction.jpg)
+
+Like the locknuts at the top of the stack, the propeller nuts are locknuts and _don't_ require threadlocker (so, the stack locknuts, the propeller locknuts and the camera screws are the only ones where I didn't use threadlocker).
+
+It's easy:
+
+* Work out top and bottom for each propeller.
+* Work out which ones are R or CW (yes - reverse is CW and standard is CCW).
+* Mount the reverse ones on the forward-left and back-right motors and the standard ones on forward-right and back-left.
+
+The upper side of the propeller is always the side that's got embossed text on it (and the under side has no text).
+
+Each blade has a higher and a lower edge - the higher edge is the leading edge and you want this one to be leading as it turns and the other to be trailing.
+
+So, look at the picture above and confirm that once you've attached the propellers, you can see the embossed text on the blades, i.e. they're right way up, and, looking at the arrows showing motor direction, that the higher edges on each propeller will be leading as the motor turns.
+
+On my standard propellers, one blade has the text 51466, the next V2 and the next the Gemfan logo. The reverse ones are almost identical except the text is 51466R on one of them.
+
+TODO: only thing left is GPS failsafe.
 
 VTX pit switch
 --------------
@@ -987,6 +1013,8 @@ As before the `TELEMETRY` got lost, so:
 feature TELEMETRY
 save
 ```
+
+TODO: see how long it takes to acquite a fix after you've been away for more than the 7 days that were stored.
 
 ELRS checklist
 --------------
