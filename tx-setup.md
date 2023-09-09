@@ -749,7 +749,9 @@ I cut off about 1cm from the heatshrink for the GPS as it seemed too long but ac
 
 Due to how the connectors are placed on the board there's not much "bottom" to stick to - I put a thin slice of double sided tape and then stuck down a square on the top plate and stuck the GPS down on that.
 
-As always the difficulty of removing the covering from the top-side of the VHB tape makes me wonder if it's worth the trouble.
+As always the difficulty of removing the backing from VHB tape makes me wonder if it's worth the trouble.
+
+Note: JB comments on how hard it is to get the backing off VHB tape and says he just keeps a lifted up section of backing so, he peels back the backing _before_ cutting a piece from the roll. See 9m 40s mark [here](https://www.youtube.com/watch?v=y9-aq4CAZqo&t=580s) (he's using clear VHB tape).
 
 Zip tied GPS cable to standoff.
 
@@ -805,6 +807,7 @@ So, look at the picture above and confirm that once you've attached the propelle
 On my standard propellers, one blade has the text 51466, the next V2 and the next the Gemfan logo. The reverse ones are almost identical except the text is 51466R on one of them.
 
 TODO: only thing left is GPS failsafe.
+And see if you can gets flightmode, sats count and battery on TX telemetry (and anything else that looks super relevant - see what telemetry you added for old quad).
 
 VTX pit switch
 --------------

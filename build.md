@@ -1,3 +1,6 @@
+Mini quad 2023 build log
+========================
+
 There's no instruction manual either online or with the frame fro the QAV-R 2 DC.
 
 DrainMan FPV build of non-DC variant - <https://www.youtube.com/watch?v=npAWcTUKCpU>
@@ -350,19 +353,45 @@ Charging batteries
 
 The fan is super noticeable on the charger.
 
-TODO: upgrade firmware - my charger came with 1.0.46 but 1.0.47 came out in mid 2023.
-
-As usual with Chinese instructions, it's all very unclear and lots of people have trouble getting this working - this video shows how <https://www.youtube.com/watch?v=SUoooEZjDCY>
-
-JB also shows himself doing this process - <https://www.youtube.com/watch?v=XIf8cKKiGJg> - while discussing a new HOTA firmware feature called "continuous work" (which may or may not be in that 1.0.47 update - I don't know as I haven't done it).
-
-Go to this page: <http://www.hota-exp.com/index.php/service_l_2.html?t=en>
-
-You need the _D6 Pro Firmware_ and the _HTLoader_ - unfortunately, _HTLoader_ is a Windows only program.
-
-On this page, you can also find the _D6 Pro Manual_ PDF.
-
 Note: the HOTA D6 Pro and the Hobbymate D6 Duo Pro are the same product - Hobbymate's site has out-of-date firmware so, HOTA seems the place to go.
+
+My charger came with 1.0.46 but 1.0.47 came out in mid 2023.
+
+### Updating the firmware
+
+Sources: TweetFPV's ["Hota, Hobbymate D6 Duo Pro Firmware update"](https://www.youtube.com/watch?v=SUoooEZjDCY) video and JB's ["Every LiPo Charger Needs To Add This Feature"](https://www.youtube.com/watch?v=XIf8cKKiGJg).
+
+The instructions, as is fairly common with Chinese instructions, are more midleading than helpful - TweetFPV and JB's videos show how to successfully upgrade a Hota charger.
+
+JB video also discusses a new HOTA firmware feature called "continuous work" which may be useful if you're charging lots of batteries and want to make the process of switching from one pair of batteries to the next as swift as possible.
+
+Unfortunately, the HOTA firmware updater is a Windows only program so, you need to use a Windows VM for this process.
+
+---
+
+The charger must be connected to your laptop via the Micro-B USB connector (the larger USB-A connector cannot be used) _before_ you power it up.
+
+Some tutorials say you must use DC, i.e. power the charger off a battery. This isn't the case - using the normal AC cable and plug works fine.
+
+Hold the _CH_ button down while you connect the charger to power.
+
+It'll stay dark and beep for about 5 seconds - it's only during this short period that it's in firmware update mode, after that it just continues and starts up normally.
+
+In your Windows VM, go to [Hota support](http://www.hota-exp.com/index.php/service_l_2.html?t=en) (yes, it really is a plain non-secured `http` site with no `https` version) and in the _Firmware Download_ section, download both _HTLoader_ and _D6 Pro Firmware_.
+
+Unpack the resulting two `.zip` files and you end up with `HTLoader.exe` and `HOTA+D6Pro+V1.0.47.prg` (or whatever the latest version is now).
+
+Run _HTLoader_ and open the `.prg` file.
+
+With the charger connected via USB, power it up again with the _CH_ button held down.
+
+You've got almost no time to first click the button that _VMWare Fusion_ pops up asking you if you want to connect the USB device to the VM (obviously, you do) and switch to the VM and press the _Update_ in _HTLoader_. I was too slow the first time but second time it worked perfectly.
+
+When the charger reboots, long press the scroll wheel, go to _System info_ and confirm that the _SW_ field shows the expected new firmware version.
+
+### Basic usage
+
+On the support page (linked to above), you can also find the _D6 Pro Manual_ PDF.
 
 Basics:
 
