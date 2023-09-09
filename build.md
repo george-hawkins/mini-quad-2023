@@ -988,6 +988,8 @@ For the best recorded video quality, you should use the video recorded directly 
 
 But there's still a good reason to always have the DVR running in your goggles - when you crash, it usually happens suddenly and afterwards it can be difficult to remember or line up what you saw just before the crash and what you see when you take the goggles off and go search for the quad. If the DVR is running, you can review the last moment before the crash to try and get a grasp of exactly where the quad was before it crashed. Even if the quad has GPS and a buzzer, this could still be very useful.
 
+**Update:** it turns out that the default behavior is for both the goggles (assuming you've inserted an SD card) and the VTX automatically start recording once the quad is armed.
+
 ### Avatar Q&amp;A
 
 I only read Caddx's FAQs for the Walksnail Avatar system (found [here](https://caddxfpv.com/pages/questions-answers)) after completely setting things up. If I had read it, it would have saved me time as it covers shifting the OSD position to the upper-left and covers the fact that you can't upload fonts via the Betaflight Configurator _Font Manager_ (as it only works for analog goggles).

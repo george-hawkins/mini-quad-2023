@@ -1,3 +1,7 @@
+When recharging my TX, I found the power button would blink red when connected to my Mac charger but go solid red when charging from my laptop or from a 2A 5V USB-A charger.
+
+I think solid red is what you want and it should go off at the end of the process. Googling doesn't reveal what Radiomaster intend blinking red to mean but it doesn't seem to be good.
+
 Rather than connected the TX to your computer, it's much quicker to just eject the SD card from the TX and insert it into your laptop.
 
 The SD card was named "NO NAME" so, I renamed it "EdgeTX".
