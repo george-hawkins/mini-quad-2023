@@ -808,6 +808,8 @@ On my standard propellers, one blade has the text 51466, the next V2 and the nex
 
 TODO: include nice picture from above point of view pointing out the position of raised leading edge on each prop.
 
+I thought I wouldn't really need the wrench but my biggest hex-socket driver was 5,5mm and the prop nuts are 8mm.
+
 VTX pit switch
 --------------
 
