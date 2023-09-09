@@ -806,8 +806,7 @@ So, look at the picture above and confirm that once you've attached the propelle
 
 On my standard propellers, one blade has the text 51466, the next V2 and the next the Gemfan logo. The reverse ones are almost identical except the text is 51466R on one of them.
 
-TODO: only thing left is GPS failsafe.
-And see if you can gets flightmode, sats count and battery on TX telemetry (and anything else that looks super relevant - see what telemetry you added for old quad).
+TODO: include nice picture from above point of view pointing out the position of raised leading edge on each prop.
 
 VTX pit switch
 --------------
@@ -902,11 +901,45 @@ Note: on your OSD, it displays GPS coordinates to 7 decimal places but if you lo
 
 If you try _Discover new_ on your TX, it finds 5 new GPS related sensors (initally, I thought _Hdg_ might be from the magnetometer but it doesn't update - so, I suspect it's from the GPS and will only work once it has satelites).
 
-### TODO: setup failsafe
+### GPS failsafe
 
 Source: <https://oscarliang.com/setup-gps-rescue-mode-betaflight/>
 
-**NOTE:** to see the _Failsafe_ tab, you have to toggle on _Enable Expert Mode_ (left of the _Update Firmware_) button - OL mentions this but I didn't notice initially.
+On the _MIXES_ page, I made _SB_ (three-position switch of the left) the _Source_ for _CH10_ and _S1_ (the left pot) the _Source_ for _CH11_.
+
+In _Configurator_, in the _Modes_ tab, I set up _GPS RESCUE_ to use _AUX 6_, i.e. _CH10_, and extended the right side of the yellow bar to cover both the middle and down positions of _SB_ so, any position other than up enabled _GPS RESCUE_.
+
+And I setup _FAILSAFE_ to use _AUX 7_, i.e. _CH11_ - I clicked the _Add Range_ button twice, and set _AUX 7_ for both ranges, and moved the yellow bar to the left for the first one and to the right for the second so that twisting S1 either way away from its center point would enable _FAILSAFE_.
+
+The _FAILSAFE_ mode is just a safer alternative to switching your TX on and off to test failsafe behavior but once you've tested things you should remove it again - it's not good to have a switch that if accidentally bumped disables your TX and triggers the quads failsafe behavior.
+
+As always, remember to hit _Save_.
+
+Now, toggle on the _Enable Expert Mode_ (upper-right corner to the left of the _Update Firmware_) so, the _Failsafe_ tab becomes visible.
+
+Go to the _Failsafe_ tab and in the _Stage 2 - Settings_ section change the _Failsafe Procedure_ from _Drop_ to _GPS Rescue_ and click _Save and Reboot_ - when reconnected toggle off _Enable Expert Mode_.
+
+Then when out flying, fly the quad at least 15m away (15m is one of the limits in the _GPS Rescue_ settings) and then twiddle _S1_ to enable failsafe and see that it does the right thing (note how the various steps are announced via the OSD). If it doesn't behave as you want or expect, you can fine tune the _GPS Rescue_ settings using OL's page as a guide to what they all mean.
+
+**Remember** to remove _S1_ from _MIXES_ and _FAILSAFE_ from _Modes_ later.
+
+In other situations than failsafe, where you want the quad to return to home without having to pilot it home, just use the _SB_ swtich to enable _GPS Rescue_ manually.
+
+It was at this point, when saving my settings that I found that the `aux` entries are a little odd:
+
+```
+aux 2 27 6 900 1300 0 0
+    A B  C
+```
+
+`B` appears to be the mode, e.g. _ARM_, and `C` is the AUX channel (starting at 0) and `A` is the order in which you see the modes when you've got _Hide unused modes_ toggled on.
+
+So, if you add new modes, like _GPS Rescue_ then your diff changes completely for `aux` as e.g. the existing `aux 2` entry becomes `aux 5` because two new modes were enabled which appear in-between in _Configurator_.
+
+Recalibrate
+-----------
+
+Now, you're probably fully setup - remember to recalibrate the accelerometer and magnetometer.
 
 TODO:
 
@@ -1017,7 +1050,11 @@ feature TELEMETRY
 save
 ```
 
-TODO: see how long it takes to acquite a fix after you've been away for more than the 7 days that were stored.
+GPS failsafe in Betaflight needs a default of 8 satellites.
+
+Note: after going away for more than a week, it took the GPS less than a minute to acquire 9 satellites and less that 2 minutes to acquire 14 (in the same less than ideal window-sill location as before).
+
+And it took less than 10 seconds to reacquire about 14 satellites when plugged out and in (with a reasonable delay before plugging back in).
 
 ELRS checklist
 --------------
@@ -1029,11 +1066,9 @@ If you've got all these things done then you've completed everything relevant in
 Telemetry
 ---------
 
-Press _MDS_, page backward to _TELEMETRY_ (it's the second last page so, paging backward is quicker). Go down to the _Sensors_ section and click _Discover new_.
+Press _MDL_, page backward to _TELEMETRY_ (it's the second last page so, paging backward is quicker). Go down to the _Sensors_ section and click _Discover new_.
 
 It'll discover a whole list of telemetry data items that are transmitted back to the TX by the RX. Click _stop_ to tell it so stop trying to discover further items.
-
-**TODO:** none of them looked like the battery voltage (see `report_cell_voltage` above) and if I press the _TELEM_ button I just see the TX battery voltate and the time. How do I get the quad battery voltage and RSSI as shown here <https://oscarliang.com/averaged-cell-voltage-crossfire/>  it looks like I should get both the total and the individual.
 
 Note: the telemetry data transmitted via the RX to your TX isn't the only telemetry data channel - similar data is transmitted via the VTX to your goggles. In an FPV setup, you can't see the TX while you're flying so it's telemetry data is, relatively speaking, less important (but you can still hear audio warnings from the TX).
 
@@ -1045,7 +1080,71 @@ feature TELEMETRY
 
 Or go to the _Receiver_ tab in _BF Configurator_ and enable it there.
 
-Now, if you retry the discover option (see above), it will discover many more sensors - RxBAT is now there but it still shows up as 0% for me.
+Now, if you retry the discover option (see above), it will discover many more sensors.
+
+In my final setup (including GPS), it finds 23 sensors.
+
+---
+
+Press page forward to get to the _DISPLAY_ page - this is the page where you can choose which telemetry items  you want to display when you press the _TELE_ button.
+
+Note: you can actually display pretty much anything on these pages, e.g. whether switch SA is currently in the up or down positions, not just telemetry data.
+
+You can layout up to four screens of telemetry data. By default only the first page is setup to display anything:
+
+```
+Screen 1 Nums
+ ---     ---
+ Batt    Time
+ ---     ---
+ ---     ---
+```
+
+`Nums` means that values on `Screen 1` will be displayed as numbers.
+
+Values can also be displayed as bars or the screen can be reserved for the output of a script, currently the only script, that comes with EdgeTX, is the [`gplusl.lua`](https://github.com/EdgeTX/edgetx-sdcard/blob/master/sdcard/bw212x64/SCRIPTS/TELEMETRY/gplusl.lua) which can display the GPS coordinates and the corresponding [plus code](https://en.wikipedia.org/wiki/Open_Location_Code).
+
+`Batt` is the TX's battery and `Time` is obvious enough.
+
+`Batt` is displayed anyway in the title bar of the main telemetry screen and time isn't terribly useful.
+
+So, I laid out things like so:
+
+```
+Screen 1 Nums
+ RxBt    Bat%
+ RQly    Sats
+ FM-     ---
+ ---     ---
+Screen 2 Script glusl
+```
+
+Note: `RQly-` and `RQly+` and similar `-` and `+` versions of the value are the min and max seen values for the particular item.
+
+`RQly` is a link quality measurement (of packets transmitted from TX to RX) going from 0 to 100 (with 100 being the best) - if the TX is very close to the RX, this value will actually improve initially as you move away.
+
+`RxBt` is the quad's battery voltage and `Bat%` is (I believe) the percentage full for the quad's battery (based on voltage rather than a knowledge of the battery's mAh value).
+
+`Sats` is the number of satelites currently acquired by the GPS - you want at least 8 to meet the default GPS failsafe requirement (needed to acquire a good home position).
+
+`FM` is (I believe) flight mode - but while unarmed, it just shows as `!ERR*` - check that is shows as something more useful when armed.
+
+Screen 2 is set up to display the output of the `glusl` LUA script - this shows the GPS location in decimal notation and also as a plus code - both of which can be typed into Google Maps.
+
+The telemetry screens will continue to display the last values recevied if the radio connection to the quad is lost so, you can use the GPS coordinates to track down your quad (though the values are lost if you turn the TX off and on).
+
+Once set up, you can see all these values by pressing _RTN_ until you get back to the main screen, then press _TELE_ and use the page back and forward buttons to page between screen 1 and 2.
+
+Arming
+------
+
+Warnings are displayed in the center of the OSD display in your goggles (if set up as described previously).
+
+If the quad won't arm then the reason will be displayed here.
+
+E.g. my quad wouldn't arm and the reason was `MSP` which means it thinks it's still connected to _Configurator_ - even though I'd unplugged USB it was necessary to plug the battery out and in to get it to forget this completely.
+
+You can find the explanations for `MSP` and the other arming prevention errors [here](https://betaflight.com/docs/wiki/archive/Arming-Sequence-And-Safety#description-of-arming-prevention-flags) on the _BF_ wiki.
 
 Buzzer
 ------

@@ -56,15 +56,21 @@ I used CrystalFetch but I find it weird that currently (v2.0.0) the Edition drop
 
 See <https://github.com/TuringSoftware/CrystalFetch/issues/17>
 
+64GB seems a good initial disk size - my very basic setup consumed 32GB of real disk space. It only actually takes real disk space as it needs it (so, actually the size seen by the VM isn't very important).
+
 Uninstalled OneDrive, Teams, ClipChamp, Office
+
+Right-click on Taskbar, select settings and disable _Task View_, _Widgets_ and _Chat_.
+
+Unlike UTM, VMware Fusion Player nicely maps crtl-opt-del to ctrl-alt-del in Windows.
 
 Classic U-Center required Visual Studio 2013 Redistributable Package for x86. But not for U-Center 2.
 
 ### Copy & paste
 
-It turns out copy and paste and a few other features like sharing don't work for VMWare Fusion Player 13.0.2.
+It turns out copy and paste and a few other features like sharing don't work for VMware Fusion Player 13.0.2.
 
-VMWare don't seem to go out of their way to make this clear - but see:
+VMware don't seem to go out of their way to make this clear - but see:
 
 * <https://communities.vmware.com/t5/VMware-Fusion-Discussions/Copy-Paste-file-sharing-between-Ventura-and-Windows-11-ARM-doesn/m-p/2940220/highlight/true#M180487>
 * The PDF attached to the forum post ["The Unofficial Fusion 13 for Apple Silicon Companion Guide"](https://communities.vmware.com/t5/VMware-Fusion-Documents/The-Unofficial-Fusion-13-for-Apple-Silicon-Companion-Guide/ta-p/2939907) is a great help.

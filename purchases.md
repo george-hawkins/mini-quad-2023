@@ -258,11 +258,13 @@ It seems readily available in Europe.
 But I couldn't find an equivalent on GetFPV or RDQ.
 But you can find something similar on AliExpress:
 
-* <https://hz.aliexpress.com/i/1005002863595028.html>
+* <https://www.aliexpress.com/item/1005002863876048.html>
 * <https://www.aliexpress.com/item/1005003890494615.html>
 * <https://www.aliexpress.com/item/1005003396022942.html>
 
 You want the female head to female head variant.
+
+They don't have many sales but I had a good experience with the JST-XH extension cables from this store and they do the XH60 in the nicer XT60H variant: <https://www.aliexpress.com/item/1005005813809579.html>
 
 ---
 
@@ -573,6 +575,10 @@ AEROPS UAV AliExpress store
 US$2.80 - 10cm JST-XH balance lead extension cable (4 pieces)
 
 Shipping was US$1.70
+
+Shipping took from Aug 16th to Sept 6th and came in a padded envelope.
+
+They had the same issue as the U-Angle-1988 ones.
 
 ---
 
