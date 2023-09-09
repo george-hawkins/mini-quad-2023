@@ -1165,3 +1165,18 @@ The MS2130 seems to the chip to look out for. This seems to be the most popular 
 I however went with a USB-C variant: <https://www.aliexpress.com/item/1005005117882668.html> - they is the 60Hz variant (they also have a 30Hz variant).
 
 If the one I ordered works with <https://obsproject.com/> then it's _probably_ MS2130 based - and perhaps OBS Studio can even display details about the capture hardware.
+
+---
+
+Sketchfab quad models:
+
+* <https://sketchfab.com/3d-models/drone-skeletal-mesh-6249a0faf569407096d0928a86910f52> - 30.3k triangles. Downloadable.
+* <https://sketchfab.com/3d-models/eachine-e58-pocket-drone-game-ready-asset-95c15555467b455ea9e2e923904e9b60> - 20.8k triangles. Downloadable.
+* <https://sketchfab.com/3d-models/fpv-racing-drone-22f2ba667d6a4b7eaebd05539cb9ffb9> - 272.2k triangles. Downloadable.
+* <https://sketchfab.com/3d-models/qav-r-220-racing-drone-fpv-77d8a33f004a47098c4687048bd8ef1d> - 176.9k triangles.
+* <https://sketchfab.com/3d-models/fpv-drone-aef4945ce78145b3974a60ba366db931> - 52.1k triangles.
+* <https://sketchfab.com/3d-models/fpv-drone-1f649ce7207543889ef9532dffd467d8> - 141.1k triangles.
+* <https://sketchfab.com/3d-models/fpv-drone-b7b303bbfc7f4b7ca566f9f80fda162d> - 226.9k triangles.
+* <https://sketchfab.com/3d-models/drone-quadcopter-model-8ed42e11236e4da6a83d5e1fa6ab109f> - 1.2m triangles.
+
+So, there's quite a range of triangles - from 20.8k to 1.2m and the number doesn't correlatte much with visual appeal - my favorite ones have 176k, 30k and 20k.
