@@ -93,4 +93,13 @@ I didn't have any issues with the tracks but some people say they have and a use
 
 As with many of these videos, my initial feeling was "you're not telling me how to stop bobbing around like a lunatic" but the real answer to that is just an immense amount of practice. I grew to like the style of these videos. And it was watching the stick movements shown in these videos that I realized you should always be returning to center (for pitch, roll and yaw) almost immediately - even though I'd heard it explained many times that you need to reverse your movement to complete a manoeuver, it still wasn't clear to me if you should return to center as part of reversing your movement at the end of the manoeuver or almost immediately after making any given movement - the answer seems to be the latter. Just watch how his sticks only ever momentarily move away center before returning straight away. So, always quickly let the sticks bounce back to the center - that's what the springs are there to do.
 
+TODO
+----
 
+VelociDrone [Flight Training for beginners playlist](https://www.youtube.com/playlist?list=PL11jbUrbAAbCZ0N5t1LbR1amVEd5WF7Lg) - seems to be the opposite end of the spectrum to the videos from the makers of Liftoff, i.e. these ones are detailed and useful.
+
+Mr Steele [Controller and sim setup](https://www.youtube.com/watch?v=dOwW6PFZU3Y) (2018 version) and [2020 version](https://www.youtube.com/watch?v=kSYqYwY3E4k) - I think I prefer the 2018 version.
+
+JB and Rotot Riot's [Learn To fly FPV in under 24 hours!](https://www.youtube.com/watch?v=Ou5i9zdyqn0) - more documenting a fun experiment than a teaching video.
+
+andyescapes's [Learn to fly FPV drones In 4 hours! (From scratch)](https://www.youtube.com/watch?v=jMY49IRtlsk) - again a fun experiment, his more popular [100 hours of FPV simulator vs. first real life flight](https://www.youtube.com/watch?v=7_h6PE5Y79U) is more representitive of most people's experiences.

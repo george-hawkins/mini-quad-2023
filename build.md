@@ -35,7 +35,7 @@ Tape over ESC with Kapton tape.
 
 ---
 
-Huginn FPV - <https://www.youtube.com/watch?v=P3TvvqX3dTg>
+Huginn FPV - <https://www.youtube.com/watch?v=P3TvvqX3dTg> (with page on rotobuilds with more details and photos [here](https://rotorbuilds.com/build/24690)).
 
 Actual builds the DC variant.
 
@@ -340,13 +340,18 @@ There's two buttons on the ShortSaver - ignore the one at the edge of the boards
 
 Just short press the other button (long pressing lets you adjust the sensitivity, again a feature we don't need for basic short testing).
 
-On pressing it, the LED went green and the FC beeped and LEDs went on on the TC, FC and GPS. The one on the TX was annoyingly bright - I find [Light Dim stickers](https://www.lightdims.com/store.htm) work very well (the web site is quite cheesy but they work way better than e.g. using black electrical tape).
+On pressing it, the LED went green and the FC beeped and LEDs went on on the RX, FC and GPS. The one on the RX was annoyingly bright - I find [Light Dim stickers](https://www.lightdims.com/store.htm) work very well (the web site is quite cheesy but they work way better than e.g. using black electrical tape).
 
 For more details on the ShortSaver see OL's [page](https://oscarliang.com/vifly-short-saver-2/) and for a short intro (including using the other button and adjusting sensitivity), see Mads Tech's [video](https://www.youtube.com/watch?v=RT_5AQTq5Ig).
 
 The ShortSaver is also really nice as it allows you to turn on and off the quad without prising the XT60 connectors apart - if you leave the quad powered up most of the components will get hot and some will get very hot (they rely on being cooled by moving air when in flight).
 
 Note: the one horrible feature of the ShortSaver is that it has a weird XT60 that gives you almost nothing to grip and so makes unplugging it even more trouble that a normal XT60 (I found it easier gripping the connector with a dish cloth).
+
+Audio recording:
+
+* FC buzzer without motors: <https://recorder.google.com/62948947-fd73-4b91-924d-a22aa38556c9>
+* FC buzzer with morots: <https://recorder.google.com/593cc8f4-82de-4ebf-9db1-831010462c46>
 
 Charging batteries
 ------------------
@@ -617,7 +622,7 @@ Note: sometimes I didn't get video out via the USB-C connector of the goggles an
 
 ---
 
-The goggles are easy to use, they have three buttons:
+The [Recon HD](https://www.fatshark.com/product-page/recon-hd) goggles are easy to use, they have three buttons:
 
 * A little joystick-like button on the side - press it to enter the settings menu, and press it left, right, up and down to navigate.
 * A back button on the top - use it to go back a level in the settings.
@@ -630,6 +635,8 @@ There's a small SD card slot where the padding of the goggles would otherwise to
 If you've got a 9V or 12V power adapter with a 5.5x2.1mm barrel jack, you can power your goggle with that. Otherwise use a 2S battery and use the XT60 to barrel jack lead that comes with the goggles.
 
 If you've got a USB-C to HDMI adapter, you can plug the output of the googles into a monitor or TV. Otherwise, just look at the output in the googles themselves.
+
+**Update:** I bought a [Verbatim USB-C to HDMI adapter](https://www.digitec.ch/en/s1/product/verbatim-usb-type-c-to-150-m-hdmi-usb-video-cables-11944750) that works perfectly.
 
 TODO: put photo of setup with mains power and HDMI output here.
 
@@ -701,7 +708,7 @@ The drive contains a `Avatar_version.txt`. After my first upgrade attempt, this 
 
 At the start of the update process, the LED first went dark for a while, blinked red for a while then solid red for a while and then at the end of the process went dark for quite a few seconds before flashing green again. At this point I reconnected the USB-C cable and checked the `Avatar_version.txt` file.
 
-Note: in general, you should pull out cables by their leads but with the VTX USB-C adapter it's hard to see how you can do anything else - just hold the leads and gently pull it out.
+Note: in general, you shouldn't pull out cables by their leads but with the VTX USB-C adapter it's hard to see how you can do anything else - just hold the leads and gently pull it out.
 
 ### Bind the goggles to the VTX
 
@@ -954,7 +961,7 @@ The OSD information isn't embedded in the recorded video, instead it's recorded 
 
 However, this just uses whatever font you choose when using the tool, i.e. not the actual font used at the time in the goggles.
 
-So, I photographed the output (ideally, I'd have captured it with an HDMI capture device):
+So, I photographed the output (ideally, I'd have captured it with an HDMI capture device (see below)):
 
 ![default font](images/goggles-default-font.png)
 
@@ -1016,6 +1023,8 @@ Note: I've frequently noticed one LED not turning on or having a random color - 
 BLHeli_32
 ---------
 
+Sources: [How to Connect and Flash BLHeli_32 ESC](https://oscarliang.com/connect-flash-blheli-32-esc/) from OL.
+
 Note: BLHeliSuite32xm hung on me quite often (usually when connecting or disconnecting) and sometimes _Force Quit_ and restarting it wasn't enough - I had to power down the quad and power it up again.
 
 Note that if you've got Betaflight Configurator, it'll automatically reconnect to the quad each time you plug it in - the Configurator always has to be disconnected for BLHeliSuite32xm to be able to access the ESCs (via the FC).
@@ -1046,6 +1055,8 @@ Before hanging, it warned that you must completely power-off the quad and restar
 
 ### Reversing motor direction
 
+Sources:  [How to Change Motor Direction in an FPV Drone?](https://oscarliang.com/change-motor-spin-direction-quadcopter/) from OL.
+
 As reversing motor direction isn't working in BF 4.4.2 (see above), I did it in BLHeliSuite32xm.
 
 Connect things up as before and click _Read Setup_.
@@ -1069,6 +1080,8 @@ There's one other fun feature that maybe worth looking at - the _Music Editor_ -
 Back right is the problem motor.
 
 Putting it into "Octo Flat X" and then looking at the last four motors showed "E: 0.00%" for the ESCs once I got a new one - you don't need to have connected the motors.
+
+Source: [Betaflight Resource Remapping](https://oscarliang.com/betaflight-resource-remapping/) by OL.
 
 Go to CLI and:
 
@@ -1247,6 +1260,10 @@ The plugs on the ends of the cables are JST-SH connectors, I tried finding suita
 * [JST-SH cables](https://www.aliexpress.com/item/32807634326.html) from the Salena Wang store (make sure to select "SH 1.0mm" as the _Color_ option).
 
 Note: you have to choose between same position and reversed. For this setup you need _reversed_ 8-pin JST-SH cable.
+
+You can also buy genuine JST [8-pin reversed cable assemblies](https://www.digikey.com/en/products/detail/jst-sales-america-inc/A08SR08SR30K102A/9922205) from Digikey.
+
+Note: Speedybee also have 15mm, 30mm and 60mm 8-pin ESC cables, see [here](https://www.aliexpress.com/item/1005005505839375.html) (note that Runcam and Speedybee appear to be essentially the same company).
 
 Using a slightly longer cable would have let me use the first ESC port without any CLI setting changes. Flipping the FC around would have let me to the same with just one commonly used change in the _Configurator_ (rather than changes to the motors in the CLI and finding pin assignments elsewhere for the voltage and current sensors).
 

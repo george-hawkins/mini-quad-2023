@@ -412,6 +412,8 @@ Note: I bought this from both OOTDTY (above) and "Speeding and Running Digital" 
 
 In the end, both packages arrived on exactly the same day and were identical. The one from Speeding was slightly scuffed but I suspect that was bad luck during shipping rather than anything else.
 
+**Update:** the ones from Speeding were plain 5V right-angle adapters, i.e. no e-mark chip, so _not what was ordered_.
+
 I'd read in some reviews that the cables were lower quality than shown in the pictures (and that's why I also ordered the adapters - in case the cables were terrible quality). But the cables seem good quality (perhaps people were comparing against the perfect computer renders used in the pictures).
 
 The cables and adapters come with the same style QR code stickers so, I suspect both are from the same manufacturer. And I'm moderately confident OOTDTY is the manufacturer of the adapters.

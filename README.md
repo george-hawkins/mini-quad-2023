@@ -329,6 +329,7 @@ Oscar Liang actually recommends them (for durability): <https://oscarliang.com/p
 
 But recommends others for racing and smooth flying. For smooth flying he recommends HQProp 5.1X2.5X3:
 
+* <https://www.hqprop.com/hqprop-51x25x3-grey-2cw2ccw-poly-carbonate-p0285.html>
 * <https://www.getfpv.com/hqprop-5-1x2-5x3-3-blade-propeller-set-of-4.html>
 * <https://www.aliexpress.com/item/1005002459551321.html>
 * <https://www.aliexpress.com/item/1005002459606176.html>
@@ -757,7 +758,7 @@ Chargers:
 * SkyRC S65 (no banana plugs): <https://www.skyrc.com/Charger/s65>
 * HOTA D6 Pro: <https://www.banggood.com/HOTA-D6-Pro-AC-200W-DC-650W-15A+2-Dual-Channel-Lipo-Charger-With-Wireless-Charging-for-NiZn-or-Nicd-or-NiMH-Battery-p-1480536.html>
 * ISDT D2 Mark II:
-  * Bangggood: <https://www.banggood.com/ISDT-D2-mark2-Upgrade-Version-200W-24A-AC-Dual-Channel-Output-Smart-Battery-Balance-Charger-Upgrade-Version-p-1143529.html>
+  * Banggood: <https://www.banggood.com/ISDT-D2-mark2-Upgrade-Version-200W-24A-AC-Dual-Channel-Output-Smart-Battery-Balance-Charger-Upgrade-Version-p-1143529.html>
   * GetFPV: <https://www.getfpv.com/isdt-d2-mark-ii-smart-balance-charger.html>
   * Blacksheep have the previous version on serious discount: <https://www.team-blacksheep.com/products/prod:isdt_d2_200w>
 
@@ -793,15 +794,38 @@ Much cheaper is the AOKoda discharger that uses three bulbs to provide a load: <
 
 Buy here: <https://www.aliexpress.com/item/1005003532430860.html>
 
+AOKoda also produce the [CellMeter 8](http://www.aokoda.com/eproducts/67.html) which seems to be an upgrade of the ubiquitous (and generally unbranded) [CellMeter 7](https://www.getfpv.com/ev-peak-cellmeter-7-battery-capacity-checker.html).
+
+It's also possible to get the AOKoda discharger setup with the CellMeter 8 rather than the chunkier Battery Balancer unit. As far as I can see, the main difference is that the Battery Balancer unit can be used on its own, providing a load of just 5W (rather than 150W when used in combination with the external set of three bulbs), whereas the CellMeter 8 can only discharge if connected to an external load.
+
+The manual for the Battery Balancer can be found [here](http://www.aokoda.com/uploadfile/download/2017681035351359.pdf) while the far more detailed one for the CellMeter 7 can be found [here](http://www.aokoda.com/uploadfile/download/2017681042267138.pdf) (though the English is so bad that I got better results getting ChatGPT to translate the Chinese version [here](http://www.aokoda.com/uploadfile/download/201768104456343.pdf) - ChatGPT seems to currently do a better job than Google Translate, I suspect because it "understands" the context far better).
+
+**Update:** Banggood were the only people selling the AOKoda CellMeter 8 variant of the 150W discharger and now show it as discontinued.
+
+[3D-printable case](https://www.thingiverse.com/thing:5738559) for AOKoda 150W discharger - avoid bulbs toppling over and setting fire to things. Sticking them down on a piece of wood or metal is probably just as good but the case avoids strains on the all the very cheap connectors in the setup.
+
+Videos showing it in use:
+
+* [Inexpensive Lipo Discharger That Works!](https://www.youtube.com/watch?v=5bolZKQpFfY) by TripleThreatRC.
+* [Cheap (15$) and Fast LiPo discharge (150 Watt)](https://www.youtube.com/watch?v=g1Vnx0d6bFQ) by Maarten O - m00st (features CellMeter 8 rather than Battery Balancer unit).
+
+Both videos feature an older version that used a Deans connector - it now ships with an XT60 connector.
+
+Thread on RG Groups from friend of TripleThreatRC, showing how he mounted it - [Mounting your 3 in 1 Battery Balancer, Voltage Indicator and Discharger](https://www.rcgroups.com/forums/showthread.php?2315958-Mounting-your-3-in-1-Battery-Balancer-Voltage-Indicator-and-Discharger).
+
 From a company with better brand recognition, are these from Vifly: <https://viflydrone.com/collections/lipro-battery-charger/products/vifly-storesafe-lipro-battery-discharger>
 
 They don't provide a big load so are far slower but I buy the argument of John Cuppi - <https://www.youtube.com/watch?v=4uujThuAnwA> - that just being able to buy a few of them and bring everything down to storage at the same time, e.g. after a rain day washes out your flying and you're left with a whole load of fully charged batteries, is very convenient and the time aspect is secondary.
+
+**Update:** the discharge rate for these things is so low that I'm now unconvince that they're worth the trouble.
 
 To bring your battery down to zero for disposal only, there's a zero tech solution (just large resistors): <https://www.banggood.com/3-in-1-DIY-Resistor-Discharger-for-Draining-Disposing-Battery-p-1418862.html>
 
 This is a knockoff of a design by OL: <https://oscarliang.com/resistor-discharger-lipo/>
 
 As he notes, even these big resistors are slower than halogen light bulbs but its a much simpler build.
+
+You could buy suitable resistors from e.g. [here](https://www.aliexpress.us/item/1005001983691262.html) on AliExpress.
 
 ---
 
@@ -858,6 +882,8 @@ Note: The Ethix ones are cheaper than the iFlight or RJX ones (except the basic 
 
 Holybro have these straps: <https://holybro.com/products/strap20-200mm-battery-strap2pcs> (I bought a pair and they came with metal buckles rather than the plastic ones shown in the picture).
 
+Flywoo have various lengths and widths [here](https://flywoo.net/products/5pcs-fflywoo-15x180mm-15x250mm-battery-strap-golden-metal-buckle-patent-leather-for-rc-lipo-battery-1).
+
 ---
 
 ### Anti-vibration
@@ -894,7 +920,7 @@ Wera Joker SW 8 SB: <https://www.brack.ch/wera-ringgabel-ratschenschluessel-joke
 Note: Gemfan sell a ratchet wrench: <https://www.gemfanhobby.com/show.aspx?id=217&cid=65>
 * From AliExpress: Fr. 4.82: <https://www.aliexpress.com/item/4000202920545.html>
 
-I guess this style gives you more clearance from the propellars themselves. but GetFPV's only wrench is the same style as the Joker so, I guess it's not a huge issue. And Ethix sell a Joker style one too.
+I guess this style gives you more clearance from the propellars themselves. but GetFPV's only [wrench](https://www.getfpv.com/accessories-390/tools/prop-removal-tool-6mm-8mm-wrench.html) is the same style as the Joker so, I guess it's not a huge issue. And Ethix sell a Joker style one too.
 
 Wera have the socket style but it's seriously expensive:
 
@@ -945,7 +971,7 @@ An expensive-ish solution is the Bat-Safe (mentioned in JB's video) - US$70: <ht
 
 A fire blanket like this for lipo fires would be nice - <https://www.avdfire.com/products/battery-fire-blanket/> - but I can't find it sold anywhere and standard fireblankets _seem_ unsuitable.
 
-Maybe just charge in a fireproof lipo battery pounch like this - US$30 - <https://www.getfpv.com/torvol-lipo-safe-pouch.html>
+Maybe just charge in a fireproof lipo battery pounch like this - US$30 - <https://www.getfpv.com/torvol-lipo-safe-pouch.html> or this [bag](https://www.getfpv.com/batteries/battery-accessories/runcam-lipo-guard-bag.html) - US$16.
 
 ---
 
@@ -1180,3 +1206,17 @@ Sketchfab quad models:
 * <https://sketchfab.com/3d-models/drone-quadcopter-model-8ed42e11236e4da6a83d5e1fa6ab109f> - 1.2m triangles.
 
 So, there's quite a range of triangles - from 20.8k to 1.2m and the number doesn't correlatte much with visual appeal - my favorite ones have 176k, 30k and 20k.
+
+---
+
+I [this video](https://www.youtube.com/watch?v=0CoHRuJ5OxQ), JB recommends the [Dewalt DCF682N1 inline gyroscopic screwdriver](https://www.dewalt.com/product/dcf682n1/8v-max-gyroscopic-inline-screwdriver?tid=578601) as the best piece of FPV equipment he's got despite it's US$90 price tag.
+
+Dewalt is US based and while you can get the same screwdriver in the UK (with model no. [DCF682G1-GB](https://www.dewalt.co.uk/product/dcf682g1-gb/motion-activated-inline-screwdriver-1-x-72v)), you only seem to be able to buy the more expensive [DCF680](https://www.dewalt.com/product/dcf680n1/8v-max-gyroscopic-screwdriver-1-battery-kit) in the EU (it seems identical except that it's got a twist grip, so you can switch between inline and pistol grip and its got LEDs to illuminate your target) - it's sold with the model no. DCF680N1 in the US and DCF680G2 in Germany and Switzerland (around EUR 140).
+
+JB recommends the following bits to go with it:
+
+* [Hobbyfire hex drivers](https://www.amazon.de/dp/B09QSL7RMS)
+* [Utoolmart nut driver](https://www.amazon.de/dp/B07V6B555B)
+
+---
+

@@ -1,6 +1,6 @@
 When recharging my TX, I found the power button would blink red when connected to my Mac charger but go solid red when charging from my laptop or from a 2A 5V USB-A charger.
 
-I think solid red is what you want and it should go off at the end of the process. Googling doesn't reveal what Radiomaster intend blinking red to mean but it doesn't seem to be good.
+I think solid red is what you want and it should go off at the end of the process. Googling doesn't reveal what Radiomaster intend blinking red to mean but it doesn't seem to be good. My impression is that, the Boxer doesn't work well with modern chargers - that allow the device to negotiate a charging voltage and current limit for faster charging - this sounds odd/unlikely but it's a problem others have seen with other TXes.
 
 Rather than connected the TX to your computer, it's much quicker to just eject the SD card from the TX and insert it into your laptop.
 
@@ -661,6 +661,8 @@ In the end, I decided not to install the Mambe interference shield. If it hadn't
 
 [xxx](images/mamba-isolation-to-fc.webp) TODO: clip and convert to PNG.
 
+Note: see [ESC Shielding](https://oscarliang.com/4in1-esc-shielding/) from OL on why the Mambe interference shield or something similar is needed.
+
 Question: if you used an Flywoo insulation board could you put this directly above the ESC with no o-rings?
 
 **Note:** the stack is already at it's limit - a insulation board and interference would only add 1mm but would it push things over the limit - the lock nuts are already only just on.
@@ -761,13 +763,15 @@ Zip tied GPS cable to standoff.
 
 ---
 
-I used the 1mm Ummagrip Lite and stuck it to the top of the battery pad that came with the frame - because the top screws heads aren't recessed so I thought putting the 3mm Ummagrip down directly on the frame would be fiddly and I'd have to cut out holes in it for the screw heads.
+I used the 1mm [Ummagrip Lite](https://www.getfpv.com/ummagrip-lite-universal-sticky-pad-blue.html) and stuck it to the top of the battery pad that came with the frame - because the top screws heads aren't recessed so I thought putting the 3mm Ummagrip down directly on the frame would be fiddly and I'd have to cut out holes in it for the screw heads.
 
 Initially, impression is that the Ummagrip grips better to the battery than it sticks to the rubber of the battery pad - so it tends to lift off the underlying battery pad when removing the battery.
 
 JB makes a big deal of using how Ummagrip is a must-have and how having his frame ship without one really annoys him in [this video](https://youtu.be/wC9NkVwgO4E?t=471) at the 7m 51s mark.
 
 So, I'm still inclinded to think Ummagrip is the way to go - and find it weird that non-slip mats aren't the norm these days as they seemed fairly standard in the large quad days.
+
+Another popular product is [Kyosho gel](https://www.flyingtech.co.uk/frames-props-parts-accessories/kyosho-z8006-zeal-vibration-absorption-mounting-gel) - it's sold as an anti-vibration gel but seems to be at least as often used for holding down battery packs (as shown in this [video](https://www.youtube.com/watch?v=CVhCZ9psU7g) from JB). However, it's very pricey compared with Ummagrip.
 
 ---
 
@@ -1150,7 +1154,7 @@ If the quad won't arm then the reason will be displayed here.
 
 E.g. my quad wouldn't arm and the reason was `MSP` which means it thinks it's still connected to _Configurator_ - even though I'd unplugged USB it was necessary to plug the battery out and in to get it to forget this completely.
 
-You can find the explanations for `MSP` and the other arming prevention errors [here](https://betaflight.com/docs/wiki/archive/Arming-Sequence-And-Safety#description-of-arming-prevention-flags) on the _BF_ wiki.
+You can find the explanations for `MSP` and the other arming prevention errors [here](https://betaflight.com/docs/wiki/archive/Arming-Sequence-And-Safety#description-of-arming-prevention-flags) on the _BF_ wiki. See also OL's [Quadcopter Doesn’t Arm? Let’s Fix it!](https://oscarliang.com/quad-arming-issue-fix/).
 
 Buzzer
 ------
