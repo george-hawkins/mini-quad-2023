@@ -551,7 +551,7 @@ TODO: see how much current the USB draws - is it more than 500mW that old style 
 
 ---
 
-U-Angle-1988 AliExpress store
+U-Angel-1988 AliExpress store
 
 US$2.35 - 20cm JST-XH balance lead extension cable (5 pieces)
 
@@ -580,7 +580,7 @@ Shipping was US$1.70
 
 Shipping took from Aug 16th to Sept 6th and came in a padded envelope.
 
-They had the same issue as the U-Angle-1988 ones.
+They had the same issue as the U-Angel-1988 ones.
 
 ---
 
@@ -592,7 +592,7 @@ Shipping was US$6.30, i.e. pretty expensive by AliExpress standards.
 
 Shipping took from Aug 16th to Aug 28th and came in a well padded bag.
 
-Unlike the U-Angle-1988 ones, they fit as expected. Note detaching the battery's balance connector from these extension leads isn't as nice/easy as detaching them directly from the charger.
+Unlike the U-Angel-1988 ones, they fit as expected. Note detaching the battery's balance connector from these extension leads isn't as nice/easy as detaching them directly from the charger.
 
 ---
 
@@ -640,4 +640,4 @@ Check if works with https://obsproject.com/> and see if OBS Studio can display d
 
 Shipping took from 10th Aug to 22 Aug and arrived in a thin plastic bag with no additional padding beyond the devices retail packaging lightweight cardboard box.
 
-It worked perfectly with [OBS Studio](https://obsproject.com/), though I could see any obvious way to display details about the capture hardware to confirm it was using an MS2130 - but whether it does or not, it worked perfectly for capturing output from the goggles (via the HDMI adapter that I already had).
+It worked perfectly with [OBS Studio](https://obsproject.com/), though I couldn't see any obvious way to display details about the capture hardware to confirm it was using an MS2130 - but whether it does or not, it worked perfectly for capturing output from the goggles (via the HDMI adapter that I already had).

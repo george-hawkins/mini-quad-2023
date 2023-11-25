@@ -636,7 +636,7 @@ If you've got a 9V or 12V power adapter with a 5.5x2.1mm barrel jack, you can po
 
 If you've got a USB-C to HDMI adapter, you can plug the output of the googles into a monitor or TV. Otherwise, just look at the output in the googles themselves.
 
-**Update:** I bought a [Verbatim USB-C to HDMI adapter](https://www.digitec.ch/en/s1/product/verbatim-usb-type-c-to-150-m-hdmi-usb-video-cables-11944750) that works perfectly.
+**Update:** I bought a [Verbatim USB-C to HDMI adapter](https://www.digitec.ch/en/s1/product/verbatim-usb-type-c-to-150-m-hdmi-usb-video-cables-11944750) that works perfectly. And a [HDMI-to-USB-C video capture device](https://www.aliexpress.com/item/1005005117882668.html) that works great with the open-source [OBS Studio](https://obsproject.com/),
 
 TODO: put photo of setup with mains power and HDMI output here.
 
@@ -735,6 +735,8 @@ As BF now supports using the full canvas, we don't the goggles shifting everythi
 To fix this in the goggles, go to _Settings / Display / OSD Position_ and move the corner of the red outline to the upper-left.
 
 Surprisingly (to me), this setting is only available if the VTX is powered up and connected to the goggles, i.e. I guess the location of OSD elements relative to the video image is determined by the VTX (rather than being determined later when everything is received by the goggles).
+
+See: original [question](https://intofpv.com/t-osd-shifted-right-with-avatar-v2-vtx-and-bf-4-4-2) about positioning on IntoFPV.
 
 ### Betaflight setup
 
@@ -1163,6 +1165,10 @@ I hadn't notice it before but R7 is one of the pins on the ESC to FC connector, 
 
 And if I look at the _Ports_ tab in _Configurator_, I can see that UART7 is already set up with _ESC_ select from the dropdown in its cell of the _Sensor Input_ column.
 
+See this [video](https://www.youtube.com/watch?v=mlQplDPdIQ4) by JB that explains why every ESC (even if you have 2 4-in-1 ESCs, i.e. 8 ESCs it total) can share a single UART.
+
+**Update:** also, that video says getting voltage data via ESC telemetry is redundant and the FC almost certainly has a voltage sensor itself (and can see VBAT+ on one of the wires from the ESC). Ditto for the current sensor on the ESC. See pins for the wires from the ESC, you've got ESC telem on R7, you've got battery voltage as B+ and you've got the analog current sensor on CUR. You'll actually just get 0A in the telemetry data as the ESC can't/doesn't bother trying to measure this on a per ESC basis when it's outputting the full 4-in-1 current via the CUR pin.
+
 ---
 
 In the _Configurator_, go to the _Power and Battery_ tab - in the _Amperage Meter_ panel, the defaul _Scale_ is shown as 168. If you look at the Holybro [current sensor scale](https://docs.holybro.com/esc/current-sensor-scale) page, you'll see that 168 is the correct value for the Tekko32 F4 4in1 50A ESC up to v1.7.
@@ -1171,7 +1177,7 @@ My ESC is v1.7 so, the default is correct. After v1.7 different values need to b
 
 It took me forever to get voltage sensing working. In the end it turns out it all comes down to using the second ESC port on the FC. Just like the motors had to be remapped, so do the battery voltage and current pins.
 
-Note: I'm unsure how both ESC ports can share the RX pin of UART7 but it seems to work.
+Note: I'm unsure how both ESC ports can share the RX pin of UART7 but it seems to work. **Update:** see above.
 
 So, it was possible to switch the _Voltage Meter Source_ from _Onboard ADC_ to _ESC Sensor_ - this allows you to see a per motor voltage value (which, unlike e.g. a per-cell voltage, isn't particularly useful). But for whatever reason, _BF_ could see the individual motor values reported via the second ESC port but would only average the individual values if they came in via the first ESC port.
 

@@ -40,6 +40,14 @@ A flux pen is also a great help - especially for larger pads. There are restrict
 
 The multimeter above is a very basic model, I'd recommend an auto-ranging model - I have an Extech EX330 (US$60).
 
+A popular Chinese multimeter brand is UNI-T, they're UT61B+ model has been extremely popular. More recently they've released the [UT161 series](https://meters.uni-trend.com/product/ut161-series/) which they describe the upgrade of the series that includes the UT61B+. Both the older UT61+ series and the UT161 series include three models, the basic B model and the D and E models that add temperature measurement and transistor hFE measurement respectively.
+
+UNI-T models are available from various almost identical looking stores on AliExpress, e.g. [UNI-T Official Store](https://www.aliexpress.com/store/3095007), [UNI-T Direct Store](https://www.aliexpress.com/store/911121170) and [UNI-T Factory Store](https://uni-tchina.aliexpress.com/store/911012031). The [UNI-T site](https://meters.uni-trend.com/) doesn't endorse any specific AliExpress store.
+
+However, at the moment only the UNI-T Official Store has the newer [UT161 series models](https://www.aliexpress.com/item/1005002717433552.html) (and, if looking at the older series on the other stores, make sure that you're looking at UT61+ models and not UT61 and ignore claims that UT61+ and UT161 are the same - the UNI-T site clearly lists them as separate series).
+
+Reichelt sells the [UT161B](https://www.reichelt.com/ch/de/multimeter-digital-6000-counts-usb-ut-161b-p302786.html) for only maginally more than the price on AliExpress. They also have the UT161D for EUR10 more and the UT161 for EUR30 more.
+
 Nice to have:
 
 * [Panavise Jr.](https://www.adafruit.com/product/151) - US$40
